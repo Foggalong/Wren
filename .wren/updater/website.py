@@ -1,115 +1,46 @@
 #!/usr/bin/python3
 
+print("Wren Blog Updater")
+
 # Importing Modules
-from sys import argv
-import os
+from os import chdir, getcwd, listdir
+from datetime import datetime
 
 # Standardised error
 def error(message):
 	print("ERROR: %s" % message)
 	exit()
 
-# #!/usr/bin/python3
-
-# from math import floor
-
-# text = input("Paste text...\n").strip().split(" ")
-# if len(text)/200 < 1:
-#     print("~%d seconds reading" % (float(len(text))*0.3))
-# else:
-#     print("~%d minutes %d seconds reading" % (floor(len(text)/float(200)), ((len(text)/float(200))-floor(len(text)/float(200)))*60))
+# Changing working directory
+chdir("../")
 
 
+""" METADATA """
 
-# Initial error checks
+# Blog title
+blog_title = input("\nPlease give a post title:\n")
 
-# Check for usage error
-try:
-	script, file_name = argv
-	print("Updating...")
-except:
-	error("must have exactly one argument")
+# Blog date
+blog_date = datetime.now().date()
 
-# Checks file exists, moves it to a list
-try:
-	with open(file_name, 'r+') as file:
-		target = [line.strip() for line in file]
-except:
-	error("file does not exist")
-print("File read to list")
+# Blog catagories
+blog_catagories = input("\nPlease list the catagories this post falls into, seperating by space:\n").split(" ")
+for item in blog_catagories: item = item.strip()
 
-
-# Meta Validation
-
-# Information finder
-information, errors = [], []
-for line in target:
-	if "BLOG INFORMATION DATA" in line:
-		information.append(line)
-	elif len(information) != 0:
-		if len(information) < 5:
-			information.append(line)
-if len(information) == 0:
-	error("no blog information found")
-
-# Title information checker
-if (":> " in information[1] and len(information[1].split(":> ")) == 2):
-	try:	
-		blog_title = information[1].split(":> ")[1].split(" -->")[0].replace("-->","")
-	except:
-		error("invalid title given")
-else:
-	error("invalid title given")
-
-# Date information checker
-if (":> " in information[2] and len(information[2].split(":> ")) == 2):
-	try:	
-		blog_date = information[2].split(":> ")[1].split(" -->")[0]
-	except:
-		error("invalid date given")
-else:
-	error("invalid date given")
-
-# Catagories information checker
-if (":> " in information[3] and len(information[3].split(":> ")) == 2):
-	try:	
-		blog_catagories = information[3].split(":> ")[1].split(" -->")[0].split(", ")
-		list_files = os.listdir("/home/josh/Programs/Web/HTML/fogg.me.uk/blogs/Catagories/")
-		non_catagories, known_catagories, new_catagories = ["all", "template"], [], [] 
-		for entry in list_files:
-			if entry in non_catagories:
-				pass
-			else:
-				known_catagories.append(entry)
-		for entry in blog_catagories:
-			if entry not in known_catagories:
-				new_catagories.append(entry)
-	except:
-		error("invalid catagories given")
-else:
-	error("invalid catagories given")
-
-# Summary information checker
-if (":> " in information[4] and len(information[4].split(":> ")) == 2):
-	try:	
-		blog_summary = information[4].split(":> ")[1].split(" -->")[0]
-	except:
-		error("invalid summary given")
-else:
-	error("invalid summary given")
+# Blog summary
+blog_summary = input("\nPlease give a summary of the post:\n")
 
 # Correct information checker
-print("Passed data error check")
 print("\nGIVEN INFORMATION")
 print("Title:",blog_title)
 print("Date:",blog_date)
 print("Catagories:",blog_catagories)
 print("Summary:",blog_summary,"\n")
-q = 0
-while q == 0:
-	ans = input("Are you happy with the above? (y/n) ")
+trying = True
+while trying:
+	ans = input("Are you happy with the above? (y/n) ").lower()
 	if ans == "y":
-		q = 1
+		trying = False
 		pass
 	elif ans == "n":
 		error("blog data rejected")
@@ -119,11 +50,11 @@ print("Blog data accepted")
 
 
 
-# Managing new catagories
+""" MANAGING NEW CATAGORIES """
 
 for entry in new_catagories:
 	# Creating New Lists
-	entry_list = open("/home/josh/Programs/Web/HTML/fogg.me.uk/blogs/Catagories/"+entry, 'w')
+	entry_list = open(getcwd()+"/blogs/Catagories/"+entry, 'w')
 	entry_list.write(open("/home/josh/Programs/Web/HTML/fogg.me.uk/blogs/Catagories/template").read())
 	entry_list.close()
 	with open("/home/josh/Programs/Web/HTML/fogg.me.uk/blogs/Catagories/"+entry, 'r+') as file:
@@ -207,3 +138,14 @@ print("Removed least recent blog from recent blogs page")
 
 # Program is finished!
 print("Done!\n")
+
+
+# #!/usr/bin/python3
+
+# from math import floor
+
+# text = input("Paste text...\n").strip().split(" ")
+# if len(text)/200 < 1:
+#     print("~%d seconds reading" % (float(len(text))*0.3))
+# else:
+#     print("~%d minutes %d seconds reading" % (floor(len(text)/float(200)), ((len(text)/float(200))-floor(len(text)/float(200)))*60))

@@ -15,16 +15,16 @@ Wren comes with (and requires) the following directory structure.
 ├── posts
 │   └── $YEAR
 │       └── $MONTH
-│           └── $DAY
-│               └── example.html
+│           └── $DAY
+│               └── example.html
 ├── readme.md
 └── .wren
     ├── authors
-    ├── blog_update.sh
     ├── changelog
     ├── copying
     ├── install
-    ├── reading.py
     ├── readme
-    ├── update.py
+    ├── updater
+    │   └── website.py
     └── upgrade
+
