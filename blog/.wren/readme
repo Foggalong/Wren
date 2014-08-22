@@ -13,18 +13,9 @@ Wren comes with (and requires) the following directory structure.
 │   └── example2.xml
 ├── index.html
 ├── posts
-│   └── 2014
-│       ├── 01
-│       │   └── 27
-│       │       └── example.html
-│       ├── 03
-│       │   └── 08
-│       │       └── example.html
-│       └── 06
-│           ├── 09
-│           │   └── example.html
-│           └── 17
-│               └── example.html
+│   └── $YEAR
+│       ├── $MONTH
+│       │   └── $DAY
 └── .wren
     ├── authors
     ├── blog_update.sh
