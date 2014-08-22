@@ -1,0 +1,35 @@
+Wren comes with (and requires) the following directory structure.
+
+.
+├── catagories
+│   ├── all.html
+│   ├── example1.html
+│   └── example2.html
+├── cloud
+├── cloud.txt
+├── feeds
+│   ├── all.xml
+│   ├── example1.xml
+│   └── example2.xml
+├── index.html
+├── posts
+│   └── 2014
+│       ├── 01
+│       │   └── 27
+│       │       └── example.html
+│       ├── 03
+│       │   └── 08
+│       │       └── example.html
+│       └── 06
+│           ├── 09
+│           │   └── example.html
+│           └── 17
+│               └── example.html
+└── .wren
+    ├── authors
+    ├── blog_update.sh
+    ├── changelog
+    ├── copying
+    ├── install
+    ├── readme
+    └── upgrade
