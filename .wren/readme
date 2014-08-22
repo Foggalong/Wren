@@ -3,10 +3,10 @@ Wren comes with (and requires) the following directory structure.
 .
 ├── catagories
 │   ├── all.html
+│   ├── cloud_data.txt
+│   ├── cloud.html
 │   ├── example1.html
 │   └── example2.html
-├── cloud
-├── cloud.txt
 ├── feeds
 │   ├── all.xml
 │   ├── example1.xml
@@ -14,13 +14,17 @@ Wren comes with (and requires) the following directory structure.
 ├── index.html
 ├── posts
 │   └── $YEAR
-│       ├── $MONTH
-│       │   └── $DAY
+│       └── $MONTH
+│           └── $DAY
+│               └── example.html
+├── readme.md
 └── .wren
     ├── authors
     ├── blog_update.sh
     ├── changelog
     ├── copying
     ├── install
+    ├── reading.py
     ├── readme
+    ├── update.py
     └── upgrade
