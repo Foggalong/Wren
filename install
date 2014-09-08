@@ -1,0 +1,183 @@
+#!/bin/bash
+
+# Before running this script please consult the Wren
+# GitHub wiki https://github.com/Foggalong/wren/wiki
+
+# Copyright (C) 2014
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License (version 3+) as
+# published by the Free Software Foundation. You should have received
+# a copy of the GNU General Public License along with this program.
+# If not, see <http://www.gnu.org/licenses/>.
+
+version="0.1-alpha"  # version number
+
+# Deals with the flags
+if [ -z $1 ]
+then
+	: # pass
+else
+	case $1 in
+		-h|--help)
+			echo -e "Usage: ./$(basename -- $0) [OPTION]"
+			echo -e "A lightweight blogging platform."
+			echo -e ""
+			echo -e "Currently supported options:"
+			echo -e "  -h, --help \t\t Displays this help menu."
+			echo -e "  -v, --version \t Displays program version."
+			exit 0 ;;
+		-v|--version)
+			echo "$(basename -- $0) $version\n"
+			exit 0 ;;
+		*)
+			echo -e "$(basename -- $0): invalid option -- '$1'"
+			echo -e "Try '$(basename -- $0) --help' for more information."
+			exit 0 ;;
+	esac
+fi
+
+# Wiki disclaimer
+echo -e "Before installing please check the GitHub wiki as"
+echo -e "it contains a lot more information on the options"
+echo -e "given in this setup.\n"
+
+# Installation method
+echo -e "The following installation methods are available.\n"
+echo -e "    1.  As a stand-alone website"
+echo -e "    2.  Alongside an existing website"
+echo -e "    3.  Using GitHub pages and git"
+echo -e "    4.  Using GitHub pages (web-only)"
+
+while true; do
+	read -p "\nWhich installation method do you want to use? " answer
+	case $answer in
+		[1]* ) mode="alone"; break;;
+		[2]* ) mode="along"; break;;
+		[3]* ) mode="ghgit"; break;;
+		[4]* ) mode="ghweb"; break;;
+		* ) echo "Please choose an option from above (1-4)";;
+	esac
+done;;
+
+# Checks dependencies installed
+if [ "$mode" == "ghgit" ]
+then
+	# Verifies if 'git' is installed
+	if type "git" >> "/dev/null 2>&1"
+	then
+		: # pass
+	else
+		echo -e "This method requires 'git' to be installed. If"
+		echo -e	"you wish to use GitHub pages without using git"
+		echo -e	"please use the web-only option. Otherwise, please"
+		echo -e	"install it and rerun this install script."
+		sleep 3
+		exit 1
+	fi
+elif [ "$mode" == "alone" ] || [ "$mode" == "along" ] || [ "$mode" == "ghgit" ]
+then
+	# Verifies if 'wget' is installed
+	if type "wget" >> "/dev/null 2>&1"
+	then
+		: # pass
+	else
+		echo -e "This method requires 'wget' to be installed. This"
+		echo -e	"is so that the installer can fetch the source for"
+		echo -e	"Wren from GitHub."
+		sleep 3
+		exit 1
+	fi
+	# Verifies if 'tar' is installed
+	if type "tar" >> "/dev/null 2>&1"
+	then
+		: # pass
+	else
+		echo -e "This method requires 'tar' to be installed. This"
+		echo -e	"is so that the installer can unzip the source it"
+		echo -e	"downloads from GitHub. Please install it and rerun."
+		sleep 3
+		exit 1
+	fi
+fi
+
+# GitHub web mode
+if [ "$mode" == "ghweb" ]
+then
+	echo -e "This method is designed for web use only and so"
+	echo -e "doesn't require any installation. Go to the wiki"
+	echo -e "for more information on this method.\n"
+	sleep 3 # Enables error timeout when launched via 'Run in Terminal' command.
+	exit 1
+# GitHub git mode
+elif [ "$mode" == "ghgit" ]
+then
+	echo -e "Enter the location of your cloned GitHub Pages" 
+	echo -e "directory (can either be absolute or relative)"
+	while read inputline
+	do
+		rootdir="$inputline"
+	done
+	if [ -d "$inputline/.git" ] && [[ "$inputline" == *.github.io* ]]
+	then
+		: # pass
+	else
+		echo -e "Please enter the location of a cloned GitHub Pages"
+		echo -e "directory with a '.git' subdirectory and a name of"
+		echo -e "the form $USERNAME.github.io to proceed.\n"
+		sleep 3
+		exit 1
+	fi
+# Website mode
+elif [ "$mode" == "alone" ] || [ "$mode" == "along" ]
+then
+	echo -e "Please enter the root location for your website" 
+	echo -e "directory (can either be absolute or relative)."
+	echo -e "The path default is taken as '/var/www/html/'."
+	while read inputline
+	do
+		rootdir="$inputline"
+		if [ -z "${what}" ]
+		then
+			if [ -d "/var/www/html" ]
+			then
+				echo -e "Default accepted."
+			else
+				echo -e "ERROR: default location doesn't exist"
+				echo -e "Please file this issue on the GitHub."
+				sleep 3
+				exit 1
+			fi
+		else
+			if [ -d "$rootdir" ]
+			then
+				echo -e "Using $rootdir"
+			else
+				echo -e "The directory you entered doesn't seem to exist" 
+				echo -e "Please enter a different directory upon rerun."
+				sleep 3
+				exit 1
+			fi
+		fi
+	done
+fi
+
+# Checks write permissions
+if [ -w "$rootdir" ]
+then 
+	: # pass
+else
+	echo -e "You do not have write permissions for the"
+	echo -e "directory you entered. This could be because"
+	echo -e "it requires root permissions so try running"
+	echo -e "this script as root when trying again."
+	sleep 3
+	exit 1
+fi
+
+# Moved to rootdir
+cd "$rootdir"
+
+# Downloads latest Wren release
+wget "https://github.com/wren-blog/wren/archive/v$version.tar.gz"
+tar xf "v$version.tar.gz"
+rm "v$version.tar.gz"

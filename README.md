@@ -1,4 +1,0 @@
-install
-=======
-
-Installers for Wren
