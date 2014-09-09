@@ -1,4 +1,0 @@
-documentation
-=============
-
-Documentation for Wren
