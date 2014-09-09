@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# Before running this script please consult the Wren
-# GitHub wiki https://github.com/Foggalong/wren/wiki
+# This script manages the installing, upgrading and removal of Wren
+# installations. Before running this script please consult the
+# GitHub documentation repo (https://github.com/wren-blog/install)
+# for more information on the options presented in this script.
 
 # Copyright (C) 2014
 # This program is free software: you can redistribute it and/or modify
@@ -11,6 +13,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 version="0.1-alpha"  # version number
+mode="install"       # default mode
 
 # Deals with the flags
 if [ -z $1 ]
@@ -18,13 +21,30 @@ then
 	: # pass
 else
 	case $1 in
+		-i|--install)
+			mode="install"; break;;
+		-u|--upgrade)
+			mode="upgrade"; break;;
+		-r|--remove)
+			echo "This will completely remove a Wren installation."
+			while true; do
+				read -p "Are you sure you want to continue? " answer
+				case $answer in
+					[Yy]* ) mode="remove"; break;;
+					[Nn]* ) exit;;
+					* ) echo "Please answer [Y/y]es or [N/n]o.";;
+				esac
+			done;;
 		-h|--help)
 			echo -e "Usage: ./$(basename -- $0) [OPTION]"
 			echo -e "A lightweight blogging platform."
 			echo -e ""
 			echo -e "Currently supported options:"
-			echo -e "  -h, --help \t\t Displays this help menu."
-			echo -e "  -v, --version \t Displays program version."
+			echo -e "  -i, --install \t Install Wren (default)"
+			echo -e "  -u, --upgrade \t Upgrade a Wren installation"
+			echo -e "  -r, --remove \t Remove a Wren installation"
+			echo -e "  -h, --help \t\t Displays this help menu"
+			echo -e "  -v, --version \t Displays program version"
 			exit 0 ;;
 		-v|--version)
 			echo "$(basename -- $0) $version\n"
@@ -36,10 +56,18 @@ else
 	esac
 fi
 
-# Wiki disclaimer
-echo -e "Before installing please check the GitHub wiki as"
-echo -e "it contains a lot more information on the options"
-echo -e "given in this setup.\n"
+# Deals with unsupported modes
+if [ "$mode" == "upgrade" ]
+then
+	echo -e "Upgrading will not be available until late beta."
+	echo -e "This is because the changes from version to version"
+	echo -e "are to great to ensure that the process will work."
+elif [ "$mode" == "remove" ]
+then
+	echo -e "Removing will not be available until late alpha."
+	echo -e "This is because the installation mode is still"
+	echo -e "under heavey development and is constantly changing."
+fi
 
 # Installation method
 echo -e "The following installation methods are available.\n"
@@ -51,16 +79,16 @@ echo -e "    4.  Using GitHub pages (web-only)"
 while true; do
 	read -p "\nWhich installation method do you want to use? " answer
 	case $answer in
-		[1]* ) mode="alone"; break;;
-		[2]* ) mode="along"; break;;
-		[3]* ) mode="ghgit"; break;;
-		[4]* ) mode="ghweb"; break;;
+		[1]* ) type="alone"; break;;
+		[2]* ) type="along"; break;;
+		[3]* ) type="ghgit"; break;;
+		[4]* ) type="ghweb"; break;;
 		* ) echo "Please choose an option from above (1-4)";;
 	esac
 done;;
 
 # Checks dependencies installed
-if [ "$mode" == "ghgit" ]
+if [ "$type" == "ghgit" ]
 then
 	# Verifies if 'git' is installed
 	if type "git" >> "/dev/null 2>&1"
@@ -74,7 +102,7 @@ then
 		sleep 3
 		exit 1
 	fi
-elif [ "$mode" == "alone" ] || [ "$mode" == "along" ] || [ "$mode" == "ghgit" ]
+elif [ "$type" == "alone" ] || [ "$type" == "along" ] || [ "$type" == "ghgit" ]
 then
 	# Verifies if 'wget' is installed
 	if type "wget" >> "/dev/null 2>&1"
@@ -100,16 +128,16 @@ then
 	fi
 fi
 
-# GitHub web mode
-if [ "$mode" == "ghweb" ]
+# GitHub web type
+if [ "$type" == "ghweb" ]
 then
 	echo -e "This method is designed for web use only and so"
 	echo -e "doesn't require any installation. Go to the wiki"
 	echo -e "for more information on this method.\n"
 	sleep 3 # Enables error timeout when launched via 'Run in Terminal' command.
 	exit 1
-# GitHub git mode
-elif [ "$mode" == "ghgit" ]
+# GitHub git type
+elif [ "$type" == "ghgit" ]
 then
 	echo -e "Enter the location of your cloned GitHub Pages" 
 	echo -e "directory (can either be absolute or relative)"
@@ -127,8 +155,8 @@ then
 		sleep 3
 		exit 1
 	fi
-# Website mode
-elif [ "$mode" == "alone" ] || [ "$mode" == "along" ]
+# Website type
+elif [ "$type" == "alone" ] || [ "$type" == "along" ]
 then
 	echo -e "Please enter the root location for your website" 
 	echo -e "directory (can either be absolute or relative)."
