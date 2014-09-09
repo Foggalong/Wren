@@ -1,3 +1,7 @@
+This is the 
+
+
+
 This install script is written specifically for Linux (in bash)
 and so will not work with Windows. Installing on Windows is still
 possible by manually changing the config values and moving any
