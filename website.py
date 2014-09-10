@@ -1,52 +1,3 @@
-#!/usr/bin/python3
-
-print("Wren Blog Updater")
-
-# Importing Modules
-from os import chdir, getcwd, listdir
-from datetime import datetime
-
-# Standardised error
-def error(message):
-	print("ERROR: %s" % message)
-	exit()
-
-# Changing working directory
-chdir("../")
-
-
-""" METADATA """
-
-# Blog title
-blog_title = input("\nPlease give a post title:\n")
-
-# Blog date
-blog_date = datetime.now().date()
-
-# Blog catagories
-blog_catagories = input("\nPlease list the catagories this post falls into, seperating by space:\n").split(" ")
-for item in blog_catagories: item = item.strip()
-
-# Blog summary
-blog_summary = input("\nPlease give a summary of the post:\n")
-
-# Correct information checker
-print("\nGIVEN INFORMATION")
-print("Title:",blog_title)
-print("Date:",blog_date)
-print("Catagories:",blog_catagories)
-print("Summary:",blog_summary,"\n")
-trying = True
-while trying:
-	ans = input("Are you happy with the above? (y/n) ").lower()
-	if ans == "y":
-		trying = False
-		pass
-	elif ans == "n":
-		error("blog data rejected")
-	else:
-		pass
-print("Blog data accepted")
 
 
 
@@ -138,14 +89,3 @@ print("Removed least recent blog from recent blogs page")
 
 # Program is finished!
 print("Done!\n")
-
-
-# #!/usr/bin/python3
-
-# from math import floor
-
-# text = input("Paste text...\n").strip().split(" ")
-# if len(text)/200 < 1:
-#     print("~%d seconds reading" % (float(len(text))*0.3))
-# else:
-#     print("~%d minutes %d seconds reading" % (floor(len(text)/float(200)), ((len(text)/float(200))-floor(len(text)/float(200)))*60))

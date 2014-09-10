@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+	<channel>
+		<title>Fogg Blog</title>
+		<link>http://fogg.me.uk/blog</link>
+		<description>My latest CATAGORY_NAME_GOES_HERE blogs</description>
+
+		<item>
+			<title>BLOG_TITLE_GOES_HERE</title>
+			<link>http://fogg.me.uk/blogs/BLOG_LOCATION_GOES_HERE</link>
+			<guid>http://fogg.me.uk/blogs/BLOG_LOCATION_GOES_HERE</guid>
+			<pubDate>FULL_BLOG_DATE_GOES_HERE</pubDate>
+			<description>BLOG_SUMMARY_GOES_HERE</description>
+		</item>
+	</channel>
+</rss>
