@@ -1,11 +1,117 @@
+#!/usr/bin/python3
+
+# This is the blog updater, written as part of the FoggBlog
+# blogging platform. All work is licensed under the GLPv3+. 
+
+# Importing Modules
+from sys import argv
+from os import listdir
+
+# Standardised error
+def error(message):
+	print("ERROR: %s" % message)
+	exit()
+
+
+# Check for argument error
+try:
+	script, file_name = argv
+	print("Updating...")
+except:
+	error("must have exactly one argument")
+
+# Checks file exists, moves it to a list
+try:
+	with open(file_name, 'r+') as file:
+		target = [line.strip() for line in file]
+except:
+	error("file does not exist")
+print("File read to list")
+
+
+# Information finder
+information, errors = [], []
+for line in target:
+	if "BLOG INFORMATION DATA" in line:
+		information.append(line)
+	elif len(information) != 0:
+		if len(information) < 5:
+			information.append(line)
+if len(information) == 0:
+	error("no blog information found")
+
+# Title information checker
+if (":> " in information[1] and len(information[1].split(":> ")) == 2):
+	try:	
+		blog_title = information[1].split(":> ")[1].split(" -->")[0].replace("-->","")
+	except:
+		error("invalid title given")
+else:
+	error("invalid title given")
+
+# Date information checker
+if (":> " in information[2] and len(information[2].split(":> ")) == 2):
+	try:	
+		blog_date = information[2].split(":> ")[1].split(" -->")[0]
+	except:
+		error("invalid date given")
+else:
+	error("invalid date given")
+
+# Catagories information checker
+if (":> " in information[3] and len(information[3].split(":> ")) == 2):
+	try:	
+		blog_catagories = information[3].split(":> ")[1].split(" -->")[0].split(", ")
+		list_files = listdir("/home/josh/Programs/Web/HTML/fogg.me.uk/blogs/Catagories/")
+		non_catagories, known_catagories, new_catagories = ["all", "template"], [], [] 
+		for entry in list_files:
+			if entry in non_catagories:
+				pass
+			else:
+				known_catagories.append(entry)
+		for entry in blog_catagories:
+			if entry not in known_catagories:
+				new_catagories.append(entry)
+	except:
+		error("invalid catagories given")
+else:
+	error("invalid catagories given")
+
+# Summary information checker
+if (":> " in information[4] and len(information[4].split(":> ")) == 2):
+	try:	
+		blog_summary = information[4].split(":> ")[1].split(" -->")[0].replace("-->","")
+	except:
+		error("invalid summary given")
+else:
+	error("invalid summary given")
+
+# Correct information checker
+print("Passed data error check")
+print("\nGIVEN INFORMATION")
+print("Title:",blog_title)
+print("Date:",blog_date)
+print("Catagories:",blog_catagories)
+print("Summary:",blog_summary,"\n")
+q = 0
+while q == 0:
+	ans = input("Are you happy with the above? (y/n) ")
+	if ans == "y":
+		q = 1
+		pass
+	elif ans == "n":
+		error("blog data rejected")
+	else:
+		pass
+print("Blog data accepted")
 
 
 
-""" MANAGING NEW CATAGORIES """
+# Managing new catagories
 
 for entry in new_catagories:
 	# Creating New Lists
-	entry_list = open(getcwd()+"/blogs/Catagories/"+entry, 'w')
+	entry_list = open("/home/josh/Programs/Web/HTML/fogg.me.uk/blogs/Catagories/"+entry, 'w')
 	entry_list.write(open("/home/josh/Programs/Web/HTML/fogg.me.uk/blogs/Catagories/template").read())
 	entry_list.close()
 	with open("/home/josh/Programs/Web/HTML/fogg.me.uk/blogs/Catagories/"+entry, 'r+') as file:

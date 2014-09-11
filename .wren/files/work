@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Joshua Fogg | fogg.me.uk</title>
+	<meta name="description" content="Simple Personal Website"> 
+	<meta name="keywords" content="Blog, Programming"> 
+	<meta name="author" content="Joshua Fogg"> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="http://fogg.me.uk/style/main.css">
+	<link rel="icon" href="http://fogg.me.uk/images/icons/friends.ico">
+	<link rel="shortcut icon" href="http://fogg.me.uk/images/icons/friends.ico">
+</head>
+
+<body>
+
+<div style="width: 512px; margin-left: auto; margin-right: auto;">
+	<ul class="nav">
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/">Home</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/blog">Blog</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/work">Work</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/about">About</a></li>
+	</ul>
+</div>
+
+<br><br>
+
+<div class="outer-main">
+	<div class="inner-main">
+		<h2>Work</h2>
+		<p>If you're looking for a copy of my resume, <a href="resume.pdf">click here.</a> Otherwise, this is where all the stuff too serious for the blog will end up. While I may talk about these projects there all the core data will be kept here for quick access. Note that this is not an exhaustive list (see <a href="https://github.com/Foggalong?tab=repositories">GitHub</a> for much more) but just the major projects I'm working on or contributing too at this time.</p>
+
+		<br class="small">
+
+		<h3>Math</h3>
+		<p>I am a mathematics student at the University of Manchester studying for a integrated masters degree but in the past I did A Levels and in the future I hope to go to PhD and beyond. Throughout this time I've worked on various math projects and this is the place that these will be shared. Whether it be write ups of notes or papers on personal research, they'll be here for use of anyone that needs them*.</p>
+
+		<br class="small">
+
+		<h3>Programming</h3>
+		<p>I'm also a programmer and software developer in training. I recognise that I'm still new to this and will be making mistakes so I make an effort to keep everything open-sourced on <a href="https://github.com/Foggalong?tab=repositories">GitHub</a> so that it can be properly reviewed by others.</p>
+
+		<p>The main projects I'm currently working on are</p>
+		<ul>
+			<li class="front"><a href="https://github.com/Foggalong/hardcode-fixer">hardcode-fixer</a>: a bash script which fixes hardcoded icons in Linux distributions. Currently a collaboration between myself, two other developers and seven icon theme creators.</li>
+
+			<li class="front"><a href="https://github.com/Foggalong/Animal-Crossing-Text-Adventure">Animal Crossing: Terminal Town</a>. This is a text adventure version of the popular Nintendo game series, written in Python. There's not currently a functioning version but it's something I plan to work on over the summer.</li>
+
+			<li class="front"><a href="https://github.com/Foggalong/Foggalong.github.io">This website!</a> Almost completely my own work, this is my forray into learning the basics of HTML, CSS and other web technologies.</li>
+		</ul>
+
+		<br class="small">
+
+		<h3>Design</h3>
+		<p>I'm not a designer by trade (well technically that's the opposite of true, but more on that another time) but it's a field I occasionally adventure too, increasingly so more recently. I work with <a href="numixproject.org">Numix</a> to maintain <a href="http://satya164.deviantart.com/art/Numix-Square-icons-446392650?offset=10#comments">Numix-Square</a>, a square version of their Circle theme, and Numix uTouch. I also contribute to Circle, Fold and help with community management.</p>
+
+		<br class="small">
+
+		<h3>Essays</h3>
+		<p>From time to time I just like to write essays on things. Sometimes it's for a debating oppertunity, sometimes a publication, and sometime it's just for the fun of it and to get my own thoughts into place. More often than not these can be found on my blog but LaTeX version are kept again in a <a href="broken">GitHub repo.</a> and with a list of the most recent ones below.</p>
+		<ul>
+			<li class="front"><em>How can our education better prepare us to compete in an increasingly globalised world?</em> Written as part of my unsuccessful application to the 2014 UK-China Student Forum. It can be read <a href="blogs/2014-06-09_EducatingforGlobalisation">online</a> or as a <a href="https://github.com/Foggalong/latex-files/blob/master/essays/global.tex">LaTeX'd PDF.</a></li>
+		</ul>
+
+		<br>
+		<em style="font-style: italic; font-size: small">* some University/research content will be private by demand and when this is the case it will be clearly stated.</em>
+	</div>
+</div>
+
+<footer style="width: 80px; margin-left: auto; margin-right: auto;">
+	<br>
+</footer>
+
+</body>
+
+</html>

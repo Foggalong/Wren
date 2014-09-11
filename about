@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Joshua Fogg | fogg.me.uk</title>
+	<meta name="description" content="Simple Personal Website"> 
+	<meta name="keywords" content="Blog, Programming"> 
+	<meta name="author" content="Joshua Fogg"> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="http://fogg.me.uk/style/main.css">
+	<link rel="icon" href="http://fogg.me.uk/images/icons/friends.ico">
+	<link rel="shortcut icon" href="http://fogg.me.uk/images/icons/friends.ico">
+</head>
+
+<body>
+
+<div style="width: 512px; margin-left: auto; margin-right: auto;">
+	<ul class="nav">
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/">Home</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/blog">Blog</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/work">Work</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/about">About</a></li>
+	</ul>
+</div>
+
+<br><br>
+
+<div class="outer-main">
+	<div class="inner-main">
+		<h2>About Me</h2>
+		<div id="id-picture">
+			<img src="images/profile.jpg" alt="photo of me" style="float:left; height:250px; width:250px;">
+		</div>
+		<p>My name is Joshua Fogg and I am 18 years old. I was born in Sheffield in the UK and have recently moved to Manchester where I am pursuing a Mathematics masters degree. I'm a Mathematician, Writer, Amateur Musician, Gamer and Computer Type - but not necessarily in that order.</p>
+
+		<p>I guess the best way to describe me would be a nerd. Or a geek, or whatever the going word is these days. Though I don't subscribe to every part of nerd culture (as if that would even be possible) it is the category in which a lot of my interests fall: I was indeed in AV club, Glee Club and even the Chess Team.</p>
+
+		<p>On a more serious note I have no idea what I want to do with my life. Until about three years ago I was all set to bundle myself off to film school and become a writer. Before that I wanted to do Special Effects and a multitude of other odd things. Since then I fell for the alluring mistress that is mathematics and have found myself wandering in the world of scientific academia.</p>
+
+		<p>All these colourful (and not so colourful) aspects of myself need an outlet and I thought this was the perfect chance to give them one. The stories, the papers, the reviews and the blogs will all find them selves here - my own little slice of the internet pie. So welcome, old friends and new, to me. I hope you enjoy your stay.</p>
+
+		<p>For a more serious overview, see my <a href="resume.pdf">resume</a>. Contact links are shown below.</a></p>
+
+		<br>
+
+		<table style="margin-left: auto; margin-right: auto;">
+			<tr>
+				<td>
+					<a title="Why not send me an email?" href="mailto:joshua.h.fogg@gmail.com">
+						<img src="images/icons/gmail.svg" alt="Email">
+					</a> 
+				</td>
+				<td>
+					<a title="Mostly keep this one private" href="https://www.facebook.com/joshua.fogg">
+						<img src="images/icons/facebook.svg" alt="Facebook">
+					</a> 
+				</td>
+				<td>
+					<a title="A good way to see what I'm up to or just say hi" href="https://twitter.com/Foggalong">
+						<img src="images/icons/twitter.svg" alt="Twitter">
+					</a> 
+				<td>
+					<a title="The place where I largely talk about programming stuff" href="https://plus.google.com/+JoshuaFogg/posts">
+						<img src="images/icons/googleplus.svg" alt="Google+">
+					</a> 
+				</td>
+				<td>
+					<a title="If you don't know what this is, don't do it" href="https://pay.reddit.com/u/Foggalong">
+						<img src="images/icons/reddit.svg" alt="Reddit">
+					</a> 
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<footer style="width: 80px; margin-left: auto; margin-right: auto;">
+	<br>
+</footer>
+
+</body>
+
+</html>

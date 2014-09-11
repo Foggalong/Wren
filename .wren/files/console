@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Joshua Fogg | fogg.me.uk</title>
+	<meta name="description" content="Simple Personal Website"> 
+	<meta name="keywords" content="Blog, Programming"> 
+	<meta name="author" content="Joshua Fogg"> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style/console.css">
+	<link rel="icon" href="http://fogg.me.uk/images/icons/friends.ico">
+	<link rel="shortcut icon" href="http://fogg.me.uk/images/icons/friends.ico">
+</head>
+
+<body>
+
+<div style="width: 512px; margin-left: auto; margin-right: auto;">
+	<ul class="nav">
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/">Home</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/blog">Blog</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/work">Work</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/about">About</a></li>
+	</ul>
+</div>
+
+<br><br>
+
+<div class="outer-main">
+	<div class="inner-main">
+		<p style="text-align: center;">(If you've found this place, shhhh!)</p>
+		<br class="small">
+		<h1>The Console</h1>
+
+		<!-- <input type="text" placeholder=" $ "> don't think this will work -->
+		<div style="width: 500px; margin-left: auto; margin-right: auto;">
+			<textarea autofocus="autofocus" rows="16" cols="80"> $ </textarea>
+		</div>
+		<br>
+		<div style="width: 200px; margin-left: auto; margin-right: auto;">
+			<input type="submit" value="Submit">  <input type="reset" value="Reset Console">
+		</div>
+		<br>
+	</div>
+</div>
+
+</body>
+
+<footer style="width: 80px; margin-left: auto; margin-right: auto;">
+</footer>
+
+</html>

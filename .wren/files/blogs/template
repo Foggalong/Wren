@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Joshua Fogg | fogg.me.uk</title>
+	<meta name="description" content="Simple Personal Website"> 
+	<meta name="keywords" content="Blog, Programming"> 
+	<meta name="author" content="Joshua Fogg"> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="http://fogg.me.uk/style/main.css">
+	<link rel="icon" href="http://fogg.me.uk/images/icons/friends.ico">
+	<link rel="shortcut icon" href="http://fogg.me.uk/images/icons/friends.ico">
+</head>
+
+<body>
+
+<div style="width: 512px; margin-left: auto; margin-right: auto;">
+	<ul class="nav">
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/">Home</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/blog">Blog</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/work">Work</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/about">About</a></li>
+	</ul>
+</div>
+
+<br><br>
+
+<!-- BLOG INFORMATION DATA -->
+<!-- TITLE:> [the blog title] -->
+<!-- DATE:> year-month-day -->
+<!-- CATAGORIES:> blog, poetry, vlog -->
+<!-- SUMMARY:> [a sentance or two description for a preview] -->
+
+<!-- on another note, change the links to unseen light blue and see dark blue? -->
+
+<div class="outer-main">
+	<div class="inner-main">
+		<h3 class="date" align="right">2014 - 06 - 01</h3>
+		<h2>Blog Title Goes Here</h2>
+		<h3 class="date" align="left">[time here]</h3>
+		# <!-- <a http://en.wikipedia.org/wiki/Words_per_minute#Reading_and_comprehension -->
+		<article>
+			<p>Blog content goes here.</p>
+			<h3> Blog Mini-titles Go Here </h3>
+			<p>More content goes here.</p>
+		</article>
+		<br class="small">
+		<!-- Begin of Comments -->
+		<div id="disqus_thread">
+			<script type="text/javascript">
+				/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+				var disqus_shortname = 'foggalong'; // required: replace example with your forum shortname		
+
+				/* * * DON'T EDIT BELOW THIS LINE * * */
+				(function() {
+					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		</div>
+		<!-- End of Comments -->
+	</div>
+</div>
+
+<footer style="width: 80px; margin-left: auto; margin-right: auto;">
+	<br>
+</footer>
+
+</body>
+
+</html>

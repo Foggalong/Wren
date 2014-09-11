@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Joshua Fogg | fogg.me.uk</title>
+	<meta name="description" content="Simple Personal Website"> 
+	<meta name="keywords" content="Blog, Programming"> 
+	<meta name="author" content="Joshua Fogg"> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="http://fogg.me.uk/style/main.css">
+	<link rel="icon" href="http://fogg.me.uk/images/icons/friends.ico">
+	<link rel="shortcut icon" href="http://fogg.me.uk/images/icons/friends.ico">
+</head>
+
+<body>
+
+<div style="width: 512px; margin-left: auto; margin-right: auto;">
+	<ul class="nav">
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/">Home</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/blog">Blog</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/work">Work</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/about">About</a></li>
+	</ul>
+</div>
+
+<br><br>
+
+<div class="outer-main">
+	<div class="inner-main">
+		<h2 title="Currently all Lorem ipsum">Blog</h2>
+		<p> Links to my most recent blogs. If you want to have a look at my older stuff either <a href="blogs/Catagories/cloud">sort by catagory</a> or see a <a href="blogs/Catagories/all">full list!</a> Enjoy!</p>
+
+		<br>
+
+		<!-- Recent Blogs Begin Here -->
+		<article>
+			<h3> <a href="blogs/2014/06/17/30DaySongChallenge">30 Day Song Challenge</a> - 2014-06-17</h3>
+			<p>I look back at my 2011 30 Day Song Challenge submission.</p>
+		</article>
+
+		<br class="small">
+
+		<article>
+			<h3> <a href="blogs/reading">What's the time?</a> - 2014-06-14</h3>
+			<p>I explain the times stated at the start of every blog.</p>
+		</article>
+
+		<br class="small">
+
+		<article>
+			<h3> <a href="blogs/2014/06/09/EducatingforGlobalisation">Educating for Globalisation</a> - 2014-06-09</h3>
+			<p>How can our education better prepare us to compete in an increasingly globalised world?</p>
+		</article>
+
+		<br class="small">
+
+		<article>
+			<h3> <a href="blogs/2014/03/08/TheHitchhikersGuidetotheGalaxy">The Hitchhiker's Guide to the Galaxy </a> - 2014-03-08</h3>
+			<p>My review of the first book in the famous sci-fi series by Douglas Adams.</p>
+		</article>
+
+		<br class="small">
+
+		<article>
+			<h3> <a href="blogs/2014/01/27/Privacy&amp;Tinfoil">Privacy &amp; Tinfoil</a> - 2014-01-27</h3>
+			<p>With Facebook mobile's recent change in privacy policy I review what I see as the best alternative app.</p>
+		</article>
+		<!-- Recent Blogs End Here -->
+	</div>
+</div>
+
+<footer style="width: 80px; margin-left: auto; margin-right: auto;">
+	<br>
+</footer>
+
+</body>
+
+</html>

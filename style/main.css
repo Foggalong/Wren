@@ -1,0 +1,165 @@
+body {
+	background: #F2F2F2;
+	background-image: url("/images/background/main.png");
+	background-repeat: repeat;
+	background-attachment: fixed;
+	background-position: 50%;
+	margin: 50px 30px 10px 30px;
+}
+
+h1 {
+	color: #000033;
+	font-family: trebuchet, arial, sans-sherif;
+	font-variant: small-caps;
+	font-weight: bold;
+	text-transform:uppercase;
+	text-decoration: underline;
+}
+
+h2.main-title {
+	color: #000033;
+	font-size: 50px;
+	font-family: trebuchet, arial, sans-sherif;
+	font-variant: normal;
+	font-weight: bold;
+	text-align: center;
+}
+
+h2 {
+	color: #000033;
+	font-family: trebuchet, arial, sans-sherif;
+	font-variant: normal;
+	font-weight: bold;
+}
+
+h3 {
+	color: #000033;
+	font-family: trebuchet, arial, sans-sherif;
+	font-variant: normal;
+	font-weight: bold;
+}
+
+h3.date {
+	color: #DED2BA;
+	font-family: trebuchet, arial, sans-sherif;
+	font-variant: normal;
+	font-style: italic;
+	font-size: small;
+}
+
+p {
+	font-family: trebuchet, arial, sans-sherif;
+}
+
+ul {
+	font-family: trebuchet, arial, sans-sherif;
+}
+
+ul.nav {
+	font-family: trebuchet, arial, sans-sherif;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+
+ol {
+	font-family: trebuchet, arial, sans-sherif;
+}
+
+a {
+	font-family: trebuchet, arial, sans-sherif;
+}
+
+td {
+	font-family: trebuchet, arial, sans-sherif;
+}
+
+a:link {
+	color: #6699CC;
+}
+
+a:visited {
+	color: #660099;
+}
+
+/*For use with external links*/
+a.external:hover {
+	color: orange;
+	font-style: italic;
+}
+
+a.nav:link,a.nav:visited {
+	display:block;
+	width:120px;
+	font-weight:bold;
+	font-variant: small-caps;
+	color:#FFFFFF;
+	background-color:#0066FF;
+	text-align:center;
+	padding:4px;
+	text-decoration:none;
+}
+
+a.nav:hover,a.nav:active {
+	background-color:#0099FF;
+}
+
+em {
+	font-family: trebuchet, arial, sans-sherif;
+}
+
+li.front {
+    padding: 5px;
+}
+
+li.nav {
+	float:left;
+	}
+
+#logo {
+	float:left;
+}
+
+div.outer-main {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFFFFF;
+    padding: 10px;
+	/*border-radius: 12px; - unsure of how this looks */
+}
+
+div.inner-main {
+	width: 780px;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 1;
+}
+
+#id-picture {
+	float:left;
+	width: 250px;
+	padding-bottom: 15px;
+	padding-right: 15px
+	}
+
+th {
+	color: #000033;
+	font-family: trebuchet, arial, sans-sherif;
+}
+
+th.c {
+	color: #000033;
+	font-family: trebuchet, arial, sans-sherif;
+	text-align: center;
+}
+
+td {
+	font-family: trebuchet, arial, sans-sherif;
+}
+
+td.c {
+	font-family: trebuchet, arial, sans-sherif;
+	text-align: center;
+}

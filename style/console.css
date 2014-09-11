@@ -1,0 +1,142 @@
+body {
+	background: #F2F2F2;
+	background-image: url("/images/background/console.png");
+	background-repeat: repeat;
+	background-attachment: fixed;
+	background-position: 50%;
+	margin: 50px 30px 10px 30px;
+}
+
+h1 {
+	color: black;
+	font-family: courier, monospace;
+	font-weight: bold;
+	text-decoration: underline;
+	text-align: center;
+	font-size: 50pt;
+	font-variant: small-caps;
+}
+
+h2 {
+	color: black;
+	font-family: courier, monospace;
+	font-variant: normal;
+	font-weight: bold;
+}
+
+h3 {
+	color: black;
+	font-family: courier, monospace;
+	font-variant: normal;
+	font-weight: bold;
+}
+
+p {
+	font-family: courier, monospace;
+}
+
+ul {
+	font-family: courier, monospace;
+}
+
+ul.nav {
+	font-family: courier, monospace;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+
+ol {
+	font-family: courier, monospace;
+}
+
+a {
+	font-family: courier, monospace;
+}
+
+td {
+	font-family: courier, monospace;
+}
+
+a:link {
+	color: #6699CC;
+}
+
+a:visited {
+	color: #660099;
+}
+
+/*For use with external links*/
+a.external:hover {
+	color: orange;
+	font-style: italic;
+}
+
+a.nav:link,a.nav:visited {
+	display:block;
+	width:120px;
+	font-weight:bold;
+	font-variant: small-caps;
+	color: white;
+	background-color: black;
+	text-align:center;
+	padding:1px;
+	text-decoration:none;
+	border: 3px solid white;
+}
+
+a.nav:hover,a.nav:active {
+	background-color: white;
+	border-color: black;
+	color: black;
+}
+
+em {
+	font-family: courier, monospace;
+}
+
+li.nav {
+	float:left;
+	}
+
+#logo {
+	float:left;
+}
+
+div.outer-main {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFFFFF;
+	/*border-radius: 12px; - unsure of how this looks */
+}
+
+div.inner-main {
+	width: 780px;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 1;
+}
+
+br.small {
+   display: block;
+   margin: 5px 0;
+   line-height: 5px;
+}
+
+#id-picture {
+	float:left;
+	width: 250px;
+	padding-bottom: 15px;
+	padding-right: 15px
+	}
+
+textarea {
+	color: white;
+	background-color: black;
+	font-family: courier, monospace;
+	font-weight: bold;
+	width: 500px;
+	resize:none;
+}

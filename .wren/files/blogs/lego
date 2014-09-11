@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Joshua Fogg | fogg.me.uk</title>
+	<meta name="description" content="Simple Personal Website"> 
+	<meta name="keywords" content="Blog, Programming"> 
+	<meta name="author" content="Joshua Fogg"> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="http://fogg.me.uk/style/main.css">
+	<link rel="icon" href="http://fogg.me.uk/images/icons/friends.ico">
+	<link rel="shortcut icon" href="http://fogg.me.uk/images/icons/friends.ico">
+</head>
+
+<body>
+
+<div style="width: 512px; margin-left: auto; margin-right: auto;">
+	<ul class="nav">
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/">Home</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/blog">Blog</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/work">Work</a></li>
+		<li class="nav"><a class="nav" href="http://fogg.me.uk/about">About</a></li>
+	</ul>
+</div>
+
+<br><br>
+
+<!-- BLOG INFORMATION DATA -->
+<!-- TITLE:> LEGO List  -->
+<!-- DATE:> 2014-05-08 -->
+<!-- CATAGORIES:> blog -->
+<!-- SUMMARY:> I put all the lego I own in one big box.-->
+
+<div class="outer-main">
+	<div class="inner-main">
+		<h3 class="date" align="right">2014 - 05 - 08</h3>
+		<h2>The LEGO Box Project</h2>
+		<article>
+		<article>
+			<p>So in the summer before coming to University I bundled all my LEGO into one big box because of space shortages. Here's the result.</p>
+
+			<table border="1">
+				<tr>
+					<th>Range</th>
+					<th>Code</th>	
+					<th>Name</th>
+					<th>Pieces</th>
+				</tr>
+				<tr>
+					<td rowspan="5">Firefighters</td>
+					<td>7043</td>
+					<td>Firefighter</td>
+					<td>68</td>
+				</tr>
+				<tr>
+					<td>7238</td>
+					<td>Fire Helicopter</td>
+					<td>75</td>
+				</tr>
+				<tr>
+					<td>7239</td>
+					<td>Fire Truck</td>
+					<td>214</td>
+				</tr>
+				<tr>
+					<td>7240</td>
+					<td>Fire Station</td>
+					<td>260</td>
+				</tr>
+				<tr>
+					<td>7241</td>
+					<td>Fire Car</td>
+					<td>46</td>
+				</tr>
+				<tr>
+					<td rowspan="8">Exo-Force</td>
+					<td>7700</td>
+					<td>Stealth Hunter</td>
+					<td>164</td>
+				</tr>
+				<tr>
+					<td>7701</td>
+					<td>Grand Titan</td>
+					<td>194</td>
+				</tr>
+				<tr>
+					<td>7703</td>
+					<td>Fire Vulture</td>
+					<td>177</td>
+				</tr>
+				<tr>
+					<td>7704</td>
+					<td>Sonic Phantom</td>
+					<td>215</td>
+				</tr>
+				<tr>
+					<td>7708</td>
+					<td>Uplink</td>
+					<td>69</td>
+				</tr>
+				<tr>
+					<td>7711</td>
+					<td>Sentry</td>
+					<td>78</td>
+				</tr>
+				<tr>
+					<td>7712</td>
+					<td>Supernova</td>
+					<td>283</td>
+				</tr>
+				<tr>
+					<td>7713</td>
+					<td>Bridge Walker vs. White Lightning</td>
+					<td>632</td>
+				</tr>
+				<tr>
+					<td rowspan="4">Creative</td>
+					<td>4886</td>
+					<td>Building Bonanza</td>
+					<td>667</td>
+				</tr>
+				<tr>
+					<td>4100</td>
+					<td>Designer Set</td>
+					<td>290</td>
+				</tr>
+				<tr>
+					<td>N/A</td>
+					<td>1000 block set!*</td>
+					<td>1000</td>
+				</tr>
+				<tr>
+					<td>4093</td>
+					<td>Wild Wind Ups</td>
+					<td>315</td>
+				</tr>
+				<tr>
+					<td rowspan="10">Knights' Kingdom II</td>
+					<td>8801</td>
+					<td>Knights' Attack Barge</td>
+					<td>163</td>
+				</tr>
+				<tr>
+					<td>8874</td>
+					<td>Battle Wagon</td>
+					<td>125</td>
+				</tr>
+				<tr>
+					<td>8875</td>
+					<td>King's Siege Tower</td>
+					<td>113</td>
+				</tr>
+				<tr>
+					<td>8777</td>
+					<td>Vladek Encounter</td>
+					<td>43</td>
+				</tr>
+				<tr>
+					<td>8781</td>
+					<td>Castle of Morcia</td>
+					<td>632</td>
+				</tr>
+				<tr>
+					<td>8782</td>
+					<td>Danju</td>
+					<td>46</td>
+				</tr>
+				<tr>
+					<td>8783</td>
+					<td>Jayko</td>
+					<td>46</td>
+				</tr>
+				<tr>
+					<td>8784</td>
+					<td>Rascus</td>
+					<td>50</td>
+				</tr>
+				<tr>
+					<td>8785</td>
+					<td>Santis</td>
+					<td>50</td>
+				</tr>
+				<tr>
+					<td>8786</td>
+					<td>Vladek</td>
+					<td>52</td>
+				</tr>
+				<tr>
+					<td rowspan="4">Builder</td>
+					<td>7248</td>
+					<td>Digger</td>
+					<td>127</td>
+				</tr>
+				<tr>
+					<td>7344</td>
+					<td>Dump Truck</td>
+					<td>187</td>
+				</tr>
+				<tr>
+					<td>7246</td>
+					<td>Mini Digger</td>
+					<td>36</td>
+				</tr>
+				<tr>
+					<td>7900</td>
+					<td>Heavy Loader</td>
+					<td>347</td>
+				</tr>
+				<tr>
+					<td rowspan="7">Exo-Force</td>
+					<td>7034</td>
+					<td>Surveillance Truck</td>
+					<td>266</td>
+				</tr>
+				<tr>
+					<td>5612</td>
+					<td>Police Officer</td>
+					<td>21</td>
+				</tr>
+				<tr>
+					<td>7236</td>
+					<td>Police Car</td>
+					<td>59</td>
+				</tr>
+				<tr>
+					<td>7237</td>
+					<td>Police Station</td>
+					<td>586</td>
+				</tr>
+				<tr>
+					<td>7235</td>
+					<td>Police Motorcycle</td>
+					<td>28</td>
+				</tr>
+				<tr>
+					<td>7899</td>
+					<td>Police Boat</td>
+					<td>200</td>
+				</tr>
+				<tr>
+					<td>7245</td>
+					<td>Prisoner Transport</td>
+					<td>98</td>
+				</tr>
+				<tr>
+					<td>Studios</td>
+					<td>1351</td>
+					<td>Movie Backdrop Studio</td>
+					<td>209</td>
+				</tr>
+				<tr>
+					<td rowspan="6">StarWars</td>
+					<td>7256</td>
+					<td>Jedi Starfighter and Vulture Droid</td>
+					<td>202</td>
+				</tr>
+				<tr>
+					<td>7656</td>
+					<td>General Grievous' Starfighter</td>
+					<td>232</td>
+				</tr>
+				<tr>
+					<td>7654</td>
+					<td>Droids Battle Pack</td>
+					<td>102</td>
+				</tr>
+				<tr>
+					<td>6209</td>
+					<td>Slave I</td>
+					<td>537</td>
+				</tr>
+				<tr>
+					<td>7662</td>
+					<td>Trade Federation MTT</td>
+					<td>1330</td>
+				</tr>
+				<tr>
+					<td>10174</td>
+					<td>Ultimate Collector's AT-ST</td>
+					<td>1068</td>
+				</tr>
+				<tr>
+					<td>Emergency</td>
+					<td>7890</td>
+					<td>Ambulance</td>
+					<td>118</td>
+				</tr>
+				<tr>
+					<td>Sports</td>
+					<td>3568</td>
+					<td>Soccer Target Practice</td>
+					<td>26</td>
+				</tr>
+				<tr>
+					<td>Seasonal</td>
+					<td>7324</td>
+					<td>LEGO City Advent Calendar 2005</td>
+					<td>203</td>
+				</tr>
+				<tr>
+					<td>Crucaders</td>
+					<td>6080</td>
+					<td>King's Castle</td>
+					<td>664</td>
+				</tr>
+				<tr>
+					<td rowspan="2">Adventures</td>
+					<td>3055</td>
+					<td>Adventurers Car</td>
+					<td>21</td>
+				</tr>
+				<tr>
+					<td>5900</td>
+					<td>Johnny Thunder</td>
+					<td>13</td>
+				</tr>
+				<tr>
+					<td rowspan="3">Dome Racers</td>
+					<td>4582</td>
+					<td>Red Bullet</td>
+					<td>29</td>
+				</tr>
+				<tr>
+					<td>4583</td>
+					<td>Maverick Storm</td>
+					<td>31</td>
+				</tr>
+				<tr>
+					<td>4585</td>
+					<td>Nitro Pulverizer</td>
+					<td>61</td>
+				</tr>
+				<tr>
+					<td colspan="3"><b>Total:</b></td>
+					<td><b>12868</b></td>
+				</tr>
+			</table>
+
+			<p>* - I couldn't find this set anywhere. I'm not exactly sure where it came from.</p>
+
+			<p>The only sets not in the box are Slave I (6209), Trade Federation MTT (7662) & Ultimate Collector's AT-ST (10174) which are all currently set up as display models.</p>
+
+			<p>Do I regret doing it? A little bit. It was very satisfying to see all of the pieces together in one place and to think about how much fun I'll have with so many pieces to choose from. At the same time knowing I'll never be able to seperate them back out and put them back in their boxes (which have all been recycled now) pains me a little. But I'm a horder and if I truly want to change that I've got to make sacrefices. So off they went. On the whole, I'm still glad I did it.</p>
+		</article>
+		<br class="small">
+		<!-- Begin of Comments -->
+		<div id="disqus_thread">
+			<script type="text/javascript">
+				/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+				var disqus_shortname = 'foggalong'; // required: replace example with your forum shortname		
+
+				/* * * DON'T EDIT BELOW THIS LINE * * */
+				(function() {
+					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		</div>
+		<!-- End of Comments -->
+	</div>
+</div>
+
+<footer style="width: 80px; margin-left: auto; margin-right: auto;">
+	<br>
+</footer>
+
+</body>
+
+</html>
