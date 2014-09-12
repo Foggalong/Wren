@@ -131,10 +131,6 @@ li.nav {
 	float:left;
 	}
 
-#logo {
-	float:left;
-}
-
 div.outer-main {
 	width: 800px;
 	margin-left: auto;
@@ -155,8 +151,8 @@ div.inner-main {
 	float:left;
 	width: 250px;
 	padding-bottom: 15px;
-	padding-right: 15px
-	}
+	padding-right: 15px;
+}
 
 th {
 	color: #000033;
@@ -176,4 +172,13 @@ td {
 td.c {
 	font-family: trebuchet, arial, sans-sherif;
 	text-align: center;
+}
+
+footer.wren {
+	padding: 10px;
+	color:#353535;
+	font-size: 10px;
+	font-variant: normal;
+	text-align: center;
+	font-family: trebuchet, arial, sans-sherif;
 }
