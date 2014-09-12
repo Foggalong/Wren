@@ -2,10 +2,11 @@
 <html>
 
 <!--	
-	This is the default blog template for any website made using the Wren
-	blogging platform. You can customise it manually but the recommended
-	proceedure is to use the built in config files as that ensures changes
-	remain consistent and working.
+	This is 'reading time' explination page for any site made using the
+	Wren blogging platform. Customising it manually is not recommended as
+	it explains a standard process for calculating the reading time of
+	any given article. You may however submit ranges to the upstream Wren
+	repo if you find any mistakes.
 
 	Copyright (C) 2014
 	This program is free software: you can redistribute it and/or modify
@@ -42,11 +43,28 @@
 
 <div class="outer-main">
 	<div class="inner-main">
-		<h3 class="date" align="right">BLOG_DATE_GOES_HERE</h3>
-		<h2>BLOG_TITLE_GOES_HERE</h2>
-		<h3 class="date" align="left">READING_TIME_GOES_HERE <a href="http://fogg.me.uk/blogs/reading">reading</a></h3>
+		<h2>What's the time?</h2>
+		<h3 class="date" align="left">~1 minutes 22 seconds reading</h3>
 		<article>
-			BLOG_BODY_GOES_HERE
+			<p>About six thirty. But in all seriousness you may have noticed the time that is appended to the top of each of my blogs along the lines of “~2 minutes 50 seconds reading”. This is an approximated reading time for that particular blog.</p>
+
+			<h3>Why?</h3>
+			<p>I decided to add this to each of my posts after seeing them on the GitHub guides pages (https://guides.github.com/). It got me thinking about how often I look at a blog post and don't read past the first few lines because I see how long it is. Most of the time that length wouldn't equate to more than a few minutes reading, but in this fast paced world where micro-blogging is king that doesn’t seem to register. I then reflected on the fact that I had more often read the post when told before hand roughly how long I'd be reading it for, so the decision to implement it myself seemed like a no brainer.</p>
+
+			<h3>How?</h3>
+			<p>I did a little reading and found that the average reading time on a screen is about 250 word per minute. I then wrote myself a little script in Python that I can just plug the blog into and have it spit out the reading time.</p>
+
+			<code>
+				#!/usr/bin/python3<br/>
+				from math import floor<br/>
+				text = input("Paste text...\n").strip().split(" ")<br/>
+				if len(text)/200 < 1:<br/>
+					print("~%d seconds reading" % (float(len(text))*0.3))<br/>
+				else:<br/>
+					print("~%d minutes %d seconds reading" % (floor(len(text)/float(200)), ((len(text)/float(200))-floor(len(text)/float(200)))*60))<br/>
+			</code>
+
+			<p>It's a bit dirty, but it gets the job done. I had it set to support both minutes and seconds because some of my blogs (looking at you book reviews) otherwise read as 0.28 minutes which is just silly.</p>
 		</article>
 		<br class="small">
 		<!-- Begin of Comments -->
