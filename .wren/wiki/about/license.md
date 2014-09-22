@@ -1,3 +1,0 @@
-# License
-
-Wren is licensed under the GNU General Public License version 3+. While I will do my best to ensure that this license is included in every Wren repository and that the boilerplate appears on every piece of code, files do sometimes go missing and mistakes are made. This is notice that every file made for Wren, unless specifically stated otherwise, is licensed under the GNU GPLv3+. This is without warranty for loss of work or other damage.
