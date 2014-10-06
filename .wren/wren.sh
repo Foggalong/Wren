@@ -13,6 +13,14 @@
 
 version="0.1-alpha"
 
+# Functions
+# =========
+
+function gerror() {
+    echo -e "$1"
+    sleep 3
+    exit 1
+}
 
 
 # Deals with the flags
@@ -32,28 +40,20 @@ else
             if [ -d ".wren" ]; then
                 mode="blog"; break
             else
-                echo -e "To write a blog you must first install Wren."
-                echo -e "Run ./wren.sh -i and follow the instructions"
-                exit 1
+                gerror "To write a blog you must first install Wren"
             fi;;
         -i|--install)
             if [ -d ".wren" ]; then
-                echo -e "The current directory already contains a Wren"
-                echo -e "instance. Check it out and then try again."
-                exit 1
+                gerror "The current directory already contains a Wren instance"
             else
                 mode="install"; break
             fi;;
         -u|--upgrade)
             if [ -d ".wren" ]; then
-                echo -e "Upgrading will not be supported until late beta"
-                echo -e "for stability reasons. Please try again later."
-                exit 0
-                mode="install"; break
+                gerror "Upgrading will not be supported until late beta"
+                mode="upgrade"; break
             else
-                echo -e "The current directory doesn't contain a Wren"
-                echo -e "instance. Check it out and then try again."
-                exit 0
+                gerror "The current directory doesn't contain a Wren instance"
             fi;;
         -r|--remove)
             echo "This will completely remove a Wren instance."
@@ -61,33 +61,30 @@ else
                 read -p "Are you sure you want to continue? " answer
                 case $answer in
                     [Yy]* )
-                        echo -e "Removing will not be supported until late alpha"
-                        echo -e "for stability reasons. Please try again later."
-                        exit 0
+                        gerror "Removing will not be supported until late alpha"
                         mode="remove"; break;;
                     [Nn]* ) exit;;
                     * ) echo "Please answer [Y/y]es or [N/n]o.";;
                 esac
             done;;
         -h|--help)
-            echo -e "Usage: ./$(basename -- $0) [OPTION]"
-            echo -e "A lightweight blogging platform."
-            echo -e ""
-            echo -e "Currently supported options:"
-            echo -e "  -b, --blog \t Write a blog (default)"
-            echo -e "  -i, --install \t Install Wren"
-            echo -e "  -u, --upgrade \t Upgrade a Wren instance"
-            echo -e "  -r, --remove \t Remove a Wren instance"
-            echo -e "  -h, --help \t\t Displays this help menu"
-            echo -e "  -v, --version \t Displays program version"
+            echo -e \
+                "Usage: ./$(basename -- $0) [OPTION]\n" \
+                "\rA lightweight blogging platform.\n\n" \
+                "\rCurrently supported options\n:" \
+                "\r  -b, --blog \t Write a blog (default)\n" \
+                "\r  -i, --install \t Install Wren\n" \
+                "\r  -u, --upgrade \t Upgrade a Wren instance\n" \
+                "\r  -r, --remove \t Remove a Wren instance\n"
+                "\r  -h, --help \t\t Displays this help menu\n"
+                "\r  -v, --version \t Displays program version\n"
             exit 0 ;;
         -v|--version)
             echo "$(basename -- $0) $version\n"
             exit 0 ;;
         *)
             echo -e "$(basename -- $0): invalid option -- '$1'"
-            echo -e "Try '$(basename -- $0) --help' for more information."
-            exit 0 ;;
+            gerror "Try '$(basename -- $0) --help' for more information." ;;
     esac
 fi
 
@@ -104,10 +101,7 @@ for package in "${depends[@]}"; do
     if type "$package" >> "/dev/null 2>&1"; then
         : # pass
     else
-        echo -e "Using wren requires '$package' to be installed. Please"
-        echo -e    "install it and then run this script again."
-        sleep 3
-        exit 1
+        gerror "Using wren requires '$package' to be installed"
     fi
 done
 
@@ -117,12 +111,12 @@ if [ "$type" == "ghgit" ]; then
     then
         : # pass
     else
-        echo -e "This method requires 'git' to be installed. If"
-        echo -e    "you wish to use GitHub pages without git please"
-        echo -e "use the web-only option. Otherwise, install it"
-        echo -e "and rerun this script."
-        sleep 3 # Enables error timeout when launched via 'Run in Terminal' command.
-        exit 1
+        echo -e \
+            "This method requires 'git' to be installed. If\n"
+            "\ryou wish to use GitHub pages without git please\n"
+            "\ruse the web-only option. Otherwise, install it\n"
+            "\rand rerun this script."
+        gerror
     fi
 fi
 
@@ -136,8 +130,9 @@ if [ "$mode" == "blog" ]; then
     # -----------------
 
     # Writer
-    echo -e "Please write your blog below, using HTML for"
-    echo -e "formatting and adding 'EOF' as the last line.\n"
+    echo -e \
+        "Please write your blog below, using HTML for\n"
+        "\rformatting and adding 'EOF' as the last line.\n"
     while [ "$line" != "EOF" ]; do
         read -p "> " line
         if [ "$line" == "EOF" ]; then
@@ -151,8 +146,9 @@ if [ "$mode" == "blog" ]; then
     blog_length=$(($(echo "$blog_body" | wc -w) / 250))
 
     # Meta Data
-    echo -e "\nWe will now ask for the blogs meta data."
-    echo -e "Enter each piece of information as prompted."
+    echo -e \
+        "\nWe will now ask for the blogs meta data.\n"
+        "\rEnter each piece of information as prompted."
 
     # Blog title
     while true; do
@@ -171,8 +167,9 @@ if [ "$mode" == "blog" ]; then
     # Notes, RSS asks for 'Tue, ...' but %c gives no ','
 
     # Blog catagories
-    echo -e "\nList the catagories this post falls into,"
-    echo -e "seperating each by using a space."
+    echo -e \
+        "\nList the catagories this post falls into,\n"
+        "\rseperating each by using a space."
     read -p "" answer
     blog_catagories=($answer)
 
@@ -188,10 +185,11 @@ if [ "$mode" == "blog" ]; then
     done
 
     # Correct information checker
-    echo -e "\nGIVEN INFORMATION"
-    echo -e "Title: $blog_title"
-    echo -e "Date: $blog_date"
-    echo -e "Catagories:"
+    echo -e \
+        "\nGIVEN INFORMATION\n"
+        "\rTitle: $blog_title\n"
+        "\rDate: $blog_date\n"
+        "\rCatagories:"
     for catagory in "${blog_catagories[@]}"; do
         echo -e "    * $catagory"
     done
@@ -234,7 +232,7 @@ if [ "$mode" == "blog" ]; then
     
     for catagory in "${blog_catagories[@]}"; do
         # Adding to cloud
-        echo $catagory >> cloud.txt
+        echo "$catagory" >> cloud.txt
 
         # Existence Dependent Additions
         if [ -f "../blogs/Catagories/$catagory" ]; then
@@ -269,11 +267,12 @@ fi
 
 if [ "$mode" == "install" ]; then
     # Installation method
-    echo -e "The following installation methods are available.\n"
-    echo -e "  1.  As a stand-alone website"
-    echo -e "  2.  Alongside an existing website"
-    echo -e "  3.  Using GitHub pages and git"
-    echo -e "  4.  Using GitHub pages (web-only)"
+    echo -e \
+        "The following installation methods are available.\n"
+        "\r  1.  As a stand-alone website\n"
+        "\r  2.  Alongside an existing website\n"
+        "\r  3.  Using GitHub pages and git\n"
+        "\r  4.  Using GitHub pages (web-only)"
 
     while true; do
         read -p "\nWhich installation method do you want to use? " answer
@@ -291,11 +290,11 @@ if [ "$mode" == "install" ]; then
     # ---------------
 
     if [ "$type" == "ghweb" ]; then
-        echo -e "This method is designed for web use only and so"
-        echo -e "doesn't require any instance. Go to the wiki"
-        echo -e "for more information on this method.\n"
-        sleep 3
-        exit 1
+        echo -e \
+            "This method is designed for web use only and so\n"
+            "\rdoesn't require any instance. Go to the wiki\n"
+            "\rfor more information on this method.\n"
+        gerror
     fi
 
 
@@ -308,7 +307,7 @@ if [ "$mode" == "install" ]; then
             read -p "What is your GitHub username? " answer
             if [ -z "$answer"] || wget "https://github.com/$answer" >/dev/null 2>&1 
             then
-                echo -e "GitHub user does not exist!"
+                echo "GitHub user does not exist!"
             else
                 break
             fi
@@ -321,10 +320,7 @@ if [ "$mode" == "install" ]; then
         # Cloning repo
         git clone "https://github.com/$ghuser/$ghpage.git" || error="True"
         if [ "$error" == True ]; then
-            echo -e "An error occured! Check the above git output"
-            echo -e "for more information as to what went wrong."
-            sleep 3
-            exit 1
+            gerror "An error occured! Check above for more info"
         else
             cd "$ghpage"
         fi
@@ -334,10 +330,7 @@ if [ "$mode" == "install" ]; then
             : #pass
         else
             cd ../ && rm -r "$ghpage"
-            echo -e "The repo does not appear to be a fork of the"
-            echo -e "Wren repo. Please verify it is and then rerun"
-            sleep 3
-            exit 1
+            gerror "The repo does not appear to be a fork of the Wren repo"
         fi
     fi
 
@@ -347,28 +340,24 @@ if [ "$mode" == "install" ]; then
 
     # Gets web root
     if [ "$type" == "alone" ] || [ "$type" == "along" ]; then
-        echo -e "Please enter the root location for your website" 
-        echo -e "directory (can either be absolute or relative)."
-        echo -e "The path default is taken as '/var/www/html/'."
+        echo -e \
+            "Please enter the root location for your website\n" 
+            "\rdirectory (can either be absolute or relative).\n"
+            "\rThe path default is taken as '/var/www/html/'."
         while read inputline; do
             rootdir="$inputline"
             if [ -z "${what}" ]; then
                 if [ -d "/var/www/html" ]; then
-                    echo -e "Default accepted."
+                    echo "Default accepted."
                 else
-                    echo -e "ERROR: default location doesn't exist"
-                    echo -e "Please file this issue on the GitHub."
-                    sleep 3
-                    exit 1
+                    mkdir /var/www/html/
+                    echo "Created default directory"
                 fi
             else
                 if [ -d "$rootdir" ]; then
                     echo -e "Using $rootdir"
                 else
-                    echo -e "The directory you entered doesn't seem to exist" 
-                    echo -e "Please enter a different directory upon rerun."
-                    sleep 3
-                    exit 1
+                    gerror "The directory you entered doesn't seem to exist" 
                 fi
             fi
         done
@@ -377,12 +366,12 @@ if [ "$mode" == "install" ]; then
         if [ -w "$rootdir" ]; then 
             : # pass
         else
-            echo -e "You do not have write permissions for the"
-            echo -e "directory you entered. This could be because"
-            echo -e "it requires root permissions so try running"
-            echo -e "this script as root when trying again."
-            sleep 3
-            exit 1
+            echo -e \
+                "You do not have write permissions for the\n"
+                "\rdirectory you entered. This could be because\n"
+                "\rit requires root permissions so try running\n"
+                "\rthis script as root when trying again."
+            gerror
         fi    
 
         # Moved to rootdir
