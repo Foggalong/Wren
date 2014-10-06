@@ -1,126 +1,126 @@
-/* 	
-	This is the style sheet for the wren blogging platform which is
-	used by all the HTML pages that come by default. You can customise
-	it manually but the recommended proceedure it to use the built in
-	config files as that ensures changes remain consistent and working
+/*     
+    This is the style sheet for the wren blogging platform which is
+    used by all the HTML pages that come by default. You can customise
+    it manually but the recommended proceedure it to use the built in
+    config files as that ensures changes remain consistent and working
 
-	Copyright (C) 2014
-	This program is free software: you can redistribute it and/or modify
-	it under the terms of the GNU General Public License (version 3+) as
-	published by the Free Software Foundation. You should have received
-	a copy of the GNU General Public License along with this program.
-	If not, see <http://www.gnu.org/licenses/>.
+    Copyright (C) 2014
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License (version 3+) as
+    published by the Free Software Foundation. You should have received
+    a copy of the GNU General Public License along with this program.
+    If not, see <http://www.gnu.org/licenses/>.
 */
 
 body {
-	background: #F2F2F2;
-	background-image: url("/images/background.png");
-	background-repeat: repeat;
-	background-attachment: fixed;
-	background-position: 50%;
-	margin: 50px 30px 10px 30px;
+    background: #F2F2F2;
+    background-image: url("/images/background.png");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: 50%;
+    margin: 50px 30px 10px 30px;
 }
 
 h1 {
-	color: #000033;
-	font-family: trebuchet, arial, sans-sherif;
-	font-variant: small-caps;
-	font-weight: bold;
-	text-transform:uppercase;
-	text-decoration: underline;
+    color: #000033;
+    font-family: trebuchet, arial, sans-sherif;
+    font-variant: small-caps;
+    font-weight: bold;
+    text-transform:uppercase;
+    text-decoration: underline;
 }
 
 h2.main-title {
-	color: #000033;
-	font-size: 50px;
-	font-family: trebuchet, arial, sans-sherif;
-	font-variant: normal;
-	font-weight: bold;
-	text-align: center;
+    color: #000033;
+    font-size: 50px;
+    font-family: trebuchet, arial, sans-sherif;
+    font-variant: normal;
+    font-weight: bold;
+    text-align: center;
 }
 
 h2 {
-	color: #000033;
-	font-family: trebuchet, arial, sans-sherif;
-	font-variant: normal;
-	font-weight: bold;
+    color: #000033;
+    font-family: trebuchet, arial, sans-sherif;
+    font-variant: normal;
+    font-weight: bold;
 }
 
 h3 {
-	color: #000033;
-	font-family: trebuchet, arial, sans-sherif;
-	font-variant: normal;
-	font-weight: bold;
+    color: #000033;
+    font-family: trebuchet, arial, sans-sherif;
+    font-variant: normal;
+    font-weight: bold;
 }
 
 h3.date {
-	color: #DED2BA;
-	font-family: trebuchet, arial, sans-sherif;
-	font-variant: normal;
-	font-style: italic;
-	font-size: small;
+    color: #DED2BA;
+    font-family: trebuchet, arial, sans-sherif;
+    font-variant: normal;
+    font-style: italic;
+    font-size: small;
 }
 
 p {
-	font-family: trebuchet, arial, sans-sherif;
+    font-family: trebuchet, arial, sans-sherif;
 }
 
 ul {
-	font-family: trebuchet, arial, sans-sherif;
+    font-family: trebuchet, arial, sans-sherif;
 }
 
 ul.nav {
-	font-family: trebuchet, arial, sans-sherif;
-	list-style-type:none;
-	margin:0;
-	padding:0;
-	overflow:hidden;
+    font-family: trebuchet, arial, sans-sherif;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
 }
 
 ol {
-	font-family: trebuchet, arial, sans-sherif;
+    font-family: trebuchet, arial, sans-sherif;
 }
 
 a {
-	font-family: trebuchet, arial, sans-sherif;
+    font-family: trebuchet, arial, sans-sherif;
 }
 
 td {
-	font-family: trebuchet, arial, sans-sherif;
+    font-family: trebuchet, arial, sans-sherif;
 }
 
 a:link {
-	color: #6699CC;
+    color: #6699CC;
 }
 
 a:visited {
-	color: #660099;
+    color: #660099;
 }
 
 /*For use with external links*/
 a.external:hover {
-	color: orange;
-	font-style: italic;
+    color: orange;
+    font-style: italic;
 }
 
 a.nav:link,a.nav:visited {
-	display:block;
-	width:120px;
-	font-weight:bold;
-	font-variant: small-caps;
-	color:#FFFFFF;
-	background-color:#0066FF;
-	text-align:center;
-	padding:4px;
-	text-decoration:none;
+    display:block;
+    width:120px;
+    font-weight:bold;
+    font-variant: small-caps;
+    color:#FFFFFF;
+    background-color:#0066FF;
+    text-align:center;
+    padding:4px;
+    text-decoration:none;
 }
 
 a.nav:hover,a.nav:active {
-	background-color:#0099FF;
+    background-color:#0099FF;
 }
 
 em {
-	font-family: trebuchet, arial, sans-sherif;
+    font-family: trebuchet, arial, sans-sherif;
 }
 
 li.front {
@@ -128,57 +128,57 @@ li.front {
 }
 
 li.nav {
-	float:left;
-	}
+    float:left;
+    }
 
 div.outer-main {
-	width: 800px;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #FFFFFF;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFFF;
     padding: 10px;
-	/*border-radius: 12px; - unsure of how this looks */
+    /*border-radius: 12px; - unsure of how this looks */
 }
 
 div.inner-main {
-	width: 780px;
-	margin-left: auto;
-	margin-right: auto;
-	opacity: 1;
+    width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 1;
 }
 
 #id-picture {
-	float:left;
-	width: 250px;
-	padding-bottom: 15px;
-	padding-right: 15px;
+    float:left;
+    width: 250px;
+    padding-bottom: 15px;
+    padding-right: 15px;
 }
 
 th {
-	color: #000033;
-	font-family: trebuchet, arial, sans-sherif;
+    color: #000033;
+    font-family: trebuchet, arial, sans-sherif;
 }
 
 th.c {
-	color: #000033;
-	font-family: trebuchet, arial, sans-sherif;
-	text-align: center;
+    color: #000033;
+    font-family: trebuchet, arial, sans-sherif;
+    text-align: center;
 }
 
 td {
-	font-family: trebuchet, arial, sans-sherif;
+    font-family: trebuchet, arial, sans-sherif;
 }
 
 td.c {
-	font-family: trebuchet, arial, sans-sherif;
-	text-align: center;
+    font-family: trebuchet, arial, sans-sherif;
+    text-align: center;
 }
 
 footer.wren {
-	padding: 10px;
-	color:#353535;
-	font-size: 10px;
-	font-variant: normal;
-	text-align: center;
-	font-family: trebuchet, arial, sans-sherif;
+    padding: 10px;
+    color:#353535;
+    font-size: 10px;
+    font-variant: normal;
+    text-align: center;
+    font-family: trebuchet, arial, sans-sherif;
 }
