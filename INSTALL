@@ -19,7 +19,7 @@ function gerror() {
     exit 1
 }
 
-# Installation Method
+
 echo -e \
     "The following command line installation methods are available.\n"
     "\r  1.  As a stand-alone website\n"
@@ -35,6 +35,7 @@ while true; do
     esac
 done
 
+
 depends=(wget tar date wc)
 for package in "${depends[@]}"; do
     if ! type "$package" >> "/dev/null 2>&1"; then
@@ -44,9 +45,7 @@ for package in "${depends[@]}"; do
 done
 
 
-# GitHub Git Type
-# ---------------
-
+# Hosted with GitHub pages
 if [ "$type" == "ghgit" ]; then
     if ! type "git" >> "/dev/null 2>&1"; then
         echo -e \
@@ -58,73 +57,46 @@ if [ "$type" == "ghgit" ]; then
     fi
     
     read -p "What is your GitHub username? " ghuser
-    ghpage="$ghuser.github.io"
+    rootdir="$ghuser.github.io"
 
-    git clone "https://github.com/$ghuser/$ghpage.git" || error="True"
+    git clone "https://github.com/$ghuser/$rootdir.git" || error="True"
     if [ "$error" == True ]; then
         gerror "An error occured! Check above for more info"
-    else
-        cd "$ghpage"
     fi
-
-    if ! [ -d ".wren" ]; then
-        cd ../ && rm -r "$ghpage"
-        gerror "The repo does not appear to be a fork of the Wren repo"
-    fi
-fi
-
-
-# Website type
-# ------------
-
-# Gets web root
-if [ "$type" == "alone" ] || [ "$type" == "along" ]; then
+# Hosted via own webserver
+elif [ "$type" == "alone" ] || [ "$type" == "along" ]; then
     echo -e \
         "Please enter the root location for your website\n" 
         "\rdirectory (can either be absolute or relative).\n"
         "\rThe path default is taken as '/var/www/html/'."
-    while read inputline; do
-        rootdir="$inputline"
-        if [ -z "${what}" ]; then
-            if [ -d "/var/www/html" ]; then
-                echo "Default accepted."
-            else
-                mkdir /var/www/html/
-                echo "Created default directory"
-            fi
-        else
-            if [ -d "$rootdir" ]; then
-                echo -e "Using $rootdir"
-            else
-                gerror "The directory you entered doesn't seem to exist" 
-            fi
-        fi
-    done
-
-    # Checks write permissions
-    if [ -w "$rootdir" ]; then 
-        : # pass
+    
+    read -p "Root directory? " rootdir
+    if [ -z "$rootdir" ]; then
+        rootdir="/var/www/html/"
+    fi
+    
+    if [ -w "$rootdir" ]; then
+        echo "Directory accepted"
     else
-        echo -e \
-            "You do not have write permissions for the\n"
-            "\rdirectory you entered. This could be because\n"
-            "\rit requires root permissions so try running\n"
-            "\rthis script as root when trying again."
-        gerror
-    fi    
+        mkdir "$rootdir" || error="True"
+        if [ "$error" == True ]; then
+            echo -e \
+                "There was an error while assigning your root\n"
+                "\rlocation. This is most likely because you do\n"
+                "\rnot have write permissions for the directory\n"
+                "\ryou entered. Try running this script as root\n"
+                "\ror use a directory you have prermission for."
+            gerror
+        fi
+    fi
+fi
 
-    # Moved to rootdir
-    cd "$rootdir"    
 
-    # Downloads latest Wren release
+cd "$rootdir"
+# Checks if Wren needs downloading
+if ! [ -d .wren ]; then 
     wget "https://github.com/wren-blog/wren/archive/v$version.tar.gz"
     tar xf "v$version.tar.gz"
-    rm "v$version.tar.gz"
-
-    # Moves files into root
     mv "wren-$version/*" .
-    rm -r "wren-$version"
-
-    # DOOES REST OF STUFF
-    fi
+    rm -r "wren-$version" "v$version.tar.gz"
 fi
