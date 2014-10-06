@@ -11,6 +11,8 @@
 # a copy of the GNU General Public License along with this program.
 # If not, see <http://www.gnu.org/licenses/>.
 
+version="0.2-alpha"
+
 function gerror() {
     echo -e "$1"
     sleep 3
@@ -19,70 +21,45 @@ function gerror() {
 
 # Installation Method
 echo -e \
-    "The following installation methods are available.\n"
+    "The following command line installation methods are available.\n"
     "\r  1.  As a stand-alone website\n"
     "\r  2.  Alongside an existing website\n"
     "\r  3.  Using GitHub pages and git\n"
-    "\r  4.  Using GitHub pages (web-only)"
 while true; do
     read -p "\nWhich installation method do you want to use? " answer
     case $answer in
         [1]* ) mode="alone"; break;;
         [2]* ) mode="along"; break;;
         [3]* ) mode="ghgit"; break;;
-        [4]* ) mode="ghweb"; break;;
-        * ) echo "Please choose an option from above (1-4)";;
+        * ) echo "Please choose an option from above (1-3)";;
     esac
 done
 
-# GitHub Web Type
-if [ "$mode" == "ghweb" ]; then
-    echo -e \
-        "This method is designed for web use only and so\n"
-        "\rdoesn't require any instance. Go to the wiki\n"
-        "\rfor more information on this method.\n"
-    gerror
-fi
-
-# Dependencies
 depends=(wget tar date wc)
 for package in "${depends[@]}"; do
     if ! type "$package" >> "/dev/null 2>&1"; then
-        gerror "Using wren requires '$package' to be installed"
+        echo "Using wren requires '$package' to be installed."
+        gerror "Please install it and then re-run this script"
     fi
 done
-if [ "$type" == "ghgit" ]; then
-    if ! type "git" >> "/dev/null 2>&1"; then
-        echo -e \
-            "This method requires 'git' to be installed. If\n"
-            "\ryou wish to use GitHub pages without git please\n"
-            "\ruse the web-only option. Otherwise, install it\n"
-            "\rand rerun this script."
-        gerror
-    fi
-fi
 
 
 # GitHub Git Type
 # ---------------
 
 if [ "$type" == "ghgit" ]; then
-    while true; do
-        # Asks for username
-        read -p "What is your GitHub username? " answer
-        if [ -z "$answer"] || wget "https://github.com/$answer" >/dev/null 2>&1 
-        then
-            echo "GitHub user does not exist!"
-        else
-            break
-        fi
-    done
-
-    # GitHub Username
-    ghuser="$answer"
+    if ! type "git" >> "/dev/null 2>&1"; then
+        echo -e \
+            "This method requires 'git' to be installed. If\n"
+            "\ryou with to use GitHub pages without git please\n"
+            "\ruse the web-only option. Otherwise, install it\n"
+            "\rand rereun this script to continue."
+        gerror
+    fi
+    
+    read -p "What is your GitHub username? " ghuser
     ghpage="$ghuser.github.io"
 
-    # Cloning repo
     git clone "https://github.com/$ghuser/$ghpage.git" || error="True"
     if [ "$error" == True ]; then
         gerror "An error occured! Check above for more info"
@@ -90,10 +67,7 @@ if [ "$type" == "ghgit" ]; then
         cd "$ghpage"
     fi
 
-    # Checking repo
-    if [ -d ".wren" ]; then
-        : #pass
-    else
+    if ! [ -d ".wren" ]; then
         cd ../ && rm -r "$ghpage"
         gerror "The repo does not appear to be a fork of the Wren repo"
     fi
