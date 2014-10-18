@@ -22,7 +22,7 @@ echo -e \
     "The following command line installation methods are available.\n" \
     "\r  1.  As a stand-alone website\n" \
     "\r  2.  Alongside an existing website\n" \
-    "\r  3.  Using GitHub pages and git\n" \
+    "\r  3.  Using GitHub pages and git\n"
 while true; do
     read -p "\nWhich installation method do you want to use? " answer
     case $answer in
