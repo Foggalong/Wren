@@ -13,11 +13,9 @@
 
 version="0.2-alpha"
 
-function gerror() {
-    echo -e "$1"
-    sleep 3
-    exit 1
-}
+# Allows for 'Run in terminal...' time out
+function sucess() { echo -e "$1"; sleep 3; exit 0; }
+function gerror() { echo -e "$1"; sleep 3; exit 1; }
 
 
 echo -e \
@@ -117,10 +115,12 @@ echo -e \
 
 read -p "What is your full name? " ans
 substitute "USERS_NAME_GOES_HERE" "$ans"
-
+ 
 if [ "$mode" == "ghgit" ]; then
     ans="http://$rootdir"
 else
     read -p "What is your blog full blog URL? " ans
 fi
 substitute "URL_GOES_HERE" "$ans"
+
+
