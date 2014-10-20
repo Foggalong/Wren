@@ -24,7 +24,7 @@ echo -e \
     "\r  2.  Alongside an existing website\n" \
     "\r  3.  Using GitHub pages and git\n"
 while true; do
-    read -p "\nWhich installation method do you want to use? " answer
+    read -p "Which installation method do you want to use? " answer
     case $answer in
         [1]* ) mode="alone"; break;;
         [2]* ) mode="along"; break;;
@@ -36,7 +36,7 @@ done
 
 depends=(wget tar date wc)
 for package in "${depends[@]}"; do
-    if ! type "$package" >> "/dev/null 2>&1"; then
+    if ! type "$package" >> /dev/null 2>&1; then
         echo "Using wren requires '$package' to be installed."
         gerror "Please install it and then re-run this script"
     fi
@@ -45,7 +45,7 @@ done
 
 # Hosted with GitHub pages
 if [ "$mode" == "ghgit" ]; then
-    if ! type "git" >> "/dev/null 2>&1"; then
+    if ! type "git" >> /dev/null 2>&1; then
         echo -e \
             "This method requires 'git' to be installed. If\n" \
             "\ryou with to use GitHub pages without git please\n" \
