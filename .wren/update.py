@@ -117,7 +117,7 @@ def clean(string):
     return "".join(tmp)
 
 urltitle = clean(title)
-url = "http://fogg.me.uk/blog/" + filedate + "/" + urltitle
+url = "http://BLOGURL/blog/" + filedate + "/" + urltitle
 
 tmp = []
 for item in catagories:

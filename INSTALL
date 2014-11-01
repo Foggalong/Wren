@@ -1,0 +1,30 @@
+#!/usr/bin/bash
+
+# This is the setup script for Wren. At the moment it's GNU/Linux
+# specific (requiring bash and the GNU utils.) but this may change
+# in future releases depending on demand.
+
+# Allows timeout when launched vai 'Run in Terminal'
+function sucess() { sleep 3; exit 0; }
+function gerror() { sleep 3; exit 1; }
+
+function supsed() {
+    find . -type f -print0 | xargs -0 sed -i 's/${1}/${2}/g'
+}
+
+
+# Blog URL
+read -p "Whar is your website URL? " answer
+if curl --output /dev/null --silent --head --fail "$yourURL"
+then
+    url="$answer"
+    url=${url//http:\/\//}
+    supsed BLOGURL $url
+else
+    echo -e \
+        "The website you entered doesn't seem to exist. Please\n" \
+        "\rverify you've got the right domain an then try again"
+    gerror
+fi
+
+success
