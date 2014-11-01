@@ -257,7 +257,7 @@ for cat in (catagories + ["all"]):
 
 newlines = [
     "<article>",
-    '    <h3><a href="{0}>{1}</a> - {2}</h3>'.format(url, title, datesmll),
+    '    <h3><a href="{0}">{1}</a> - {2}</h3>'.format(url, title, datesmll),
     "    <p>" + summary + "</p>",
     "</article>\n",
     '<br class="small">\n'
