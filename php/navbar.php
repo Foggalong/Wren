@@ -10,11 +10,6 @@
                 <img class="image" src="http://fogg.me.uk/images/nav/blog.svg" alt="Blog">
             </a>
         </li>
-        <li class="nav" title="Work">
-            <a class="nav" href="http://fogg.me.uk/work">
-                <img class="image" src="http://fogg.me.uk/images/nav/work.svg" alt="Work">
-            </a>
-        </li>
         <li class="nav" title="About">
             <a class="nav" href="http://fogg.me.uk/about">
                 <img class="image" src="http://fogg.me.uk/images/nav/about.svg" alt="About">
