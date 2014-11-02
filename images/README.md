@@ -1,4 +1,4 @@
-## Images
+# Images
 Wren comes with various place holder images which can be swapped out for images of your choice. This readme simply provides some information on the images included.
 
 ### Background
