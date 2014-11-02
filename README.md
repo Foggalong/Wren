@@ -1,8 +1,7 @@
 # Wren
+A lightweight blogging platform written in Python, licensed under the GNU GPLv3+. It does catagories, RSS, and estimated reading time, as well as comments through Disqus. **This software is still under heavey development. It is not yet feature complete and may contain bugs. Use at your own risk.**
 
-**This software is still under heavey development. It is not yet feature complete and may contain bugs. Use at your own risk.**
-
-A lightweight blogging platform written in Python, licensed under the GNU GPLv3+. I was using a similar script to update my website and thought I'd go the extra mile and take it back a step and make it more general. You can read more at [the wiki](https://github.com/Foggalong/Wren/wiki) you're basically presented four ways to use it:
+I was using a similar script to update my website and thought I'd go the extra mile and take it back a step and make it more general. You can read more at [the wiki](https://github.com/Foggalong/Wren/wiki), but you're basically presented four ways to use it:
 
   1.  As a stand-alone website
   2.  Alongside an existing website
