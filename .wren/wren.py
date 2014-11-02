@@ -27,9 +27,9 @@ def gerror(message):
 # I wanted to avoid relying on outside programs.
 
 def sed(find, replace, target):
-    with open(target, "r") as file:
+    with open(target, "r", encoding='utf-8') as file:
         lines = file.readlines()
-    with open(target, "w") as file:
+    with open(target, "w", encoding='utf-8') as file:
         for line in lines:
             file.write(sub(find, replace, line))
 
