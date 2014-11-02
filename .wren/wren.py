@@ -37,7 +37,9 @@ def sed(find, replace, target):
 def supsed(find, replace):
     for root, dirs, files in walk("../", topdown=False):
         for name in files:
-            if ".git" not in name:
+            if (".git" or "images") in name:
+                pass
+            else:
                 f = path.join(root, name)
                 sed(find, replace, f)
 
