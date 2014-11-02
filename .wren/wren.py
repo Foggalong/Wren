@@ -61,6 +61,25 @@ if path.isfile("catdat.csv"):
     blogurl = input("What is your website url? ")
     supsed("BLOGURL", blogurl)
 
+    # Wren can integrate Disqus as a comments system if
+    # the user so wants. In future versions I'm going to
+    # have a look around for alternative systems.
+    q = 0
+    while q == 0:
+        ans = input("Do you wish to use Disqus for comments? (y/n) ")
+        if ans == "y":
+            print("If you don't have a Disqus account go to")
+            print("https://disqus.com/profile/signup/ now!")
+            shortname = input("What is your Disqus shortname? ")
+            sed("DSHORTNAME", shortname, "../php/comments.php")
+            q = 1
+            pass
+        elif ans == "n":
+            with open("../php/comments.php", "w+") as file:
+                file.write('<br class="small">\n')
+            q = 1
+            pass
+
     with open("catdat.csv", "w+") as file:
         file.write("Category,Count\n\n")
 
