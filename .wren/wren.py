@@ -58,6 +58,7 @@ if ".wren" not in getcwd():
 if path.isfile("catdat.csv"):
     blogger = input("What is your full name? ")
     supsed("BLOGGER", blogger)
+
     blogurl = input("What is your website url? ")
     supsed("BLOGURL", blogurl)
 
