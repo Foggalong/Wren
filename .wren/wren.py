@@ -84,7 +84,7 @@ if not path.isfile("catdat.csv"):
             pass
 
     with open("catdat.csv", "w+") as file:
-        file.write("Category,Count\n\n")
+        file.write("Category,Count")
 
 
 # Extracts the blog body from the input file. It's fixed
