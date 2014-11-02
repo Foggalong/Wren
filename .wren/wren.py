@@ -55,7 +55,7 @@ if ".wren" not in getcwd():
 # currently check if the URL is correctly formatted, nor
 # does it check if it actually exists.
 
-if path.isfile("catdat.csv"):
+if not path.isfile("catdat.csv"):
     blogger = input("What is your full name? ")
     supsed("BLOGGER", blogger)
 
