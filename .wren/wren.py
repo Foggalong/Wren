@@ -38,7 +38,7 @@ def supsed(find, replace):
     for root, dirs, files in walk("../", topdown=False):
         for name in files:
             target = path.join(root, name)
-            if (".git" or "images") in target:
+            if (".git" in target) or ("images" in target):
                 pass
             else:
                 sed(find, replace, target)
@@ -340,9 +340,10 @@ countrange = max(catcount)-min(catcount)
 
 try:
     ratio = sizerange/countrange
-    catsizes = [count * ratio for count in catcount]
 except:
     ratio = 1
+
+catsizes = [count * ratio for count in catcount]
 
 string = "        <p>"
 for cat in catnames:
