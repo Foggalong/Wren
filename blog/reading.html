@@ -15,25 +15,28 @@
         <h2>What's the time?</h2>
         <h4 align="left">~1 minutes 22 seconds reading</h3>
         <article>
-            <p>About six thirty. But in all seriousness you may have noticed the time that is appended to the top of each of my blogs along the lines of “~2 minutes 50 seconds reading”. This is an approximated reading time for that particular blog.</p>
+            <p>You may have noticed the time that is appended to the top of each of my blogs along the lines of “~2 minutes 50 seconds reading”. This is an approximated reading time for that particular blog.</p>
 
             <h3>Why?</h3>
-            <p>I decided to add this to each of my posts after seeing them on the GitHub guides pages (https://guides.github.com/). It got me thinking about how often I look at a blog post and don't read past the first few lines because I see how long it is. Most of the time that length wouldn't equate to more than a few minutes reading, but in this fast paced world where micro-blogging is king that doesn’t seem to register. I then reflected on the fact that I had more often read the post when told before hand roughly how long I'd be reading it for, so the decision to implement it myself seemed like a no brainer.</p>
+            <p>This is a built in feature of the <a href="https://github.com/Foggalong/Wren">Wren</a> blogging platform. A sizable proportion of users don't take the time to read the blogs they are linked to because they misjudge the time it will take them to read the blog. Features like this one keep those readers interested.</p>
 
             <h3>How?</h3>
-            <p>I did a little reading and found that the average reading time on a screen is about 200 word per minute. I then wrote myself a little script in Python that I can just plug the blog into and have it spit out the reading time.</p>
+            <p>The code that makes this calculation is written in Python and is very easy to understand, even for the novis programmer.</p>
 
             <code>
-                #!/usr/bin/python3<br/>
-                from math import floor<br/>
-                text = input("Paste text...\n").strip().split(" ")<br/>
-                if len(text)/200 < 1:<br/>
-                    print("~%d seconds reading" % (float(len(text))*0.3))<br/>
-                else:<br/>
-                    print("~%d minutes %d seconds reading" % (floor(len(text)/float(200)), ((len(text)/float(200))-floor(len(text)/float(200)))*60))<br/>
+                #!/usr/bin/python3<br />
+                from math import floor<br />
+                <br />
+                if len(text)/200 &lt; 1:<br />
+                    secs = int(float(len(text))*0.3)<br />
+                    readtime = "~{0} seconds reading".format(secs)<br />
+                else:<br />
+                    mins = int(floor(len(text)/float(200)))<br />
+                    secs = int(((len(text)/float(200))-mins)*60)<br />
+                    readtime = "~{0} minutes {1} seconds reading".format(mins, secs)<br />
             </code>
 
-            <p>It's a bit dirty, but it gets the job done. I had it set to support both minutes and seconds because some of my blogs (looking at you book reviews) otherwise read as 0.28 minutes which is just silly.</p>
+            <p>It's set to give the time in minutes or seconds dependent on the length of the post, and generally is an easy solution to the problem.</p>
         </article>
         <?php include "../php/comments.php";?>
     </div>
