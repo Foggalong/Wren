@@ -4,7 +4,7 @@ Wren comes with various place holder images which can be swapped out for images 
 ### Background
 The background image displays titled so if you're replacing the default with one of your own it's a good idea to make sure that all 4 edges can wrap around.
 
-The current background ([main.jpg](https://github.com/Foggalong/Wren/blob/master/images/background/main.png))of Wren is just a modified version of a wallpaper I found online. I believe the original image ([old](https://github.com/Foggalong/Wren/blob/master/images/background/old.png)) was unlicensed but I'll chase this up as soon as possible.
+The current background ([main.jpg](https://github.com/Foggalong/Wren/blob/master/images/background/main.png)) of Wren is just a modified version of a wallpaper I found online. I believe the original image ([old](https://github.com/Foggalong/Wren/blob/master/images/background/old.png)) was unlicensed but I'll chase this up as soon as possible.
 
 ### Icons
 The icons are displayed at both 48px and 96px so if you're replacing the defaults with your own it's a good idea to make the size some multiple of 48px. It would also be recommended to use SVG as this allows them to scale nicely.
