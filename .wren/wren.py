@@ -12,8 +12,14 @@ from shutil import copy
 from time import sleep
 
 
-# Thes function allows for timeout when the Wren
+# These functions allow for timeout when the Wren
 # updater is run via the "Run In Terminal" command
+
+def sucess(message):
+    print(message + "\n")
+    sleep(3)
+    exit(0)
+
 
 def gerror(message):
     print("ERROR: {0}".format(message))
@@ -58,6 +64,8 @@ if ".wren" not in getcwd():
 # does it check if it actually exists.
 
 if not path.isfile("catdat.csv"):
+    print("Setting up Wren...")
+
     blogger = input("What is your full name? ")
     supsed("BLOGGER", blogger)
 
@@ -85,6 +93,8 @@ if not path.isfile("catdat.csv"):
 
     with open("catdat.csv", "w+") as file:
         file.write("Category,Count")
+
+    sucess("Setup complete!")
 
 
 # Extracts the blog body from the input file. It's fixed
@@ -252,8 +262,7 @@ for cat in (catagories + ["all"]):
         if "<!-- List Begins Here -->" in line:
             n = lines.index(line)
             lines.insert(n + 1, ' ' * 12 + newline + "\n")
-    catfile = open("../blog/cat/" + cat + ".html", "w")
-    catfile.truncate()
+    catfile = open("../blog/cat/" + cat + ".html", "w+")
     for line in lines:
         catfile.write(line)
     catfile.close()
@@ -285,8 +294,7 @@ for cat in (catagories + ["all"]):
             n = lines.index(line)
             for x in range(0, 7):
                 lines.insert(n + x + 1, " " * 8 + newlines[x] + "\n")
-    catfeed = open("../blog/feed/" + cat + ".xml", "w")
-    catfeed.truncate()
+    catfeed = open("../blog/feed/" + cat + ".xml", "w+")
     for line in lines:
         catfeed.write(line)
     catfeed.close()
@@ -318,8 +326,7 @@ for line in lines:
         n = lines.index(line)
         for x in range(1, 6):
             lines.pop(n-x)
-blogfile = open("../blog/index.html", "w")
-blogfile.truncate()
+blogfile = open("../blog/index.html", "w+")
 for line in lines:
     blogfile.write(line)
 blogfile.close()
@@ -358,12 +365,11 @@ for line in lines:
         index = lines.index(line) + 1
         lines.pop(index)
         lines.insert(index, string)
-cloudfile = open("../blog/cat/index.html", "w")
-cloudfile.truncate()
+cloudfile = open("../blog/cat/index.html", "w+")
 for line in lines:
     cloudfile.write(line)
 cloudfile.close()
 print("Updated the catagory wordcloud")
 
 
-print("Done!\n")
+sucess("Done!")
