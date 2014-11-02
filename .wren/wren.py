@@ -6,7 +6,7 @@
 
 from datetime import datetime
 from math import floor
-from os import getcwd, makedirs, path
+from os import getcwd, makedirs, path, walk
 from re import search, sub
 from shutil import copy
 from time import sleep
@@ -34,13 +34,35 @@ def sed(find, replace, target):
             file.write(sub(find, replace, line))
 
 
-# Checks running from the Wren directory so that
-# the relative locations of files can be known
+def supsed(find, replace):
+    for root, dirs, files in walk("../", topdown=False):
+        for name in files:
+            if ".git" not in name:
+                f = path.join(root, name)
+                sed(find, replace, f)
+
+
+# Checks running from the .wren directory so that the
+# relative locations of files can be known.
 
 if ".wren" not in getcwd():
     gerror("please run from the .Wren directory")
-else:
-    print("Updating blog...")
+
+
+# If the Wren has not been run before the following code
+# will run. This sets up all the files with any variables
+# that are user modified. WARNING: that this code does not
+# currently check if the URL is correctly formatted, nor
+# does it check if it actually exists.
+
+if path.isfile("catdat.csv"):
+    blogger = input("What is your full name? ")
+    supsed("BLOGGER", blogger)
+    blogurl = input("What is your website url? ")
+    supsed("BLOGURL", blogurl)
+
+    with open("catdat.csv", "w+") as file:
+        file.write("Category,Count\n\n")
 
 
 # Extracts the blog body from the input file. It's fixed
@@ -192,7 +214,7 @@ for cat in catagories:
 
 with open("catdat.csv", "w") as file:
     for x in range(0, len(catnames)-1):
-        file.write("{0},{1}\n".format(catnames[x],catcount[x]))
+        file.write("{0},{1}\n".format(catnames[x], catcount[x]))
 
 
 # This inserts a single line of HTML which links to the new
