@@ -37,11 +37,11 @@ def sed(find, replace, target):
 def supsed(find, replace):
     for root, dirs, files in walk("../", topdown=False):
         for name in files:
-            if (".git" or "images") in name:
+            path = path.join(root, name)
+            if (".git" or "images") in path:
                 pass
             else:
-                f = path.join(root, name)
-                sed(find, replace, f)
+                sed(find, replace, path)
 
 
 # Checks running from the .wren directory so that the
