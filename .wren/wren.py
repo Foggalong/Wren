@@ -312,7 +312,7 @@ with open("../blog/index.html", 'r') as file:
 for line in lines:
     if "<!-- Recent Blogs Begin Here -->" in line:
         n = lines.index(line)
-        for x in range(0, 4):
+        for x in range(0, 5):
             lines.insert(n + x + 1, " " * 8 + newlines[x] + "\n")
     elif "<!-- Recent Blogs End Here -->" in line:
         n = lines.index(line)
