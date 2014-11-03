@@ -242,9 +242,13 @@ for cat in newcat:
 
 for cat in catagories:
     pos = catnames.index(cat)
-    count = catcount[pos] + 1
+    newcount = catcount[pos] + 1
     catcount.pop(pos)
-    catcount.insert(pos, count)
+    catcount.insert(pos, newcount)
+
+combined = sorted(list(zip(catnames, catcount)))
+catnames = [name for (name, count) in combined]
+catcount = [count for (name, count) in combined]
 
 with open("catdat.csv", "w") as file:
     file.write("Category,Count\n")
