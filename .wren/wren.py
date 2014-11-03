@@ -176,7 +176,7 @@ url = "http://BLOGURL/blog/" + filedate + "/" + urltitle
 tmp = []
 for item in catagories:
     item = clean(item)
-    if len(item) != 0:
+    if len(item) != 0 and item not in tmp:
         tmp.append(item)
 catagories = tmp
 
