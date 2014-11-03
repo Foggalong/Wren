@@ -141,8 +141,6 @@ else:
     secs = int(((len(text)/float(200))-mins)*60)
     readtime = "~{0} minutes {1} seconds".format(mins, secs)
 
-readtime += ' <a class="h4" href="../../../reading">reading</a>'
-
 
 print("Please enter the following data as prompted")
 title = input("\nTitle:\n")
@@ -200,6 +198,10 @@ while q == 0:
     elif ans == "n":
         gerror("meta data rejected")
 print("Meta data accepted\n")
+
+
+# Adds formatting to the readtime line
+readtime += ' <a class="h4" href="../../../reading">reading</a>'
 
 
 # Copies the blog data to the template file and then moves
