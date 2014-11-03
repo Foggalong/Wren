@@ -360,6 +360,7 @@ for cat in catnames:
     style = "font-size: {0}em;".format(catsizes[catnames.index(cat)])
     string += '<a href="{0}" style="{1}">'.format(cat, style)
     string += cat + "</a> "
+string += "</p>\n"
 
 with open("../blog/cat/index.html", "r") as file:
     lines = [line for line in file]
