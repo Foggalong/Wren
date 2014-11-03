@@ -135,11 +135,13 @@ text = " ".join(TXTcontent)
 
 if len(text)/200 < 1:
     secs = int(float(len(text))*0.3)
-    readtime = "~{0} seconds reading".format(secs)
+    readtime = "~{0} seconds".format(secs)
 else:
     mins = int(floor(len(text)/float(200)))
     secs = int(((len(text)/float(200))-mins)*60)
-    readtime = "~{0} minutes {1} seconds reading".format(mins, secs)
+    readtime = "~{0} minutes {1} seconds".format(mins, secs)
+
+readtime += ' <a class="h4" href="../../../reading">'
 
 
 print("Please enter the following data as prompted")
