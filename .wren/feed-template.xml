@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>Fogg Blog TEMPLATE</title>
-        <link>http://BLOGURL/blog</link>
-        <description>My latest TEMPLATE blogs</description>
+        <title>BLOGGER's TEMPLATE posts</title>
+        <link>http://BLOGURL/blog/cat/TEMPLATE</link>
+        <description>My latest TEMPLATE posts</description>
         
         <!-- List Begins Here --> 
     </channel>
