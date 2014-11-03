@@ -135,11 +135,13 @@ text = " ".join(TXTcontent)
 
 if len(text)/200 < 1:
     secs = int(float(len(text))*0.3)
-    readtime = "~{0} seconds".format(secs)
+    time = "~{0} seconds".format(secs)
 else:
     mins = int(floor(len(text)/float(200)))
     secs = int(((len(text)/float(200))-mins)*60)
-    readtime = "~{0} minutes {1} seconds".format(mins, secs)
+    time = "~{0} minutes {1} seconds".format(mins, secs)
+
+readtime += ' <a class="h4" href="../../../reading">reading</a>'
 
 
 print("Please enter the following data as prompted")
@@ -185,7 +187,7 @@ print("\nGIVEN INFORMATION")
 print("Title:", title)
 print("URL:", url)
 print("Time:", datelong)
-print("Reading time:", readtime)
+print("Reading time:", time)
 print("Catagories:", catagories)
 print("Summary:", summary, "\n")
 
@@ -198,10 +200,6 @@ while q == 0:
     elif ans == "n":
         gerror("meta data rejected")
 print("Meta data accepted\n")
-
-
-# Adds formatting to the readtime line
-readtime += ' <a class="h4" href="../../../reading">reading</a>'
 
 
 # Copies the blog data to the template file and then moves
@@ -328,7 +326,7 @@ for line in lines:
             lines.insert(n + x + 1, " " * 8 + newlines[x] + "\n")
     elif "<!-- Recent Blogs End Here -->" in line:
         n = lines.index(line)
-        for x in range(1, 6):
+        for x in range(1, 8):
             lines.pop(n-x)
 blogfile = open("../blog/index.html", "w+")
 for line in lines:
