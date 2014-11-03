@@ -247,6 +247,7 @@ for cat in catagories:
     catcount.insert(pos, count)
 
 with open("catdat.csv", "w") as file:
+    file.write("Category,Count")
     for x in range(0, len(catnames)-1):
         file.write("{0},{1}\n".format(catnames[x], catcount[x]))
 
