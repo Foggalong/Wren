@@ -323,14 +323,23 @@ newlines = [
 ]
 
 with open("../blog/index.html", 'r') as file:
-    lines, recentcount, record = [], 0, True
+    lines, recentcount, record = [], -1, True
     for line in file:
+        # Whether to write to file
+        if record is True:
+            lines.append(line)
+        elif record is False:
+            pass
+        # Conditions
         if '<br class="small">' in line:
             recentcount += 1
-        if recentcount > 5:
+        if '<!-- Recent Blogs End Here -->' in line:
+            record = True
+            recentcount = 0
+        if recentcount > 4:
             record = False
-        if record is True:
-            lines.append(line) 
+        print("{0}:{1}:{2}".format(line, record, recentcount))
+
 
 for line in lines:
     if "<!-- Recent Blogs Begin Here -->" in line:
