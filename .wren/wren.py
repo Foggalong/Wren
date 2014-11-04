@@ -323,7 +323,7 @@ newlines = [
 ]
 
 with open("../blog/index.html", 'r') as file:
-    lines, recentcount, record = [], -1, True
+    lines, recentcount, record = [], 0, True
     for line in file:
         # Whether to write to file
         if record is True:
@@ -338,7 +338,6 @@ with open("../blog/index.html", 'r') as file:
             recentcount = 0
         if recentcount > 4:
             record = False
-        print("{0}:{1}:{2}".format(line, record, recentcount))
 
 
 for line in lines:
