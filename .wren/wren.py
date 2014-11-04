@@ -295,7 +295,16 @@ newlines = [
 
 for cat in (catagories + ["all"]):
     with open("../blog/feed/" + cat + ".xml", "r") as file:
-        lines = [line for line in file]
+        lines, items, record = [], 0, True
+        for line in file:
+            if "<item>" in line:
+                items += 1
+            if "<!-- List Ends Here -->" in line:
+                record, items = True, 0
+            if items > 26:
+                record = False
+            if record is True:
+                lines.append(line)
     for line in lines:
         if "<!-- List Begins Here -->" in line:
             n = lines.index(line)
@@ -325,14 +334,12 @@ newlines = [
 with open("../blog/index.html", 'r') as file:
     lines, recent, record = [], 0, True
     for line in file:
-        # Conditions
         if '<br class="small">' in line:
             recent += 1
         if '<!-- Recent Blogs End Here -->' in line:
             record, recent = True, 0
-        if recent > 5:
+        if recent > 6:
             record = False
-        # Whether to write to file
         if record is True:
             lines.append(line)
 
