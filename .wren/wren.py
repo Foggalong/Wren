@@ -301,7 +301,7 @@ for cat in (catagories + ["all"]):
                 items += 1
             if "<!-- List Ends Here -->" in line:
                 record, items = True, 0
-            if items > 26:
+            if items > 24:
                 record = False
             if record is True:
                 lines.append(line)
@@ -338,7 +338,7 @@ with open("../blog/index.html", 'r') as file:
             recent += 1
         if '<!-- Recent Blogs End Here -->' in line:
             record, recent = True, 0
-        if recent > 6:
+        if recent > 4:
             record = False
         if record is True:
             lines.append(line)
@@ -365,9 +365,9 @@ print("Updated the main blogs page")
 smallsize = 1.0
 largesize = 5.0
 sizerange = largesize - smallsize
-countrange = max(catcount)-min(catcount)
 
 try:
+    countrange = max(catcount)-min(catcount)
     ratio = sizerange/countrange
 except:
     ratio = 1
