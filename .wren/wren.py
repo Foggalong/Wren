@@ -259,7 +259,7 @@ with open("catdat.csv", "w") as file:
 # This inserts a single line of HTML which links to the new
 # blog into each of the catagory lists which it falls into.
 
-newline = '<li><a href="{0}">{1} - {2}</a></li>'
+newline = '<li><a href="{0}">{1} : {2}</a></li>'
 newline = newline.format(url, datesmll, title)
 
 for cat in (catagories + ["all"]):
@@ -295,7 +295,16 @@ newlines = [
 
 for cat in (catagories + ["all"]):
     with open("../blog/feed/" + cat + ".xml", "r") as file:
-        lines = [line for line in file]
+        lines, items, record = [], 0, True
+        for line in file:
+            if "<item>" in line:
+                items += 1
+            if "<!-- List Ends Here -->" in line:
+                record, items = True, 0
+            if items > 24:
+                record = False
+            if record is True:
+                lines.append(line)
     for line in lines:
         if "<!-- List Begins Here -->" in line:
             n = lines.index(line)
@@ -316,23 +325,29 @@ for cat in (catagories + ["all"]):
 
 newlines = [
     "<article>",
-    '    <h3><a href="{0}">{1}</a> - {2}</h3>'.format(url, title, datesmll),
+    '    <h3><a href="{0}">{1}</a> : {2}</h3>'.format(url, title, datesmll),
     "    <p>" + summary + "</p>",
     "</article>\n",
     '<br class="small">\n'
 ]
 
 with open("../blog/index.html", 'r') as file:
-    lines = [line for line in file]
+    lines, recent, record = [], 0, True
+    for line in file:
+        if '<br class="small">' in line:
+            recent += 1
+        if '<!-- Recent Blogs End Here -->' in line:
+            record, recent = True, 0
+        if recent > 4:
+            record = False
+        if record is True:
+            lines.append(line)
+
 for line in lines:
     if "<!-- Recent Blogs Begin Here -->" in line:
         n = lines.index(line)
         for x in range(0, 5):
             lines.insert(n + x + 1, " " * 8 + newlines[x] + "\n")
-    elif "<!-- Recent Blogs End Here -->" in line:
-        n = lines.index(line)
-        for x in range(1, 8):
-            lines.pop(n-x)
 blogfile = open("../blog/index.html", "w+")
 for line in lines:
     blogfile.write(line)
@@ -350,9 +365,9 @@ print("Updated the main blogs page")
 smallsize = 1.0
 largesize = 5.0
 sizerange = largesize - smallsize
-countrange = max(catcount)-min(catcount)
 
 try:
+    countrange = max(catcount)-min(catcount)
     ratio = sizerange/countrange
 except:
     ratio = 1
