@@ -141,8 +141,6 @@ else:
     secs = int(((len(text)/float(200))-mins)*60)
     time = "~{0} minutes {1} seconds".format(mins, secs)
 
-readtime = time + ' <a class="h4" href="../../../reading">reading</a>'
-
 
 print("Please enter the following data as prompted")
 title = input("\nTitle:\n")
