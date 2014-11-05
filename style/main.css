@@ -101,15 +101,14 @@ h3 {
 h4 {
     font-variant: normal;
     font-weight: bold;
-    color: #DED2BA;
+    color: #cab38b;
     font-style: italic;
     font-size: small;
     text-decoration: none;
 }
 
 a.h4:link, a.h4:visited {
-    color:#3b8aff;
-    text-decoration: none;
+    color: #bb9c6a;
 }
 
 
