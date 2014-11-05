@@ -146,7 +146,7 @@ readtime = time + ' <a class="h4" href="../../../reading">reading</a>'
 
 print("Please enter the following data as prompted")
 title = input("\nTitle:\n")
-catagories = input("\nCatagories:\n").split(" ")
+categories = input("\nCategories:\n").split(" ")
 summary = input("\nSummary:\n")
 
 
@@ -176,11 +176,11 @@ urltitle = clean(title)
 url = "http://BLOGURL/blog/" + filedate + "/" + urltitle
 
 tmp = []
-for item in catagories:
+for item in categories:
     item = clean(item)
     if len(item) != 0 and item not in tmp:
         tmp.append(item)
-catagories = tmp
+categories = tmp
 
 
 print("\nGIVEN INFORMATION")
@@ -188,7 +188,7 @@ print("Title:", title)
 print("URL:", url)
 print("Time:", datelong)
 print("Reading time:", time)
-print("Catagories:", catagories)
+print("Categories:", categories)
 print("Summary:", summary, "\n")
 
 q = 0
@@ -216,7 +216,7 @@ sed("READINGTIME", readtime, dest)
 sed("BLOGCONTENT", "".join(HTMLcontent), dest)
 
 
-# When a new catagory is created it needs all the files
+# When a new category is created it needs all the files
 # associated with it creating too, along with the existing
 # files that need to refrence it updating.
 
@@ -227,7 +227,7 @@ catnames = [line.split(",")[0] for line in catdat]
 catcount = [int(line.split(",")[1]) for line in catdat]
 
 newcat = []
-for item in catagories:
+for item in categories:
     if item not in catnames:
         newcat.append(item)
 
@@ -238,9 +238,9 @@ for cat in newcat:
     sed("TEMPLATE", cat, "../blog/cat/" + cat + ".html")
     catnames.append(cat)
     catcount.append(0)
-    print("Created", cat, "catagory")
+    print("Created", cat, "category")
 
-for cat in catagories:
+for cat in categories:
     pos = catnames.index(cat)
     newcount = catcount[pos] + 1
     catcount.pop(pos)
@@ -257,12 +257,12 @@ with open("catdat.csv", "w") as file:
 
 
 # This inserts a single line of HTML which links to the new
-# blog into each of the catagory lists which it falls into.
+# blog into each of the category lists which it falls into.
 
 newline = '<li><a href="{0}">{1} : {2}</a></li>'
 newline = newline.format(url, datesmll, title)
 
-for cat in (catagories + ["all"]):
+for cat in (categories + ["all"]):
     with open("../blog/cat/" + cat + ".html", "r") as file:
         lines = [line for line in file]
     for line in lines:
@@ -273,7 +273,7 @@ for cat in (catagories + ["all"]):
     for line in lines:
         catfile.write(line)
     catfile.close()
-    print("Added blog to", cat, "catagory list")
+    print("Added blog to", cat, "category list")
 
 
 # Inserts a the nessisary lines into the XML files so that
@@ -293,7 +293,7 @@ newlines = [
     "</item>\n"
 ]
 
-for cat in (catagories + ["all"]):
+for cat in (categories + ["all"]):
     with open("../blog/feed/" + cat + ".xml", "r") as file:
         lines, items, record = [], 0, True
         for line in file:
@@ -355,7 +355,7 @@ blogfile.close()
 print("Updated the main blogs page")
 
 
-# The following code will update the catagory word cloud. The
+# The following code will update the category word cloud. The
 # design is inspired by that used by TagCrowd.com but isn't
 # disimilar to the ones commonly used on Wordpress. Note that
 # this code does not yet emulate the colouring aspect of the
@@ -392,7 +392,7 @@ cloudfile = open("../blog/cat/index.html", "w+")
 for line in lines:
     cloudfile.write(line)
 cloudfile.close()
-print("Updated the catagory wordcloud")
+print("Updated the category wordcloud")
 
 
 sucess("Done!")
