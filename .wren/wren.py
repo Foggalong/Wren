@@ -135,11 +135,11 @@ text = " ".join(TXTcontent)
 
 if len(text)/200 < 1:
     secs = int(float(len(text))*0.3)
-    time = "~{0} seconds".format(secs)
+    readtime = "~{0} seconds".format(secs)
 else:
     mins = int(floor(len(text)/float(200)))
     secs = int(((len(text)/float(200))-mins)*60)
-    time = "~{0} minutes {1} seconds".format(mins, secs)
+    readtime = "~{0} minutes {1} seconds".format(mins, secs)
 
 
 print("Please enter the following data as prompted")
@@ -185,7 +185,7 @@ print("\nGIVEN INFORMATION")
 print("Title:", title)
 print("URL:", url)
 print("Time:", datelong)
-print("Reading time:", time)
+print("Reading time:", readtime)
 print("Categories:", categories)
 print("Summary:", summary, "\n")
 
@@ -323,7 +323,7 @@ for cat in (categories + ["all"]):
 
 newlines = [
     "<article>",
-    '    <h4 align="right">' + datesmll + '</h4>',
+    '    <h4>  <div style="float: right;">'+ datesmll + '</div></h4>',
     '    <h3><a href="{0}">{1}</a></h3>'.format(url, title),
     "    <p>" + summary + "</p>",
     "</article>\n",
