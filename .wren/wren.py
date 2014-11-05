@@ -323,7 +323,7 @@ for cat in (categories + ["all"]):
 
 newlines = [
     "<article>",
-    '    <h4>  <div style="float: right;">'+ datesmll + '</div></h4>',
+    '    <h4>  <div style="float: right;">' + datesmll + '</div></h4>',
     '    <h3><a href="{0}">{1}</a></h3>'.format(url, title),
     "    <p>" + summary + "</p>",
     "</article>\n",
@@ -371,7 +371,10 @@ try:
 except:
     ratio = 1
 
-catsizes = [count * ratio for count in catcount]
+catsizes = []
+for count in catcount:
+    size = smallsize + (count - 1) * ratio
+    catsizes.append("{0:.2f}".format(size))
 
 string = "        <p>"
 for cat in catnames:
