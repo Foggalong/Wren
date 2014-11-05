@@ -308,7 +308,7 @@ for cat in (categories + ["all"]):
     for line in lines:
         if "<!-- List Begins Here -->" in line:
             n = lines.index(line)
-            for x in range(0, 7):
+            for x in range(0, len(newlines)):
                 lines.insert(n + x + 1, " " * 8 + newlines[x] + "\n")
     catfeed = open("../blog/feed/" + cat + ".xml", "w+")
     for line in lines:
@@ -325,7 +325,7 @@ for cat in (categories + ["all"]):
 
 newlines = [
     "<article>",
-    '    <h4 align="right">' + datesmll + '</h4>'
+    '    <h4 align="right">' + datesmll + '</h4>',
     '    <h3><a href="{0}">{1}</a></h3>'.format(url, title),
     "    <p>" + summary + "</p>",
     "</article>\n",
@@ -347,7 +347,7 @@ with open("../blog/index.html", 'r') as file:
 for line in lines:
     if "<!-- Recent Blogs Begin Here -->" in line:
         n = lines.index(line)
-        for x in range(0, 5):
+        for x in range(0, len(newlines)):
             lines.insert(n + x + 1, " " * 8 + newlines[x] + "\n")
 blogfile = open("../blog/index.html", "w+")
 for line in lines:
