@@ -126,7 +126,7 @@ for line in HTMLcontent:
         elif record is True:
             raw += i
     TXTcontent.append(raw.strip())
-text = " ".join(TXTcontent)
+text = " ".join(TXTcontent).split(" ")
 
 
 # This calculates the approximate reading time for the blog.
