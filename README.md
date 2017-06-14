@@ -1,2 +1,2 @@
-# blog
-Content for my blog
+# Blog
+Content used on my blog.
