@@ -1,0 +1,25 @@
+#!/bin/env sh
+
+# Website build script. To do CI testing use the `--test` flag which
+# removes the build if successful. To serve the website on a success
+# use the `--serve` flag.
+
+set -e  # make `-e` as the default for output
+
+echo "Building the site..."
+bundle exec jekyll build
+
+# Very basic test for success, just checks if the main page exists
+if test -e "./_site/index.html"; then
+  echo "It builds!"
+  if [ "$1" = "--test" ]; then
+    rm -Rf _site
+    exit 0
+  elif [ "$1" = "--serve" ]; then
+    echo "Serving the site..."
+    jekyll serve
+  fi
+else
+  echo "Huh. That's odd. The site doesn't seem to build."
+  exit 1
+fi
