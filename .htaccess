@@ -1,6 +1,3 @@
-# Sees HTML as PHP
-RemoveHandler .html .htm
-AddType application/x-httpd-php .php .htm .html
 # Error Pages
 ErrorDocument 400 /errors/400.html
 ErrorDocument 403 /errors/403.html

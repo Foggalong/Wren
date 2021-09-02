@@ -1,1 +1,0 @@
-<a href="http://BLOGURL/LICENSE" class="foot">Copyright</a> © 2014 BLOGGER · <a href="http://validator.w3.org/check?uri=referer" class="foot">HTML5</a> · Made using <a href="https://github.com/Foggalong/wren" class="foot">Wren</a>
