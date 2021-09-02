@@ -43,7 +43,7 @@ jobs:
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
-    - uses: github/codeql-action/init@v1
+      uses: github/codeql-action/init@v1
       with:
         languages: ${{ matrix.language }}
         # If you wish to specify custom queries, you can do so here or in a config file.
@@ -52,7 +52,7 @@ jobs:
         # queries: ./path/to/local/query, your-org/your-repo/queries@main
 
     - name: Perform CodeQL Analysis
-    - uses: github/codeql-action/analyze@v1
+      uses: github/codeql-action/analyze@v1
 
 
   # Check the Jekyll itself for errors and syntax
@@ -64,7 +64,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # First check that the Jekyll can build
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+    
       - name: Build the site in the jekyll/builder container
         run: |
           docker run \
@@ -72,8 +74,8 @@ jobs:
           jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
 
       # Now check that the markdown is properly formatted
-      - uses: articulate/actions-markdownlint@v1.1.0
       - name: Lint markdown files with markdown-lint
+        uses: articulate/actions-markdownlint@v1.1.0
         with:
           # Markdown files to scan (default is **/*.{md,markdown})
           files: '**/*.md' 
