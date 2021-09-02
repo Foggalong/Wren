@@ -1,0 +1,91 @@
+# Config file for settings affecting the whole blog. For technical reasons
+# this file is *NOT* auto-reloaded with 'bundle exec jekyll serve'; after
+# making changes here restart the server for them to take effect.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML
+# files, you will see them accessed via {{ site.title }}, {{ site.email }},
+# and so on. You can create any custom variable you would like, and they
+# will be accessible in the templates via {{ site.myvariable }}.
+title: fogg.uk
+author:
+  name: Josh Fogg
+  email: joshua.h.fogg@gmail.com
+# TODO replace with an updated description
+description: >-  # this means to ignore newlines until the next key
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://127.0.0.1:4000" # base hostname for your site (local)
+# url: "https:fogg.uk" # base hostname for your site (hosted)
+
+# Build settings
+markdown: kramdown  # enables extended markdown features (e.g footnotes)
+theme: minima       # upstream theme to fallback on in case of gaps
+
+plugins:
+  - jekyll-feed          # rss feeds (default Jekyll)
+  - jekyll-seo-tag       # search engine optimization (default Minima)
+  - jekyll-reading-time  # post reading times
+
+# These items will not be processed or trigger regeneration by default.
+# Any item listed under the `exclude:` key here will be automatically
+# added to the internal "default list". Excluded items can be processed
+# by explicitly listing the directories or their entries' file path in
+# the `include:` list.
+exclude:
+  - _drafts
+  - .jekyll-cache/
+  - .sass-cache/
+  - .editorconfig
+  - .gitignore
+  - build
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
+  - README.md
+
+# Splits blog feed into pages; requires the jekyll-paginate gem
+# paginate: 10
+
+# Set to true to show blog excerpts on the posts page
+show_excerpts: false
+
+# Uses `strftime` datetime string formatting.
+# date_format: "%b %-d, %Y"  # Minima Default
+date_format: "%Y-%m-%d"      # ISO 8601
+
+# Generate social links in footer
+social_links:
+  # active
+  # TODO create social link for email
+  github:  foggalong
+  instagram: joshua.h.fogg
+  linkedin: joshfogg
+  twitter: foggalong
+  # # inactive
+  # facebook: jekyll
+  # youtube: jekyll
+  # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
+  # youtube_channel_name: CloudCannon
+  # gitlab:
+  # - username: jekyll
+  #   instance: example.com
+  # # non-existent
+  # devto: jekyll
+  # dribbble: jekyll
+  # flickr:   jekyll
+  # pinterest: jekyll
+  # telegram: jekyll
+  # microdotblog: jekyll
+  # keybase: jekyll
+  # mastodon:
+  # - username: jekyll
+  #   instance: example.com
+
+# Specify the pages that appear in the header and their order 
+header_pages:
+- index.md
+- blog.md
+- about.md

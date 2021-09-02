@@ -1,0 +1,35 @@
+<p class="post-meta">
+  <!-- Ensures will work with posts and pages -->
+  {%- if page.date -%}
+    {%- assign p = page -%}
+  {%- else -%}
+    {%- assign p = post -%}
+  {% endif %}
+  <!-- Date the post was originally published -->
+  <time class="dt-published" datetime="{{ p.date | date_to_xmlschema }}" itemprop="datePublished">
+    {{ p.date | date: site.date_format }}
+  </time>
+  <!-- If post was modified, include that date after a tilde inside the post -->
+  {%- if p.modified_date -%}
+    ~ 
+    {%- assign mod_date = p.modified_date | date_to_xmlschema -%}
+    <!-- TODO find a graceful way to include this information -->
+    <time class="dt-modified" datetime="{{ mod_date }}" itemprop="dateModified">
+        {{ mod_date | date: site.date_format }}
+    </time>
+  {%- endif -%}
+  <!-- After cdot, include time it takes to read post content -->
+  • {{ p.content | reading_time }} read
+  <!-- If author(s) specified, after cdot include them at the end -->
+  {%- if p.author -%}
+    •
+    {% for author in p.author %}
+      <!-- TODO work out what this junk is for -->
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-author h-card" itemprop="name">{{ author }}</span>
+      </span>
+      <!-- Separate multiple authors by commas -->
+      {%- if forloop.last == false %}, {% endif -%}
+    {% endfor %}
+  {%- endif -%}   
+</p>
