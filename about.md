@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 <div id="id-picture">
-  <img src="{{site.url}}/images/profile.jpg" alt="photo of me" style="float:left; padding:20px; height:250px; width:250px;">
+  <img src="{{ '/images/profile.jpg' | relative_url }}" alt="photo of me" style="float:left; padding:20px; height:250px; width:250px;">
 </div>
 
 This is the personal website of me, {{ site.author.name }}.
