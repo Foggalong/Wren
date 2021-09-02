@@ -17,7 +17,7 @@ if test -e "./_site/index.html"; then
     exit 0
   elif [ "$1" = "--serve" ]; then
     echo "Serving the site..."
-    jekyll serve
+    bundle exec jekyll serve
   fi
 else
   echo "Huh. That's odd. The site doesn't seem to build."

@@ -8,7 +8,7 @@ permalink: /about/
   <img src="{{site.url}}/images/profile.jpg" alt="photo of me" style="float:left; padding:20px; height:250px; width:250px;">
 </div>
 
-This is the personal website of me, {{ author.name }}.
+This is the personal website of me, {{ site.author.name }}.
 
 You can use this space to write a bit about yourself, who you are, what you
 do, and what this blog is going to be used for. You can also add a profile

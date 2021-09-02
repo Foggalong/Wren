@@ -15,13 +15,13 @@ source "https://rubygems.org"
 # Use of ~> can also be compounded with >=, !=, etc for complex setups.
 
 # This ensures the current Jekyll version is running
-gem "jekyll", "~> 4.2.0"  # Minima requires ">= 3.5", "< 5.0"
+# gem "jekyll", "~> 4.2.0"  # Minima requires ">= 3.5", "< 5.0"
 gem "minima", "~> 2.5"    # Default Jekyll theme, here as fallback
 gem "bundler"             # Minima development dependency
 
 # To use GitHub Pages, remove `gem "jekyll"` above and uncomment the
 # line below. To upgrade, run `bundle update github-pages`.
-# gem "github-pages", group: :jekyll_plugins
+gem "github-pages", group: :jekyll_plugins
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
