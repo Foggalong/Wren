@@ -1,26 +1,26 @@
 # For most projects, this workflow file will not need changing; you simply need
-# to commit it to your repository.
-#
-# You may wish to alter this file to override the set of languages analyzed,
-# or to provide custom queries or build logic.
-#
-# ******** NOTE ********
-# We have attempted to detect the languages in your repository. Please check
-# the `language` matrix defined below to confirm you have the correct set of
-# supported CodeQL languages.
-#
+# to commit it to your repository. You may wish to alter this file to override
+# the set of languages analyzed, or to provide custom queries or build logic.
+
 name: "CodeQL"
 
+
+# Controls when the workflow will run
 on:
+  # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ master ]
+  # Triggers the workflow on push or pull request events but only for the master branch
   schedule:
-    - cron: '38 4 * * 1'
+    # Runs at 6am UTC every Monday
+    - cron: '0 6 * * 1'
+
 
 jobs:
+  # CodeQL's main job
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
@@ -32,11 +32,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'python' ]
         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python' ]
-        # Learn more:
-        # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed
+        language: [ 'python', 'javascript' ]
+        # Learn more: https://git.io/JExL3
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -51,21 +51,31 @@ jobs:
         # Prefix the list here with "+" to use these queries and those in the config file.
         # queries: ./path/to/local/query, your-org/your-repo/queries@main
 
-    # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
-    # If this step fails, then you should remove it and run the build manually (see below)
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v1
-
-    # ℹ️ Command-line programs to run using the OS shell.
-    # 📚 https://git.io/JvXDl
-
-    # ✏️ If the Autobuild fails above, remove it and uncomment the following three lines
-    #    and modify them (or add more) to build your code if your project
-    #    uses a compiled language
-
-    #- run: |
-    #   make bootstrap
-    #   make release
-
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
+
+
+  # Check the Jekyll itself for errors and syntax
+  build:
+    name: Build
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # First check that the Jekyll can build
+      - uses: actions/checkout@v2
+      - name: Build the site in the jekyll/builder container
+        run: |
+          docker run \
+          -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+          jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+
+      # Now check that the markdown is properly formatted
+      - uses: articulate/actions-markdownlint@v1.1.0
+      - name: Lint markdown files with markdown-lint
+        with:
+          # Markdown files to scan (default is **/*.{md,markdown})
+          files: '**/*.md' 
+          # Try to fix basic errors
+          fix: true
