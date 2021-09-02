@@ -1,0 +1,38 @@
+# The `codeql-analysis.yml` workflow runs a test build in the jekyll/bundler
+# Docker image but doesn't actually deploy the website. Want to run another
+# GHA which deploys the demo website to GitHub Pages. Doing this rather than
+# using GitHub Page's' default builder allows us to use more Gems.
+name: "Deploy Demo"
+
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push events only for the master branch
+  push:
+    branches: [ master ]
+  schedule:
+    # Runs at 6am UTC every Monday
+    - cron: '0 6 * * 1'
+
+
+jobs:
+  jekyll:
+    runs-on: ubuntu-16.04
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Use GitHub Actions' cache to shorten build times and decrease load on servers
+    - name: Loading GHA cache
+    - uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    # Specify the target branch (optional)
+    - uses: helaili/jekyll-action@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        target_branch: 'demo-site'
