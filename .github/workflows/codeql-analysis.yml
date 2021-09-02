@@ -73,11 +73,13 @@ jobs:
           -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
           jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
 
-      # Now check that the markdown is properly formatted
+      # Then check the markdown files are properly formatted
       - name: Lint markdown files with markdown-lint
         uses: articulate/actions-markdownlint@v1.1.0
         with:
           # Markdown files to scan (default is **/*.{md,markdown})
-          files: '**/*.md' 
+          files: '**/*.md'
+          # Ignore the built website, might have some funky files
+          ignore: _site/
           # Try to fix basic errors
           fix: true
