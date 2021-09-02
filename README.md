@@ -4,18 +4,20 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/foggalong/wren/badge)](https://www.codefactor.io/repository/github/foggalong/wren)
 [![MIT Licensed](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE.md)
 
-A lightweight blogging platform written in Python, licensed under the
-GNU GPLv3+. It does categories, RSS, and estimated reading time, as well as
-comments through Disqus.
+A lightweight theme for [Jekyll](https://github.com/jekyll/jekll) based on
+[Minima](https://github.com/jekyll/minima). Check out [this page][deployment]
+to see what the default looks like and for information on usage consult
+[the wiki](https://github.com/Foggalong/Wren/wiki).
 
-**This is beta software. It may contain bugs; use at your own risk.**
+**Be aware this is beta software. It will contain bugs; use at your own risk.**
 
-You can read more at [the wiki](https://github.com/Foggalong/Wren/wiki),
-but you're basically presented two ways to use it:
+[deployment]: https://foggalong.github.io/Wren
 
-  1. As a stand-alone website
-  2. Using GitHub pages and git
+Features:
 
-Each method has its own documentation and step-by-step walkthroughs, and
-because Wren follows the [KISS](https://en.wikipedia.org/wiki/KISS_principle)
-principle each is super easy to use.
+- Atom/RSS feed using [Jekyll Feed](https://github.com/jekyll/jekyll-feed),
+- Reading time from [Jekyll Reading Time](https://github.com/risan/jekyll-reading-time).
+
+Those tools and my modifications are [MIT licensed](LICENSE.md). All image
+files are [CC-BY-SA](https://creativecommons.org/licenses/by-sa/2.0/) unless
+specified otherwise.
