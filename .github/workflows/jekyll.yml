@@ -1,4 +1,4 @@
-name: Jekyll site CI
+name: Jekyll CI
 
 on:
   push:
@@ -12,9 +12,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # First check that the Jekyll can build
     - uses: actions/checkout@v2
     - name: Build the site in the jekyll/builder container
       run: |
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+
+    # Now check that the markdown is properly formatted
+    - uses: articulate/actions-markdownlint@v1.1.0
+    - name: Lint markdown files with markdown-lint
+      with:
+        # Markdown files to scan (default is **/*.{md,markdown})
+        files: '**/*.md' 
+        # Try to fix basic errors
+        # fix: # optional
