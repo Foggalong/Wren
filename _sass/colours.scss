@@ -6,10 +6,9 @@ $brand-color:           #828282 !default;
 $brand-color-light:     lighten($brand-color, 40%) !default;
 $brand-color-dark:      darken($brand-color, 25%) !default;
 
-$site-title-color:      $brand-color-dark !default;
-
-$text-color:            #111111 !default;
-$background-color:      #fdfdfd !default;
+$text-color:            #3d3d3d !default;
+$background-color:      #9b9da3 !default;
+$wrapper-color:         #fdfdfd;
 $code-background-color: #eeeeff !default;
 
 $link-base-color:       #2a7ae2 !default;

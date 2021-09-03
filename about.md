@@ -4,9 +4,7 @@ title: About
 permalink: /about/
 ---
 
-<div id="id-picture">
-  <img src="{{ '/images/profile.jpg' | relative_url }}" alt="photo of me" style="float:left; padding:20px; height:250px; width:250px;">
-</div>
+<img class="left" src="{{ '/images/profile.jpg' | relative_url }}" alt="photo of me" style="width:250px;">
 
 This is the personal website of me, {{ site.author.name }}.
 

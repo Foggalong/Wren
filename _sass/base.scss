@@ -1,25 +1,26 @@
 // TODO add suitable header to base.scss
 
+
+// Setting Up
 html {
   font-size: $base-font-size;
+  // Reserves space for the scollbar even if not needed, which
+  // prevents the website interface shifting around when going
+  // between pages which do and don't need it.
+  overflow-y: scroll;
 }
 
-/**
- * Reset some basic elements
- */
+// Reset some basic elements
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
   margin: 0;
   padding: 0;
-
 }
 
 
-
-/**
- * Basic styling
- */
+// Basic Styling
+// =============
 body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
   color: $text-color;
@@ -34,13 +35,13 @@ body {
   min-height: 100vh;
   flex-direction: column;
   overflow-wrap: break-word;
+  // HACK fixes the navbar position, but not ideal
+  width: $content-width+100px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-
-
-/**
- * Set `margin-bottom` to maintain vertical rhythm
- */
+// Set `margin-bottom` to maintain vertical rhythm
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
@@ -53,28 +54,37 @@ hr {
   margin-bottom: $spacing-unit;
 }
 
-/**
- * `main` element
- */
-main {
-  display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
+// `main` element
+ main {
+  display: block;  // default is 'inline' in IE11
 }
 
 
+// Images
+// ======
 
-/**
- * Images
- */
 img {
   max-width: 100%;
   vertical-align: middle;
 }
 
+img.left {
+  padding-right: $spacing-unit;
+  padding-bottom: $spacing-unit;
+  float:left;
+}
+
+img.right {
+  padding-left: $spacing-unit;
+  padding-bottom: $spacing-unit;
+  float:left;
+}
 
 
-/**
- * Figures
- */
+// Figures
+// =======
+// TODO work out the difference between images and figures
+
 figure > img {
   display: block;
 }
@@ -84,10 +94,9 @@ figcaption {
 }
 
 
+// Lists
+// =====
 
-/**
- * Lists
- */
 ul, ol {
   margin-left: $spacing-unit;
 }
@@ -100,19 +109,17 @@ li {
 }
 
 
+// Headings
+// ========
 
-/**
- * Headings
- */
 h1, h2, h3, h4, h5, h6 {
   font-weight: $base-font-weight;
 }
 
 
+// Links
+// =====
 
-/**
- * Links
- */
 a {
   color: $link-base-color;
   text-decoration: none;
@@ -156,10 +163,9 @@ blockquote {
 }
 
 
+// Code formatting
+// ===============
 
-/**
- * Code formatting
- */
 pre,
 code {
   font-family: $code-font-family;
@@ -195,30 +201,23 @@ pre {
 }
 
 
+// Wrapper
+// =======
 
-/**
- * Wrapper
- */
 .wrapper {
-  max-width: calc(#{$content-width} - (#{$spacing-unit}));
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: $spacing-unit / 2;
-  padding-left: $spacing-unit / 2;
+  background-color: $wrapper-color;
+  border-radius: 18px;
+  padding-right: $spacing-unit;
+  padding-left: $spacing-unit;
+  padding-top: $spacing-unit;
+  box-shadow: 0px 0.25em 0.25em rgba(0, 0, 0, 0.1);
   @extend %clearfix;
-
-  @media screen and (min-width: $on-large) {
-    max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
-  }
 }
 
 
+// Clearfix
+// ========
 
-/**
- * Clearfix
- */
 %clearfix:after {
   content: "";
   display: table;
@@ -226,10 +225,8 @@ pre {
 }
 
 
-
-/**
- * Icons
- */
+// Icons
+// =====
 
 .orange {
   color: #f66a0a;
@@ -243,15 +240,14 @@ pre {
   width: 16px;
   height: 16px;
   display: inline-block;
-  fill: currentColor;
+  fill: $text-color;
   padding: 5px 3px 2px 5px;
   vertical-align: text-bottom;
 }
 
 
-/**
- * Tables
- */
+// Table Formatting
+// ================
 table {
   margin-bottom: $spacing-unit;
   width: 100%;

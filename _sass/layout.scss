@@ -1,209 +1,101 @@
 // TODO add suitable header to layout.scss
 
-/**
- * Site header
- */
+// Header
+// ======
 .site-header {
-  border-top: 5px solid $border-color-03;
-  border-bottom: 1px solid $border-color-01;
   min-height: $spacing-unit * 1.865;
+  position: 50px;
+  float: right;
   line-height: $base-line-height * $base-font-size * 2.25;
-
-  // Positioning context for the mobile navigation icon
-  position: relative;
-}
-
-.site-title {
-  @include relative-font-size(1.625);
-  font-weight: 300;
-  letter-spacing: -1px;
-  margin-bottom: 0;
-  float: left;
-
-  @include media-query($on-palm) {
-    padding-right: 45px;
-  }
-
-  &,
-  &:visited {
-    color: $site-title-color;
-  }
+  position: fixed;  // don't want navigation icons moving
 }
 
 .site-nav {
-  position: absolute;
-  top: 9px;
-  right: $spacing-unit / 2;
-  background-color: $background-color;
-  border: 1px solid $border-color-01;
-  border-radius: 5px;
-  text-align: right;
-
-  .nav-trigger {
-    display: none;
-  }
-
-  .menu-icon {
-    float: right;
-    width: 36px;
-    height: 26px;
-    line-height: 0;
-    padding-top: 10px;
-    text-align: center;
-
-    > svg path {
-      fill: $border-color-03;
-    }
-  }
-
-  label[for="nav-trigger"] {
-    display: block;
-    float: right;
-    width: 36px;
-    height: 36px;
-    z-index: 2;
-    cursor: pointer;
-  }
-
-  input ~ .trigger {
-    clear: both;
-    display: none;
-  }
-
-  input:checked ~ .trigger {
-    display: block;
-    padding-bottom: 5px;
-  }
+  // Horizontal navigation bar for devices slimmer than 750px
+  width: 750px;  // HACK to make sure horizontal bar covers screen
+  height: 45px;  // HACK Should be a better way to do this
+  background-color: $wrapper-color;
+  display: block;
+  box-shadow: 0px 0.25em 0.25em rgba(0, 0, 0, 0.1);
+  @extend %clearfix;
 
   .page-link {
+    text-decoration: none;
     color: $text-color;
     line-height: $base-line-height;
-    display: block;
     padding: 5px 10px;
-
-    // Gaps between nav items, but not on the last one
-    &:not(:last-child) {
-      margin-right: 0;
-    }
-    margin-left: 20px;
   }
 
-  @media screen and (min-width: $on-medium) {
-    position: static;
+  .svg-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  // Vertical nav buttons if device wider than 750px
+  @media screen and (min-width: 750px) {
+    background-color: #00000000;
+    margin-left: $spacing-unit;
+    width: 50px;  // HACK counters the 750px hack in .site-nav
+    box-shadow: none;
+    align-items: right;
     float: right;
-    border: none;
-    background-color: inherit;
-
-    label[for="nav-trigger"] {
-      display: none;
-    }
-
-    .menu-icon {
-      display: none;
-    }
-
-    input ~ .trigger {
-      display: block;
-    }
+    margin-top: 30px;
 
     .page-link {
-      display: inline;
-      padding: 0;
-
-      &:not(:last-child) {
-        margin-right: 20px;
-      }
+      display: block;
       margin-left: auto;
     }
   }
 }
 
 
-
-/**
- * Site footer
- */
+// Site footer
+// ===========
 .site-footer {
-  border-top: 1px solid $border-color-01;
   padding: $spacing-unit 0;
-}
-
-.footer-heading {
-  @include relative-font-size(1.125);
-  margin-bottom: $spacing-unit / 2;
-}
-
-.feed-subscribe .svg-icon {
-  padding: 5px 5px 2px 0
-}
-
-.contact-list,
-.social-media-list {
-  list-style: none;
-  margin-left: 0;
-}
-
-.footer-col-wrapper,
-.social-links {
   @include relative-font-size(0.9375);
-  color: $brand-color;
-}
+  color: $text-color; // ;
+  text-align: center;
+  margin: auto;
 
-.footer-col {
-  margin-bottom: $spacing-unit / 2;
-}
-
-.footer-col-1,
-.footer-col-2 {
-  width: calc(50% - (#{$spacing-unit} / 2));
-}
-
-.footer-col-3 {
-  width: calc(100% - (#{$spacing-unit} / 2));
-}
-
-@media screen and (min-width: $on-large) {
-  .footer-col-1 {
-    width: calc(35% - (#{$spacing-unit} / 2));
-  }
-
-  .footer-col-2 {
-    width: calc(20% - (#{$spacing-unit} / 2));
-  }
-
-  .footer-col-3 {
-    width: calc(45% - (#{$spacing-unit} / 2));
+  a {
+    // Means there's no distinction for footer links
+    color: $link-visited-color;
   }
 }
 
-@media screen and (min-width: $on-medium) {
-  .footer-col-wrapper {
-    display: flex
-  }
-
-  .footer-col {
-    width: calc(100% - (#{$spacing-unit} / 2));
-    padding: 0 ($spacing-unit / 2);
-
-    &:first-child {
-      padding-right: $spacing-unit / 2;
-      padding-left: 0;
-    }
-
-    &:last-child {
-      padding-right: 0;
-      padding-left: $spacing-unit / 2;
+.social-media-list {
+  display: table;
+  list-style: none;
+  margin: 0 auto;
+  li {
+    float: left;
+    margin: 5px 10px 5px 0;
+    &:last-of-type { margin-right: 0 }
+    a {
+      display: block;
+      padding: $spacing-unit / 4;
+      // border: 1px solid $border-color-01;
+      &:hover { border-color: $border-color-02 }
     }
   }
 }
 
 
-
-/**
- * Page content
- */
+// Page content
+// ============
 .page-content {
+  width: $content-width;
+  max-width: 80%;
+  float: left;
+  margin-right: auto;
+  margin-left: auto;
   padding: $spacing-unit 0;
+  // allow extra space for navigation bar if device 750px or narrower
+  @media screen and (max-width: 750px) {
+    // HACK find a way to dynamically get the height of the nav bar rather than eyeballing 60px
+    padding: $spacing-unit+60px 0;
+  }
   flex: 1 0 auto;
 }
 
@@ -289,24 +181,6 @@
 }
 
 
-.social-media-list {
-  display: table;
-  margin: 0 auto;
-  li {
-    float: left;
-    margin: 5px 10px 5px 0;
-    &:last-of-type { margin-right: 0 }
-    a {
-      display: block;
-      padding: $spacing-unit / 4;
-      border: 1px solid $border-color-01;
-      &:hover { border-color: $border-color-02 }
-    }
-  }
-}
-
-
-
 /**
  * Pagination navbar
  */
@@ -329,16 +203,5 @@
         border: 1px dashed;
       }
     }
-  }
-}
-
-
-
-/**
- * Grid helpers
- */
-@media screen and (min-width: $on-large) {
-  .one-half {
-    width: calc(50% - (#{$spacing-unit} / 2));
   }
 }
