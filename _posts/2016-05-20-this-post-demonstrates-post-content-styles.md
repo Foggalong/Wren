@@ -26,7 +26,7 @@ Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutru
 
 Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc.
 
-### Some great subheading (h3)
+### Another great subheading (h3)
 
 Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
 
@@ -34,7 +34,7 @@ Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum e
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt.
 
-### Some great subheading (h3)
+### More great subheading (h3)
 
 Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum.
 
@@ -47,7 +47,6 @@ Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin con
   </body>
 </html>
 ```
-
 
 In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.
 
@@ -87,8 +86,6 @@ In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla e
 3. Third item, what what?!
 4. Fourth item, fo sheezy my neezy
 
-
-
 ## Headings are cool! (h2)
 
 Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
@@ -99,6 +96,8 @@ Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet b
 
 ### Tables
 
+We can make rigid tables.
+
 Title 1               | Title 2               | Title 3               | Title 4
 --------------------- | --------------------- | --------------------- | ---------------------
 lorem                 | lorem ipsum           | lorem ipsum dolor     | lorem ipsum dolor sit
@@ -106,6 +105,7 @@ lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ip
 lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
 lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
 
+We can make sloppy tables.
 
 Title 1 | Title 2 | Title 3 | Title 4
 --- | --- | --- | ---
