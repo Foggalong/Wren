@@ -13,10 +13,11 @@
 .site-nav {
   // Horizontal navigation bar for devices slimmer than 750px
   width: 750px;  // HACK to make sure horizontal bar covers screen
-  height: 45px;  // HACK Should be a better way to do this
+  height: 50px;  // HACK Should be a better way to do this
+  border-bottom: 1px solid $border-color;
   background-color: $wrapper-color;
   display: block;
-  box-shadow: 0px 0.25em 0.25em rgba(0, 0, 0, 0.1);
+  box-shadow: $base-shadow;
   @extend %clearfix;
 
   .page-link {
@@ -75,8 +76,6 @@
     a {
       display: block;
       padding: $spacing-unit / 4;
-      // border: 1px solid $border-color-01;
-      &:hover { border-color: $border-color-02 }
     }
   }
 }
@@ -199,7 +198,7 @@
       border: 1px solid transparent;
 
       &.pager-edge {
-        color: $border-color-01;
+        color: $border-color;
         border: 1px dashed;
       }
     }

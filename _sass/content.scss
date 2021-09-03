@@ -148,7 +148,7 @@ a {
  */
 blockquote {
   color: $brand-color;
-  border-left: 4px solid $border-color-01;
+  border-left: 4px solid $brand-color-light;
   padding-left: $spacing-unit / 2;
   @include relative-font-size(1.125);
   font-style: italic;
@@ -170,12 +170,14 @@ pre,
 code {
   font-family: $code-font-family;
   font-size: 0.9375em;
-  border: 1px solid $border-color-01;
+  border: 1px solid $border-color;
+  box-shadow: $base-shadow;
   border-radius: 3px;
   background-color: $code-background-color;
 }
 
 code {
+  box-shadow: none;
   padding: 1px 5px;
 }
 
@@ -210,7 +212,7 @@ pre {
   padding-right: $spacing-unit;
   padding-left: $spacing-unit;
   padding-top: $spacing-unit;
-  box-shadow: 0px 0.25em 0.25em rgba(0, 0, 0, 0.1);
+  box-shadow: $base-shadow;
   @extend %clearfix;
 }
 
@@ -255,6 +257,7 @@ table {
   color: $table-text-color;
   border-collapse: collapse;
   border: 1px solid $table-border-color;
+  box-shadow: $base-shadow;
   tr {
     &:nth-child(even) {
       background-color: $table-zebra-color;
