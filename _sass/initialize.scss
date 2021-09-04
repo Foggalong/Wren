@@ -2,6 +2,10 @@
 
 // TODO add suitable header to initialize.scss
 
+
+// Default Variables
+// =================
+
 // General content font related default values
 $base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Segoe UI Symbol", "Segoe UI Emoji", "Apple Color Emoji", Helvetica, Roboto, Arial, sans-serif !default;
 $base-font-size:   16px !default;
@@ -70,6 +74,10 @@ $on-laptop: 800px !default;
 $on-medium: $on-palm !default;
 $on-large:  $on-laptop !default;
 
+
+// SASS Mixins
+// ===========
+
 // Use media queries like this:
 // @include media-query($on-palm) {
 //   .wrapper {
@@ -77,10 +85,9 @@ $on-large:  $on-laptop !default;
 //     padding-left: $spacing-unit / 2;
 //   }
 // }
-// Notice the following mixin uses max-width, in a deprecated, desktop-first
-// approach, whereas media queries used elsewhere now use min-width.
+
 @mixin media-query($device) {
-  @media screen and (max-width: $device) {
+  @media screen and (min-width: $device) {
     @content;
   }
 }
@@ -90,7 +97,9 @@ $on-large:  $on-laptop !default;
 }
 
 
-// Import the rest of the SASS
+// SASS Imports
+// ============
+
 @import
   "content",  // Styling for the markdown content itself
   "layout"    // Sets the layout of the website

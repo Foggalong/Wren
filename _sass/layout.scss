@@ -1,5 +1,6 @@
 // TODO add suitable header to layout.scss
 
+
 // Header
 // ======
 .site-header {
@@ -11,9 +12,9 @@
 }
 
 .site-nav {
-  // Horizontal navigation bar for devices slimmer than 750px
-  width: 750px;  // HACK to make sure horizontal bar covers screen
-  height: 50px;  // HACK Should be a better way to do this
+  // Horizontal navigation bar for small devices
+  width: $on-laptop;  // HACK to make sure horizontal bar covers screen
+  height: 50px;       // HACK Should be a better way to do this
   border-bottom: 1px solid $border-color;
   background-color: $wrapper-color;
   display: block;
@@ -32,11 +33,12 @@
     height: 24px;
   }
 
-  // Vertical nav buttons if device wider than 750px
-  @media screen and (min-width: 750px) {
-    background-color: #00000000;
+  // Vertical nav buttons if device a laptop or bigger
+  @include media-query($on-laptop) {
+    background-color: transparent;
+    border-bottom: 0px;
     margin-left: $spacing-unit;
-    width: 50px;  // HACK counters the 750px hack in .site-nav
+    width: 50px;  // HACK counters the $on-laptop hack in .site-nav
     box-shadow: none;
     align-items: right;
     float: right;
@@ -89,11 +91,11 @@
   float: left;
   margin-right: auto;
   margin-left: auto;
-  padding: $spacing-unit 0;
-  // allow extra space for navigation bar if device 750px or narrower
-  @media screen and (max-width: 750px) {
-    // HACK find a way to dynamically get the height of the nav bar rather than eyeballing 60px
-    padding: $spacing-unit+60px 0;
+  // HACK find a way to dynamically get the height of the nav bar rather than eyeballing 60px
+  padding: $spacing-unit+60px 0;
+  // remove extra space for navigation bar if not on mobile
+  @include media-query($on-laptop) {
+    padding: $spacing-unit 0;
   }
   flex: 1 0 auto;
 }
@@ -140,7 +142,7 @@
   letter-spacing: -1px;
   line-height: 1.15;
 
-  @media screen and (min-width: $on-large) {
+  @media (media-query: $on-large) {
     @include relative-font-size(2.625);
   }
 }
@@ -154,7 +156,7 @@
   h2 {
     @include relative-font-size(1.75);
 
-    @media screen and (min-width: $on-large) {
+    @media (media-query: $on-large) {
       @include relative-font-size(2);
     }
   }
@@ -162,7 +164,7 @@
   h3 {
     @include relative-font-size(1.375);
 
-    @media screen and (min-width: $on-large) {
+    @media (media-query: $on-large) {
       @include relative-font-size(1.625);
     }
   }
