@@ -193,13 +193,74 @@ pre {
 }
 
 .highlight {
-  border-radius: 3px;
+  border-radius: 12px;
   background: $code-background-color;
   @extend %vertical-rhythm;
 
   .highlighter-rouge & {
     background: $code-background-color;
   }
+
+  // Syntax highlighting styles
+  .c     { color: $syntax-comment-color; font-style: italic } // Comment
+  .err   { color: $syntax-error-color; background-color: $syntax-err-background } // Error
+  .k     { font-weight: bold } // Keyword
+  .o     { font-weight: bold } // Operator
+  .cm    { color: $syntax-comment-color; font-style: italic } // Comment.Multiline
+  .cp    { color: $syntax-comment-color; font-weight: bold } // Comment.Preproc
+  .c1    { color: $syntax-comment-color; font-style: italic } // Comment.Single
+  .cs    { color: $syntax-comment-color; font-weight: bold; font-style: italic } // Comment.Special
+  .gd    { color: $syntax-ins-del-color; background-color: lighten($syntax-del-background, 10%) } // Generic.Deleted
+  .gd .x { color: $syntax-ins-del-color; background-color: $syntax-del-background } // Generic.Deleted.Specific
+  .ge    { font-style: italic } // Generic.Emph
+  .gr    { color: $syntax-error-color } // Generic.Error
+  .gh    { color: $syntax-comment-color } // Generic.Heading
+  .gi    { color: $syntax-ins-del-color; background-color: lighten($syntax-ins-background, 10%) } // Generic.Inserted
+  .gi .x { color: $syntax-ins-del-color; background-color: $syntax-ins-background } // Generic.Inserted.Specific
+  .go    { color: $syntax-output-color } // Generic.Output
+  .gp    { color: $syntax-prompt-color } // Generic.Prompt
+  .gs    { font-weight: bold } // Generic.Strong
+  .gu    { color: $syntax-subhead-color } // Generic.Subheading
+  .gt    { color: $syntax-error-color } // Generic.Traceback
+  .kc    { font-weight: bold } // Keyword.Constant
+  .kd    { font-weight: bold } // Keyword.Declaration 
+  .kp    { font-weight: bold } // Keyword.Pseudo
+  .kr    { font-weight: bold } // Keyword.Reserved
+  .kt    { color: $syntax-class-color; font-weight: bold } // Keyword.Type
+  .m     { color: $syntax-number-color } // Literal.Number
+  .s     { color: $syntax-string-color } // Literal.String
+  .na    { color: $syntax-variable-color } // Name.Attribute
+  .nb    { color: $syntax-builtin-color } // Name.Builtin
+  .nc    { color: $syntax-class-color; font-weight: bold } // Name.Class
+  .no    { color: $syntax-variable-color } // Name.Constant
+  .ni    { color: $syntax-entity-color } // Name.Entity
+  .ne    { color: $syntax-error-color; font-weight: bold } // Name.Exception
+  .nf    { color: $syntax-function-color; font-weight: bold } // Name.Function
+  .nn    { color: $syntax-prompt-color } // Name.Namespace
+  .nt    { color: $syntax-tag-color } // Name.Tag
+  .nv    { color: $syntax-variable-color } // Name.Variable
+  .ow    { font-weight: bold } // Operator.Word
+  .w     { color: $syntax-whitespace-color } // Text.Whitespace
+  .mf    { color: $syntax-number-color } // Literal.Number.Float
+  .mh    { color: $syntax-number-color } // Literal.Number.Hex
+  .mi    { color: $syntax-number-color } // Literal.Number.Integer
+  .mo    { color: $syntax-number-color } // Literal.Number.Oct
+  .sb    { color: $syntax-string-color } // Literal.String.Backtick
+  .sc    { color: $syntax-string-color } // Literal.String.Char
+  .sd    { color: $syntax-string-color } // Literal.String.Doc
+  .s2    { color: $syntax-string-color } // Literal.String.Double
+  .se    { color: $syntax-string-color } // Literal.String.Escape
+  .sh    { color: $syntax-string-color } // Literal.String.Heredoc
+  .si    { color: $syntax-string-color } // Literal.String.Interpol
+  .sx    { color: $syntax-string-color } // Literal.String.Other
+  .sr    { color: $syntax-regex-color } // Literal.String.Regex
+  .s1    { color: $syntax-string-color } // Literal.String.Single
+  .ss    { color: $syntax-symbol-color } // Literal.String.Symbol
+  .bp    { color: $syntax-comment-color } // Name.Builtin.Pseudo
+  .vc    { color: $syntax-variable-color } // Name.Variable.Class
+  .vg    { color: $syntax-variable-color } // Name.Variable.Global
+  .vi    { color: $syntax-variable-color } // Name.Variable.Instance
+  .il    { color: $syntax-number-color } // Literal.Number.Integer.Long
 }
 
 
