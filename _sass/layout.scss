@@ -1,4 +1,8 @@
-// TODO add suitable header to layout.scss
+// The layout file, as the name suggests, controls the structure of the
+// website pages themselves. It starts with the header which is used as
+// a container for the navigation tools, then the footer, and finally
+// the main content itself working inwards and downwards through its
+// components: .page-content to paginator controls.
 
 
 // Header
@@ -16,7 +20,7 @@
   width: $on-laptop;  // HACK to make sure horizontal bar covers screen
   height: 50px;       // HACK Should be a better way to do this
   border-bottom: 1px solid $border-color;
-  background-color: $wrapper-color;
+  background-color: $nav-color;
   display: block;
   box-shadow: $base-shadow;
   @extend %clearfix;
@@ -36,7 +40,7 @@
   // Vertical nav buttons if device a laptop or bigger
   @include media-query($on-laptop) {
     background-color: transparent;
-    border-bottom: 0px;
+    border-bottom: 0;
     margin-left: $spacing-unit;
     width: 50px;  // HACK counters the $on-laptop hack in .site-nav
     box-shadow: none;
@@ -55,11 +59,11 @@
 // Site footer
 // ===========
 .site-footer {
-  padding: $spacing-unit 0;
+  padding: 2*$spacing-unit $spacing-unit $spacing-unit;
   @include relative-font-size(0.9375);
-  color: $text-color; // ;
+  color: $text-color;
   text-align: center;
-  margin: auto;
+  margin-top: auto;
 
   a {
     // Means there's no distinction for footer links
@@ -86,18 +90,24 @@
 // Page content
 // ============
 .page-content {
+  // set size
   width: $content-width;
-  max-width: 80%;
-  float: left;
-  margin-right: auto;
-  margin-left: auto;
-  // HACK find a way to dynamically get the height of the nav bar rather than eyeballing 60px
-  padding: $spacing-unit+60px 0;
+  max-width: 70%;
+  display: inline-block;  // NOTE Minima set this in default.html
+  // make it pretty
+  background-color: $page-color;
+  border-radius: 18px;
+  // external margins
+  // HACK dynamically get nav height; don't hardcode 60px
+  margin: $spacing-unit+60px auto auto;
+  // internal padding
+  padding: $spacing-unit $spacing-unit 0 $spacing-unit;
+  // TODO find out what this does
+  @extend %clearfix;
   // remove extra space for navigation bar if not on mobile
   @include media-query($on-laptop) {
-    padding: $spacing-unit 0;
+    margin-top: $spacing-unit;
   }
-  flex: 1 0 auto;
 }
 
 .page-heading {
@@ -128,10 +138,8 @@
 }
 
 
-
-/**
- * Posts
- */
+// Posts
+// =====
 .post-header {
   margin-bottom: $spacing-unit;
 }
@@ -182,9 +190,8 @@
 }
 
 
-/**
- * Pagination navbar
- */
+// Pagination navbar
+// =================
 .pagination {
   margin-bottom: $spacing-unit;
   @extend .social-media-list;

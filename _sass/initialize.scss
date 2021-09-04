@@ -1,6 +1,10 @@
 @charset "utf-8";
 
-// TODO add suitable header to initialize.scss
+// This file is the hub from which the rest of the SASS is
+// controlled. It defines all of the variables used in the
+// other files (and which can be redefined by the users in
+// `style.scss`), defines mixin shortcuts, and imports the
+// other SASS files in the theme.
 
 
 // Default Variables
@@ -18,31 +22,32 @@ $spacing-unit:     30px !default;
 $table-text-align: left !default;
 $content-width:    800px !default;
 
-// Theme colour default variables
+// Theme color default variables
 $brand-color:           #828282 !default;
 $brand-color-light:     lighten($brand-color, 40%) !default;
 $brand-color-dark:      darken($brand-color, 25%) !default;
 $text-color:            #3d3d3d !default;
 $background-color:      #9b9da3 !default;
-$wrapper-color:         #fdfdfd !default;
-$base-shadow:           0px 0.25em 0.25em rgba(0, 0, 0, 0.1) !default;
+$nav-color:             #fdfdfd !default;
+$page-color:            #fdfdfd !default;
+$base-shadow:           0 0.25em 0.25em rgba(0, 0, 0, 0.1) !default;
 $border-color:          $brand-color-light !default;
 
-// Colours for link formatting
+// Colors for link formatting
 $link-base-color:       #2a7ae2 !default;
 $link-visited-color:    darken($link-base-color, 15%) !default;
 $link-hover-color:      $text-color !default;
 
-// Colours for table formatting
+// Colors for table formatting
 $table-text-color:      lighten($text-color, 18%) !default;
 $table-zebra-color:     lighten($brand-color, 46%) !default;
 $table-header-bg-color: lighten($brand-color, 43%) !default;
 $table-header-border:   lighten($brand-color, 37%) !default;
 $table-border-color:    $border-color !default;
 
-// Fonts and colours for code blocks and syntax highlighting
+// Fonts and colors for code blocks and syntax highlighting
 $code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
-$code-background-color:   #eeeeff !default;  // background colour for blocks and inline code 
+$code-background-color:   #eeeeff !default;  // background color for blocks and inline code 
 // Variables relating to snippets which change font color
 $syntax-comment-color:    #998 !default;     // comments in all their forms
 $syntax-string-color:     #d14 !default;     // literal strings, exc. regex & symbols
@@ -52,8 +57,8 @@ $syntax-error-color:      #a61717 !default;  // various errors and exceptions
 $syntax-function-color:   #900 !default;     // functions (prev. included exceptions)
 // Variables relating to snippets which change background and font colors
 $syntax-ins-del-color:    #000 !default;     // font for insertions and deletions
-$syntax-ins-background:   #afa !default;     // background colour for insertions
-$syntax-del-background:   #faa !default;     // background colour for deletions
+$syntax-ins-background:   #afa !default;     // background color for insertions
+$syntax-del-background:   #faa !default;     // background color for deletions
 $syntax-err-background:   #e3d2d2 !default;  // background for errors
 // Variables which are only used once for fairly niche snippets
 $syntax-builtin-color:    #0086B3 !default;  // builtins
@@ -79,11 +84,8 @@ $on-large:  $on-laptop !default;
 // ===========
 
 // Use media queries like this:
-// @include media-query($on-palm) {
-//   .wrapper {
-//     padding-right: $spacing-unit / 2;
-//     padding-left: $spacing-unit / 2;
-//   }
+// @include media-query($on-laptop) {
+//   margin-top: $spacing-unit;
 // }
 
 @mixin media-query($device) {
@@ -101,6 +103,6 @@ $on-large:  $on-laptop !default;
 // ============
 
 @import
-  "content",  // Styling for the markdown content itself
+  "content",  // Styling for the base html content
   "layout"    // Sets the layout of the website
 ;
