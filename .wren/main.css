@@ -3,80 +3,6 @@
 body {
     color: #2d2d2d;
     font-family: trebuchet, arial, sans-sherif;
-    background: #F2F2F2;
-    background-image: url("http://BLOGURL/images/background/main.png");
-    background-repeat: repeat;
-    background-attachment: fixed;
-    background-position: 50%;
-    margin: 50px 30px 10px 30px;
-}
-
-
-/* Navigation Bar */
-/* -------------- */
-
-div.nav {
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    left: -40px;
-    z-index: 100;
-    margin-bottom: 0px;
-    background: none repeat scroll 0% 0% #3b8aff;
-    box-shadow: 0px 0.25em 0.25em rgba(0, 0, 0, 0.1);
-}
-
-ul.nav {
-    list-style-type: none;
-    margin: 0;
-    overflow: hidden;
-}
-
-li.nav {
-    float: left;
-}
-
-li.nav-r {
-    float: right;
-}
-
-a.nav:link, a.nav:visited {
-    padding: 10px;
-    display: block;
-    width: 50px;
-    height: 25px;
-    font-size: 20px;
-    font-weight: bold;
-    font-variant: small-caps;
-    color: #e7effa;
-    background-color: #3b8aff;
-    text-align: center;
-    text-decoration: none;
-}
-
-a.nav:hover, a.nav:active {
-    background-color: #83b5ff;
-    color: #f9f9f9;
-}
-
-
-/* Page Canvas */
-/* ----------- */
-
-div.outer-main {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 12px; /* unsure of how this looks */
-}
-
-div.inner-main {
-    width: 85%;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 1;
 }
 
 
@@ -124,34 +50,6 @@ a:link {
 
 a:visited {
     color: #660099;
-}
-
-
-/* Footer Code */
-/* ----------- */
-
-footer {
-    padding: 30px;
-    color:#353535;
-    font-size: 10px;
-    font-variant: normal;
-    text-align: center;
-}
-
-a.foot:link, a.foot:visited {
-    color:#3b8aff;
-    text-decoration: none;
-}
-
-
-/* Other */
-/* ----- */
-
-#id-picture {
-    float: left;
-    width: 250px;
-    padding-bottom: 15px;
-    padding-right: 15px;
 }
 
 

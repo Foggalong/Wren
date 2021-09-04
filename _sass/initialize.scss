@@ -21,6 +21,7 @@ $base-line-height: 1.5 !default;
 $spacing-unit:     30px !default;
 $table-text-align: left !default;
 $content-width:    800px !default;
+$nav-bar-height:   48px !default;  // BUG SVGs themselves don't resize
 
 // Theme color default variables
 $brand-color:           #828282 !default;
@@ -28,8 +29,8 @@ $brand-color-light:     lighten($brand-color, 40%) !default;
 $brand-color-dark:      darken($brand-color, 25%) !default;
 $text-color:            #3d3d3d !default;
 $background-color:      #9b9da3 !default;
-$nav-color:             #fdfdfd !default;
 $page-color:            #fdfdfd !default;
+$nav-color:             $page-color !default;
 $base-shadow:           0 0.25em 0.25em rgba(0, 0, 0, 0.1) !default;
 $border-color:          $brand-color-light !default;
 

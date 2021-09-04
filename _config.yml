@@ -84,8 +84,9 @@ social_links:
   # - username: jekyll
   #   instance: example.com
 
-# Specify the pages that appear in the header and their order 
+# The header will always include `Home` as the first link and `RSS`
+# and `Top` as the last two links. The order list below specifies
+# the other pages to appear in the middle.
 header_pages:
-- index.md
 - blog.md
 - about.md
