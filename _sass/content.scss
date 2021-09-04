@@ -300,7 +300,7 @@ table {
     border: 1px solid $table-border-color;
   }
 
-  @include media-query($on-laptop) {
+  @include if-large {
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;

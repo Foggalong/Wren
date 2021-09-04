@@ -8,12 +8,12 @@
 // Header
 // ======
 .site-header {
-  // NOTE site-nav made this redundant
+  // NOTE site-nav made styles here redundant
   $empty: true;
 }
 
 .site-nav {
-  // Horizontal navigation bar for small devices
+  // Horizontal navigation bar on small screens
   position: fixed;  // don't want navigation icons moving
   width: 100%;
   height: $nav-bar-height;
@@ -44,12 +44,12 @@
     border-bottom: 1px solid darken($border-color, 10%);
   }
 
-  // Vertical nav buttons if device a laptop or bigger
-  @include media-query($on-laptop) {
+  // Vertical nav buttons on large screen
+  @include if-large {
     background-color: transparent;
     border-bottom: 0;
     margin-left: $spacing-unit;
-    width: 50px;  // HACK counters the $on-laptop hack in .site-nav
+    width: $nav-bar-height;
     box-shadow: none;
     align-items: right;
     float: right;
@@ -125,7 +125,7 @@
   // TODO find out what this does
   @extend %clearfix;
   // remove extra space for navigation bar if not on mobile
-  @include media-query($on-laptop) {
+  @include if-large {
     margin-top: $spacing-unit;
   }
 }
@@ -170,7 +170,7 @@
   letter-spacing: -1px;
   line-height: 1.15;
 
-  @media (media-query: $on-large) {
+  @media in-large {
     @include relative-font-size(2.625);
   }
 }
@@ -184,7 +184,7 @@
   h2 {
     @include relative-font-size(1.75);
 
-    @media (media-query: $on-large) {
+    @media in-large {
       @include relative-font-size(2);
     }
   }
@@ -192,7 +192,7 @@
   h3 {
     @include relative-font-size(1.375);
 
-    @media (media-query: $on-large) {
+    @media if-large {
       @include relative-font-size(1.625);
     }
   }

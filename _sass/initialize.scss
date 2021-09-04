@@ -74,28 +74,28 @@ $syntax-subhead-color:    #aaa !default;     // subheadings
 $syntax-class-color:      #458 !default;     // classes and keywords
 $syntax-prompt-color:     #555 !default;     // prompt and namespace
 
-// Default settings for fluid design
-$on-palm:   600px !default;
-$on-laptop: 800px !default;
-$on-medium: $on-palm !default;
-$on-large:  $on-laptop !default;
+// Size at which to switch to large screen interface
+$large-width: 800px !default;
 
 
 // SASS Mixins
 // ===========
 
-// Use media queries like this:
-// @include media-query($on-laptop) {
-//   margin-top: $spacing-unit;
-// }
-
 @mixin media-query($device) {
+  // Use @content SASS only if displaying a screen
+  // with a width of at least $device pixels.
   @media screen and (min-width: $device) {
     @content;
   }
 }
 
+@mixin if-large {
+  // Query Wren uses to switch to the large screen interface
+  @include media-query($large-width) { @content; }
+}
+
 @mixin relative-font-size($ratio) {
+  // Scale the font by $ratio
   font-size: #{$ratio}rem;
 }
 
