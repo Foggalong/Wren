@@ -23,6 +23,7 @@ dl, dd, ol, ul, figure {
 
 // Basic Styling
 // =============
+
 body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
   color: $text-color;
@@ -66,24 +67,18 @@ hr {
 img {
   max-width: 100%;
   vertical-align: middle;
-}
-
-img.left {
-  padding-right: $spacing-unit;
   padding-bottom: $spacing-unit;
-  float:left;
+  
+  .left {
+    float:left;
+    padding-right: $spacing-unit;
+  }
+
+  .right {
+    float:right;
+    padding-left: $spacing-unit;
+  }
 }
-
-img.right {
-  padding-left: $spacing-unit;
-  padding-bottom: $spacing-unit;
-  float:left;
-}
-
-
-// Figures
-// =======
-// TODO work out the difference between images and figures
 
 figure > img {
   display: block;
@@ -143,9 +138,9 @@ a {
 }
 
 
-/**
- * Blockquotes
- */
+// Blockquotes
+// ===========
+
 blockquote {
   color: $brand-color;
   border-left: 4px solid $brand-color-light;
@@ -158,7 +153,9 @@ blockquote {
   }
 
   i, em {
-    font-style: normal;
+    // Rather unitalicising, add a dotted underline
+    text-decoration: underline;
+    text-decoration-style: dotted;
   }
 }
 
@@ -276,6 +273,7 @@ pre {
 
 // Table Formatting
 // ================
+
 table {
   margin-bottom: $spacing-unit;
   width: 100%;
