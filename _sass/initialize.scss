@@ -16,6 +16,9 @@ $base-font-size:   16px !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
+// Extra font tweaks for headers 
+$base-header-weight: 600 !default;
+$base-h1-alignment: center;
 
 // Spacing related default values
 $spacing-unit:     30px !default;

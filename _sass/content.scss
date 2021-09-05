@@ -57,7 +57,7 @@ hr {
 }
 
 // `main` element
- main {
+main {
   display: block;  // default is 'inline' in IE11
 }
 
@@ -68,17 +68,19 @@ hr {
 img {
   max-width: 100%;
   vertical-align: middle;
-  padding-bottom: $spacing-unit;
-  
-  .left {
-    float:left;
-    padding-right: $spacing-unit;
-  }
+  margin-bottom: $spacing-unit/2;
+  border-radius: $base-border-radius;
+  box-shadow: $base-shadow;
+}
 
-  .right {
-    float:right;
-    padding-left: $spacing-unit;
-  }
+img.left {
+  float: left;
+  margin-right: $spacing-unit;
+}
+
+img.right {
+  float: right;
+  margin-left: $spacing-unit;
 }
 
 figure > img {
@@ -109,7 +111,12 @@ li {
 // ========
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: $base-font-weight;
+  font-weight: $base-header-weight;
+}
+
+h1 {
+  text-align: $base-h1-alignment;
+  // margin-bottom: $spacing-unit;
 }
 
 
