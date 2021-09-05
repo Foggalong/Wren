@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "This post demonstrates post content styles"
+title: "Demonstrating Content styles"
 categories: junk
 author:
 - Bart Simpson

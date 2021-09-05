@@ -39,6 +39,7 @@ exclude:
   - .jekyll-cache/
   - .sass-cache/
   - .editorconfig
+  - .github/
   - .gitignore
   - build
   - Gemfile

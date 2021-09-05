@@ -1,4 +1,5 @@
 ---
+title: My Example Post
 layout: post
 ---
 
