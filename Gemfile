@@ -8,7 +8,7 @@
 source "https://rubygems.org"
 
 # In Ruby, '~>' is a twiddle-wakka, or pessimistic version constraint;
-# it bounds the last digit below and the second to last digit above. 
+# it bounds the last digit below and the second to last digit above.
 # For example:
 #  * '~>2.2'   means '>= 2.2.0', '< 3.0',
 #  * '~>2.2.0' means '>= 2.2.0', '< 2.3.0', etc.
@@ -25,7 +25,7 @@ gem "bundler"             # Minima development dependency
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"           # Minima requires ~> 0.9 
+  gem "jekyll-feed", "~> 0.12"           # Minima requires ~> 0.9
   gem "jekyll-seo-tag", "~> 2.1"         # Minima requires ~> 2.1
   gem "jekyll-reading-time", "~> 0.1.0"  # Custom addition
   # gem "jekyll-paginate"                # BUG not working

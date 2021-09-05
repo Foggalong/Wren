@@ -30,7 +30,7 @@ Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspe
 
 Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
 
-> This quote will *change* your life. It will reveal the <i>secrets</i> of the universe, and all the wonders of humanity. Don't <em>misuse</em> it.
+> This quote will *change* your life. It will reveal the _secrets_ of the universe, and some all the wonders of humanity. Don't **misuse** it.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt.
 
