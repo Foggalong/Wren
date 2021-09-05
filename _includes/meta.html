@@ -19,7 +19,7 @@
     </time>
   {%- endif -%}
   <!-- After cdot, include time it takes to read post content -->
-  • {{ p.content | reading_time }} read
+  • {%- include reading-time.html text=p.content -%}
   <!-- If author(s) specified, after cdot include them at the end -->
   {%- if p.author -%}
     •
