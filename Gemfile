@@ -27,7 +27,6 @@ gem "bundler"             # Minima development dependency
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"           # Minima requires ~> 0.9 
   gem "jekyll-seo-tag", "~> 2.1"         # Minima requires ~> 2.1
-  gem "jekyll-reading-time", "~> 0.1.0"  # Custom addition
   # gem "jekyll-paginate"                # BUG not working
 end
 
