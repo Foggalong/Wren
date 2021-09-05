@@ -38,6 +38,7 @@ body {
   min-height: 100vh;
   flex-direction: column;
   overflow-wrap: break-word;
+  width: $content-width+$nav-bar-height;
   max-width: 100%;
   margin: 0 auto;
 }
@@ -161,7 +162,7 @@ code {
   font-size: 0.9375em;
   border: 1px solid $border-color;
   box-shadow: $base-shadow;
-  border-radius: 3px;
+  border-radius: $base-border-radius/4;
   background-color: $code-background-color;
 }
 
@@ -182,7 +183,7 @@ pre {
 }
 
 .highlight {
-  border-radius: 12px;
+  border-radius: $base-border-radius;
   background: $code-background-color;
   @extend %vertical-rhythm;
 
@@ -272,28 +273,42 @@ table {
   text-align: $table-text-align;
   color: $table-text-color;
   border-collapse: collapse;
+
+  // Properties for the table's external border
   border: 1px solid $table-border-color;
+  border-radius: $base-border-radius;
   box-shadow: $base-shadow;
+
+  // Properties for the table's internal borders
+  th, td {
+    // All cells have the same padding rules
+    padding: ($spacing-unit / 3) ($spacing-unit / 2);
+  }
   tr {
+    // Alternate row background colours
     &:nth-child(even) {
       background-color: $table-zebra-color;
     }
-  }
-  th, td {
-    padding: ($spacing-unit / 3) ($spacing-unit / 2);
-  }
-  th {
-    background-color: $table-header-bg-color;
-    border: 1px solid $table-header-border;
+    // Internal vertical borders
+    border-bottom: 1px solid $table-border-color;
+    &:last-of-type { border-bottom: 0; }
   }
   td {
-    border: 1px solid $table-border-color;
+    // Internal horizontal borders
+    border-right: 1px solid $table-border-color;
+    &:last-of-type { border-right: 0; }
+  }
+  th {
+    // Table header has its own colour properties
+    background-color: $table-header-bg-color;
+    border-bottom: 1px solid $table-header-border;
+    border-right: 1px solid $table-header-border;
+    &:last-of-type { border-right: 0; }
   }
 
-  @include if-large {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-            -ms-overflow-style: -ms-autohiding-scrollbar;
-  }
+  // Handle overflow if there isn't enough space to display
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+          -ms-overflow-style: -ms-autohiding-scrollbar;
 }

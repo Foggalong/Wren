@@ -23,6 +23,9 @@ $table-text-align: left !default;
 $content-width:    800px !default;
 $nav-bar-height:   48px !default;  // BUG SVGs themselves don't resize
 
+// Border radius for page content, code blocks, and tables
+$base-border-radius: 12px !default ;
+
 // Theme color default variables
 $brand-color:           #828282 !default;
 $brand-color-light:     lighten($brand-color, 40%) !default;

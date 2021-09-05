@@ -51,23 +51,3 @@ a:link {
 a:visited {
     color: #660099;
 }
-
-
-table.c {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-th {
-    color: #000033;
-}
-
-th.c {
-    color: #000033;
-    text-align: center;
-}
-
-td.c {
-    color: #000033;
-    text-align: center;
-}

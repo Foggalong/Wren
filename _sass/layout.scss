@@ -7,9 +7,10 @@
 
 // Header
 // ======
+
 .site-header {
-  // NOTE site-nav made styles here redundant
-  $empty: true;
+  // Most the styles that were here were for .site-nav
+  display: inline-block;
 }
 
 .site-nav {
@@ -71,6 +72,7 @@
 
 // Site footer
 // ===========
+
 .site-footer {
   padding: 2*$spacing-unit $spacing-unit $spacing-unit;
   @include relative-font-size(0.9375);
@@ -106,6 +108,7 @@
 
 // Page content
 // ============
+
 .page-content {
   // set size
   width: $content-width;
@@ -113,7 +116,7 @@
   display: inline-block;  // NOTE Minima set this in default.html
   // make it pretty
   background-color: $page-color;
-  border-radius: 18px;
+  border-radius: $base-border-radius;
   // external margins
   margin: $spacing-unit+1.5*$nav-bar-height auto auto;
   // internal padding
@@ -156,6 +159,7 @@
 
 // Posts
 // =====
+
 .post-header {
   margin-bottom: $spacing-unit;
 }
@@ -208,6 +212,7 @@
 
 // Error Pages
 // ===========
+
 .error {
   text-align: center;
 
@@ -226,6 +231,7 @@
 
 // Pagination navbar
 // =================
+
 .pagination {
   margin-bottom: $spacing-unit;
   @extend .social-list;
