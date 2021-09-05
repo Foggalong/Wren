@@ -67,20 +67,32 @@ main {
 
 img {
   max-width: 100%;
-  vertical-align: middle;
   margin-bottom: $spacing-unit/2;
   border-radius: $base-border-radius;
   box-shadow: $base-shadow;
+  // Centres w/o text wrap on small displays
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  @include if-large {
+    // Text wraps on large displays
+    vertical-align: middle;
+    display:inline;
+  }
 }
 
 img.left {
-  float: left;
-  margin-right: $spacing-unit;
+  @include if-large {
+    float: left;
+    margin-right: $spacing-unit;
+  }
 }
 
 img.right {
-  float: right;
-  margin-left: $spacing-unit;
+  @include if-large {
+    float: right;
+    margin-left: $spacing-unit;
+  }
 }
 
 figure > img {
