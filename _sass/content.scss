@@ -1,0 +1,333 @@
+// The content file controls the base styling of HTML content
+// that Jekyll makes. Note that `layout.scss` tweaks some bits
+// (e.g. headers) further for use in pages and posts. 
+
+
+// Setting Up
+html {
+  font-size: $base-font-size;
+  // Reserves space for the scollbar even if not needed, which
+  // prevents the website interface shifting around when going
+  // between pages which do and don't need it.
+  overflow-y: scroll;
+}
+
+// Reset some basic elements
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+
+// Basic Styling
+// =============
+
+body {
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+     -moz-font-feature-settings: "kern" 1;
+       -o-font-feature-settings: "kern" 1;
+          font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  width: $content-width+$nav-bar-height;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+// Set `margin-bottom` to maintain vertical rhythm
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+  margin-bottom: $spacing-unit / 2;
+}
+
+hr {
+  margin-top: $spacing-unit;
+  margin-bottom: $spacing-unit;
+}
+
+// `main` element
+main {
+  display: block;  // default is 'inline' in IE11
+}
+
+
+// Images
+// ======
+
+img {
+  max-width: 100%;
+  margin-bottom: $spacing-unit/2;
+  border-radius: $base-border-radius;
+  box-shadow: $base-shadow;
+  // Centres w/o text wrap on small displays
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  @include if-large {
+    // Text wraps on large displays
+    vertical-align: middle;
+    display:inline;
+  }
+}
+
+img.left {
+  @include if-large {
+    float: left;
+    margin-right: $spacing-unit;
+  }
+}
+
+img.right {
+  @include if-large {
+    float: right;
+    margin-left: $spacing-unit;
+  }
+}
+
+figure > img {
+  display: block;
+}
+
+figcaption {
+  font-size: $small-font-size;
+}
+
+
+// Lists
+// =====
+
+ul, ol {
+  margin-left: $spacing-unit;
+}
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+
+// Headings
+// ========
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $base-header-weight;
+}
+
+h1 {
+  text-align: $base-h1-alignment;
+  // margin-bottom: $spacing-unit;
+}
+
+
+// Links
+// =====
+
+a {
+  color: $link-base-color;
+  text-decoration: none;
+
+  &:visited {
+    color: $link-visited-color;
+  }
+
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: underline;
+  }
+}
+
+
+// Blockquotes
+// ===========
+
+blockquote {
+  color: $brand-color;
+  border-left: 4px solid $brand-color-light;
+  padding-left: $spacing-unit / 2;
+  @include relative-font-size(1.125);
+  font-style: italic;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  i, em {
+    // Rather unitalicising, add a dotted underline
+    text-decoration: underline;
+    text-decoration-style: dotted;
+  }
+}
+
+
+// Code formatting
+// ===============
+
+pre,
+code {
+  font-family: $code-font-family;
+  font-size: 0.9375em;
+  border: 1px solid $border-color;
+  box-shadow: $base-shadow;
+  border-radius: $base-border-radius/4;
+  background-color: $code-background-color;
+}
+
+code {
+  box-shadow: none;
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 12px;
+  overflow-x: auto;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.highlight {
+  border-radius: $base-border-radius;
+  background: $code-background-color;
+  @extend %vertical-rhythm;
+
+  .highlighter-rouge & {
+    background: $code-background-color;
+  }
+
+  // Syntax highlighting styles
+  .c     { color: $syntax-comment-color; font-style: italic } // Comment
+  .err   { color: $syntax-error-color; background-color: $syntax-err-background } // Error
+  .k     { font-weight: bold } // Keyword
+  .o     { font-weight: bold } // Operator
+  .cm    { color: $syntax-comment-color; font-style: italic } // Comment.Multiline
+  .cp    { color: $syntax-comment-color; font-weight: bold } // Comment.Preproc
+  .c1    { color: $syntax-comment-color; font-style: italic } // Comment.Single
+  .cs    { color: $syntax-comment-color; font-weight: bold; font-style: italic } // Comment.Special
+  .gd    { color: $syntax-ins-del-color; background-color: lighten($syntax-del-background, 10%) } // Generic.Deleted
+  .gd .x { color: $syntax-ins-del-color; background-color: $syntax-del-background } // Generic.Deleted.Specific
+  .ge    { font-style: italic } // Generic.Emph
+  .gr    { color: $syntax-error-color } // Generic.Error
+  .gh    { color: $syntax-comment-color } // Generic.Heading
+  .gi    { color: $syntax-ins-del-color; background-color: lighten($syntax-ins-background, 10%) } // Generic.Inserted
+  .gi .x { color: $syntax-ins-del-color; background-color: $syntax-ins-background } // Generic.Inserted.Specific
+  .go    { color: $syntax-output-color } // Generic.Output
+  .gp    { color: $syntax-prompt-color } // Generic.Prompt
+  .gs    { font-weight: bold } // Generic.Strong
+  .gu    { color: $syntax-subhead-color } // Generic.Subheading
+  .gt    { color: $syntax-error-color } // Generic.Traceback
+  .kc    { font-weight: bold } // Keyword.Constant
+  .kd    { font-weight: bold } // Keyword.Declaration 
+  .kp    { font-weight: bold } // Keyword.Pseudo
+  .kr    { font-weight: bold } // Keyword.Reserved
+  .kt    { color: $syntax-class-color; font-weight: bold } // Keyword.Type
+  .m     { color: $syntax-number-color } // Literal.Number
+  .s     { color: $syntax-string-color } // Literal.String
+  .na    { color: $syntax-variable-color } // Name.Attribute
+  .nb    { color: $syntax-builtin-color } // Name.Builtin
+  .nc    { color: $syntax-class-color; font-weight: bold } // Name.Class
+  .no    { color: $syntax-variable-color } // Name.Constant
+  .ni    { color: $syntax-entity-color } // Name.Entity
+  .ne    { color: $syntax-error-color; font-weight: bold } // Name.Exception
+  .nf    { color: $syntax-function-color; font-weight: bold } // Name.Function
+  .nn    { color: $syntax-prompt-color } // Name.Namespace
+  .nt    { color: $syntax-tag-color } // Name.Tag
+  .nv    { color: $syntax-variable-color } // Name.Variable
+  .ow    { font-weight: bold } // Operator.Word
+  .w     { color: $syntax-whitespace-color } // Text.Whitespace
+  .mf    { color: $syntax-number-color } // Literal.Number.Float
+  .mh    { color: $syntax-number-color } // Literal.Number.Hex
+  .mi    { color: $syntax-number-color } // Literal.Number.Integer
+  .mo    { color: $syntax-number-color } // Literal.Number.Oct
+  .sb    { color: $syntax-string-color } // Literal.String.Backtick
+  .sc    { color: $syntax-string-color } // Literal.String.Char
+  .sd    { color: $syntax-string-color } // Literal.String.Doc
+  .s2    { color: $syntax-string-color } // Literal.String.Double
+  .se    { color: $syntax-string-color } // Literal.String.Escape
+  .sh    { color: $syntax-string-color } // Literal.String.Heredoc
+  .si    { color: $syntax-string-color } // Literal.String.Interpol
+  .sx    { color: $syntax-string-color } // Literal.String.Other
+  .sr    { color: $syntax-regex-color } // Literal.String.Regex
+  .s1    { color: $syntax-string-color } // Literal.String.Single
+  .ss    { color: $syntax-symbol-color } // Literal.String.Symbol
+  .bp    { color: $syntax-comment-color } // Name.Builtin.Pseudo
+  .vc    { color: $syntax-variable-color } // Name.Variable.Class
+  .vg    { color: $syntax-variable-color } // Name.Variable.Global
+  .vi    { color: $syntax-variable-color } // Name.Variable.Instance
+  .il    { color: $syntax-number-color } // Literal.Number.Integer.Long
+}
+
+
+// Clearfix
+// ========
+
+%clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+// Table Formatting
+// ================
+
+table {
+  margin-bottom: $spacing-unit;
+  width: 100%;
+  text-align: $table-text-align;
+  color: $table-text-color;
+  border-collapse: collapse;
+
+  // Properties for the table's external border
+  border: 1px solid $table-border-color;
+  border-radius: $base-border-radius;
+  box-shadow: $base-shadow;
+
+  // Properties for the table's internal borders
+  th, td {
+    // All cells have the same padding rules
+    padding: ($spacing-unit / 3) ($spacing-unit / 2);
+  }
+  tr {
+    // Alternate row background colours
+    &:nth-child(even) {
+      background-color: $table-zebra-color;
+    }
+    // Internal vertical borders
+    border-bottom: 1px solid $table-border-color;
+    &:last-of-type { border-bottom: 0; }
+  }
+  td {
+    // Internal horizontal borders
+    border-right: 1px solid $table-border-color;
+    &:last-of-type { border-right: 0; }
+  }
+  th {
+    // Table header has its own colour properties
+    background-color: $table-header-bg-color;
+    border-bottom: 1px solid $table-header-border;
+    border-right: 1px solid $table-header-border;
+    &:last-of-type { border-right: 0; }
+  }
+
+  // Handle overflow if there isn't enough space to display
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+          -ms-overflow-style: -ms-autohiding-scrollbar;
+}

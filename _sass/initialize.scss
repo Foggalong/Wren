@@ -1,50 +1,115 @@
 @charset "utf-8";
 
-// TODO add suitable header to initialize.scss
-// Define defaults for each variable.
+// This file is the hub from which the rest of the SASS is
+// controlled. It defines all of the variables used in the
+// other files (and which can be redefined by the users in
+// `style.scss`), defines mixin shortcuts, and imports the
+// other SASS files in the theme.
 
+
+// Default Variables
+// =================
+
+// General content font related default values
 $base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Segoe UI Symbol", "Segoe UI Emoji", "Apple Color Emoji", Helvetica, Roboto, Arial, sans-serif !default;
-$code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
 $base-font-size:   16px !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
+// Extra font tweaks for headers 
+$base-header-weight: 600 !default;
+$base-h1-alignment: center;
 
+// Spacing related default values
 $spacing-unit:     30px !default;
-
 $table-text-align: left !default;
-
-// Width of the content area
 $content-width:    800px !default;
+$nav-bar-height:   48px !default;  // BUG SVGs themselves don't resize
 
-$on-palm:          600px !default;
-$on-laptop:        800px !default;
+// Border radius for page content, code blocks, and tables
+$base-border-radius: 12px !default ;
 
-$on-medium:        $on-palm !default;
-$on-large:         $on-laptop !default;
+// Theme color default variables
+$brand-color:           #828282 !default;
+$brand-color-light:     lighten($brand-color, 40%) !default;
+$brand-color-dark:      darken($brand-color, 25%) !default;
+$text-color:            #3d3d3d !default;
+$background-color:      #9b9da3 !default;
+$page-color:            #fdfdfd !default;
+$nav-color:             $page-color !default;
+$base-shadow:           0 0.25em 0.25em rgba(0, 0, 0, 0.1) !default;
+$border-color:          $brand-color-light !default;
 
-// Use media queries like this:
-// @include media-query($on-palm) {
-//   .wrapper {
-//     padding-right: $spacing-unit / 2;
-//     padding-left: $spacing-unit / 2;
-//   }
-// }
-// Notice the following mixin uses max-width, in a deprecated, desktop-first
-// approach, whereas media queries used elsewhere now use min-width.
+// Colors for link formatting
+$link-base-color:       #2a7ae2 !default;
+$link-visited-color:    darken($link-base-color, 15%) !default;
+$link-hover-color:      $text-color !default;
+
+// Colors for table formatting
+$table-text-color:      lighten($text-color, 18%) !default;
+$table-zebra-color:     lighten($brand-color, 46%) !default;
+$table-header-bg-color: lighten($brand-color, 43%) !default;
+$table-header-border:   lighten($brand-color, 37%) !default;
+$table-border-color:    $border-color !default;
+
+// Fonts and colors for code blocks and syntax highlighting
+$code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
+$code-background-color:   #eeeeff !default;  // background color for blocks and inline code 
+// Variables relating to snippets which change font color
+$syntax-comment-color:    #998 !default;     // comments in all their forms
+$syntax-string-color:     #d14 !default;     // literal strings, exc. regex & symbols
+$syntax-number-color:     #099 !default;     // all the numbers 
+$syntax-variable-color:   #008080 !default;  // variables, constants, etc
+$syntax-error-color:      #a61717 !default;  // various errors and exceptions
+$syntax-function-color:   #900 !default;     // functions (prev. included exceptions)
+// Variables relating to snippets which change background and font colors
+$syntax-ins-del-color:    #000 !default;     // font for insertions and deletions
+$syntax-ins-background:   #afa !default;     // background color for insertions
+$syntax-del-background:   #faa !default;     // background color for deletions
+$syntax-err-background:   #e3d2d2 !default;  // background for errors
+// Variables which are only used once for fairly niche snippets
+$syntax-builtin-color:    #0086B3 !default;  // builtins
+$syntax-entity-color:     #800080 !default;  // entities
+$syntax-tag-color:        #000080 !default;  // tags
+$syntax-symbol-color:     #990073 !default;  // string.symbols
+$syntax-regex-color:      #009926 !default;  // string.regex
+$syntax-whitespace-color: #bbb !default;     // text.whitespace
+$syntax-output-color:     #888 !default;     // generic output 
+$syntax-subhead-color:    #aaa !default;     // subheadings
+// Variables which are used for two distinct snippets
+$syntax-class-color:      #458 !default;     // classes and keywords
+$syntax-prompt-color:     #555 !default;     // prompt and namespace
+
+// Size at which to switch to large screen interface
+$large-width: 800px !default;
+
+
+// SASS Mixins
+// ===========
+
 @mixin media-query($device) {
-  @media screen and (max-width: $device) {
+  // Use @content SASS only if displaying a screen
+  // with a width of at least $device pixels.
+  @media screen and (min-width: $device) {
     @content;
   }
 }
 
+@mixin if-large {
+  // Query Wren uses to switch to the large screen interface
+  @include media-query($large-width) { @content; }
+}
+
 @mixin relative-font-size($ratio) {
+  // Scale the font by $ratio
   font-size: #{$ratio}rem;
 }
 
-// Import pre-styling-overrides hook and style-partials.
+
+// SASS Imports
+// ============
+
 @import
-  "colours",  // Colours from the minima classic theme
-  "base",     // Defines element resets.
-  "layout"    // Defines structure and style based on CSS selectors.
+  "content",  // Styling for the base html content
+  "layout"    // Sets the layout of the website
 ;

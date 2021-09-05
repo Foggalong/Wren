@@ -58,34 +58,36 @@ date_format: "%Y-%m-%d"      # ISO 8601
 
 # Generate social links in footer
 social_links:
-  # active
-  # TODO create social link for email
-  github:  foggalong
-  instagram: joshua.h.fogg
-  linkedin: joshfogg
-  twitter: foggalong
-  # # inactive
-  # facebook: jekyll
-  # youtube: jekyll
-  # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
-  # youtube_channel_name: CloudCannon
-  # gitlab:
-  # - username: jekyll
-  #   instance: example.com
-  # # non-existent
   # devto: jekyll
   # dribbble: jekyll
-  # flickr:   jekyll
-  # pinterest: jekyll
-  # telegram: jekyll
-  # microdotblog: jekyll
+  facebook: jekyll
+  # flickr: jekyll
+  github: jekyll
+  gitlab:  # can have multiple hosts
+  - username: jekyll
+    instance: gitlab.com
+  - username: j3ky11
+    instance: git.gnome.org
+  instagram: jekyll
   # keybase: jekyll
-  # mastodon:
+  # linkedin: jekyll
+  # mastodon:  # can have multiple hosts
   # - username: jekyll
-  #   instance: example.com
+  #   instance: mastodon.cloud
+  # - username: jekyll2
+  #   instance: mastodon.social
+  # microdotblog: jekyll
+  # pinterest: jekyll
+  twitter: jekyllrb
+  # youtube: jekyll
+  youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
+  youtube_channel_name: CloudCannon
+  telegram: jekyll
 
-# Specify the pages that appear in the header and their order 
+
+# The header will always include `Home` as the first link and `RSS`
+# and `Top` as the last two links. The order list below specifies
+# the other pages to appear in the middle.
 header_pages:
-- index.md
 - blog.md
 - about.md

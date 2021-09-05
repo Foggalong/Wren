@@ -1,41 +1,56 @@
-// TODO add suitable header to layout.scss
+// The layout file, as the name suggests, controls the structure of the
+// website pages themselves. It starts with the header which is used as
+// a container for the navigation tools, then the footer, and finally
+// the main content itself working inwards and downwards through its
+// components: .page-content to paginator controls.
+
 
 // Header
 // ======
+
 .site-header {
-  min-height: $spacing-unit * 1.865;
-  position: 50px;
-  float: right;
-  line-height: $base-line-height * $base-font-size * 2.25;
-  position: fixed;  // don't want navigation icons moving
+  // Most the styles that were here were for .site-nav
+  display: inline-block;
 }
 
 .site-nav {
-  // Horizontal navigation bar for devices slimmer than 750px
-  width: 750px;  // HACK to make sure horizontal bar covers screen
-  height: 45px;  // HACK Should be a better way to do this
-  background-color: $wrapper-color;
+  // Horizontal navigation bar on small screens
+  position: fixed;  // don't want navigation icons moving
+  width: 100%;
+  height: $nav-bar-height;
+  border-bottom: 1px solid $border-color;
+  background-color: $nav-color;
   display: block;
-  box-shadow: 0px 0.25em 0.25em rgba(0, 0, 0, 0.1);
+  box-shadow: $base-shadow;
   @extend %clearfix;
 
+  // Buttons on the nav bar
   .page-link {
+    svg {
+      padding: $nav-bar-height/4;
+      width: $nav-bar-height/2;
+      height: $nav-bar-height/2;
+      fill: $brand-color-dark;
+    }
+    margin: auto;
+    display: inline-block;
     text-decoration: none;
-    color: $text-color;
-    line-height: $base-line-height;
-    padding: 5px 10px;
+    width:  $nav-bar-height;
+    height: $nav-bar-height;
+  }
+  // make it obvious which button is inspected
+  .page-link:hover, .page-link:active {
+    svg { fill: lighten($brand-color-dark, 5%) }
+    background-color: darken($nav-color, 10%);
+    border-bottom: 1px solid darken($border-color, 10%);
   }
 
-  .svg-icon {
-    width: 24px;
-    height: 24px;
-  }
-
-  // Vertical nav buttons if device wider than 750px
-  @media screen and (min-width: 750px) {
-    background-color: #00000000;
+  // Vertical nav buttons on large screen
+  @include if-large {
+    background-color: transparent;
+    border-bottom: 0;
     margin-left: $spacing-unit;
-    width: 50px;  // HACK counters the 750px hack in .site-nav
+    width: $nav-bar-height;
     box-shadow: none;
     align-items: right;
     float: right;
@@ -45,18 +60,25 @@
       display: block;
       margin-left: auto;
     }
+
+    .page-link:hover, .page-link:active {
+      svg { fill: lighten($brand-color-dark, 10%) }
+      background-color: transparent;
+      border-bottom: 0;
+    }
   }
 }
 
 
 // Site footer
 // ===========
+
 .site-footer {
-  padding: $spacing-unit 0;
-  @include relative-font-size(0.9375);
-  color: $text-color; // ;
+  padding: 2*$spacing-unit $spacing-unit $spacing-unit;
+  @include relative-font-size(0.6);
+  color: $text-color;
   text-align: center;
-  margin: auto;
+  margin-top: auto;
 
   a {
     // Means there's no distinction for footer links
@@ -64,19 +86,21 @@
   }
 }
 
-.social-media-list {
+.social-list {
   display: table;
-  list-style: none;
-  margin: 0 auto;
-  li {
-    float: left;
-    margin: 5px 10px 5px 0;
-    &:last-of-type { margin-right: 0 }
-    a {
-      display: block;
-      padding: $spacing-unit / 4;
-      // border: 1px solid $border-color-01;
-      &:hover { border-color: $border-color-02 }
+  margin: $spacing-unit/2 auto 0 auto;
+  a {
+    text-decoration: none;
+    padding: $spacing-unit / 4;
+
+    svg {
+      fill: $text-color;
+      width: 16px;
+      height: 16px;
+    }
+
+    svg:hover, svg:active {
+      fill: lighten($brand-color-dark, 10%)
     }
   }
 }
@@ -84,19 +108,25 @@
 
 // Page content
 // ============
+
 .page-content {
+  // set size
   width: $content-width;
-  max-width: 80%;
-  float: left;
-  margin-right: auto;
-  margin-left: auto;
-  padding: $spacing-unit 0;
-  // allow extra space for navigation bar if device 750px or narrower
-  @media screen and (max-width: 750px) {
-    // HACK find a way to dynamically get the height of the nav bar rather than eyeballing 60px
-    padding: $spacing-unit+60px 0;
+  max-width: 70%;
+  display: inline-block;  // NOTE Minima set this in default.html
+  // make it pretty
+  background-color: $page-color;
+  border-radius: $base-border-radius;
+  // external margins
+  margin: $spacing-unit+1.5*$nav-bar-height auto auto;
+  // internal padding
+  padding: $spacing-unit $spacing-unit 0 $spacing-unit;
+  // TODO find out what this does
+  @extend %clearfix;
+  // remove extra space for navigation bar if not on mobile
+  @include if-large {
+    margin-top: $spacing-unit;
   }
-  flex: 1 0 auto;
 }
 
 .page-heading {
@@ -123,14 +153,13 @@
 
 .post-link {
   display: block;
-  @include relative-font-size(1.5);
+  @include relative-font-size(1.1);
 }
 
 
+// Posts
+// =====
 
-/**
- * Posts
- */
 .post-header {
   margin-bottom: $spacing-unit;
 }
@@ -141,7 +170,7 @@
   letter-spacing: -1px;
   line-height: 1.15;
 
-  @media screen and (min-width: $on-large) {
+  @media in-large {
     @include relative-font-size(2.625);
   }
 }
@@ -155,7 +184,7 @@
   h2 {
     @include relative-font-size(1.75);
 
-    @media screen and (min-width: $on-large) {
+    @media in-large {
       @include relative-font-size(2);
     }
   }
@@ -163,7 +192,7 @@
   h3 {
     @include relative-font-size(1.375);
 
-    @media screen and (min-width: $on-large) {
+    @media if-large {
       @include relative-font-size(1.625);
     }
   }
@@ -181,14 +210,29 @@
 }
 
 
-/**
- * Pagination navbar
- */
+// Error Pages
+// ===========
+
+.error {
+  text-align: center;
+
+  h1 {
+    margin: $spacing-unit/2 0;
+    font-size: 4em;
+  }
+}
+
+
+// Pagination navbar
+// =================
+
 .pagination {
   margin-bottom: $spacing-unit;
-  @extend .social-media-list;
+  @extend .social-list;
   li {
     a, div {
+      width: 16px;
+      height: 16px;
       min-width: 41px;
       text-align: center;
       box-sizing: border-box;
@@ -199,7 +243,7 @@
       border: 1px solid transparent;
 
       &.pager-edge {
-        color: $border-color-01;
+        color: $border-color;
         border: 1px dashed;
       }
     }

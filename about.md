@@ -4,14 +4,10 @@ title: About
 permalink: /about/
 ---
 
-<img class="left" src="{{ '/images/profile.jpg' | relative_url }}" alt="photo of me" style="width:250px;">
+![Photo of Me]({{ '/images/profile.jpg' | relative_url }}){: class="left" width="200px%" }
 
-This is the personal website of me, {{ site.author.name }}.
+This is the personal website of me, {{ site.author.name }}!
 
-You can use this space to write a bit about yourself, who you are, what you
-do, and what this blog is going to be used for. You can also add a profile
-image by replacing the Wren image in the images directory with on of your
-own.
+You can use this space to write a bit about yourself, who you are, what you do, and what this blog is going to be used for. You can also add a profile image by replacing the Wren image in the images directory with on of your own.
 
-You can also customise the contact links that are shown below to link to your
-own social networks.
+You can also customise the contact links that are shown in the footer of every page to link to your own social networks; check `_config.yml` for more.

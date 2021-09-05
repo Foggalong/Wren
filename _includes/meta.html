@@ -1,10 +1,13 @@
-<p class="post-meta">
-  <!-- Ensures will work with posts and pages -->
-  {%- if page.date -%}
-    {%- assign p = page -%}
-  {%- else -%}
-    {%- assign p = post -%}
-  {% endif %}
+<!-- Ensures will work with posts and pages -->
+{%- if page.date -%}
+  {%- assign p = page -%}
+  {%- assign align = 'center' -%}
+{%- else -%}
+  {%- assign p = post -%}
+  {%- assign align = 'left' -%}
+{% endif %}
+
+<p class="post-meta" {{ align | prepend: 'style= "text-align: ' | append: ';"'}}>
   <!-- Date the post was originally published -->
   <time class="dt-published" datetime="{{ p.date | date_to_xmlschema }}" itemprop="datePublished">
     {{ p.date | date: site.date_format }}
