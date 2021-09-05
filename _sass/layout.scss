@@ -84,25 +84,21 @@
   }
 }
 
-.social-media-list {
+.social-list {
   display: table;
-  list-style: none;
-  margin: 0 auto;
-  li {
-    float: left;
-    margin: 5px 10px 5px 0;
-    &:last-of-type { margin-right: 0 }
-    a {
-      svg {
-        fill: $text-color;
-        width: 16px;
-        height: 16px;
-      }
-      svg:hover, svg:active {
-        fill: lighten($brand-color-dark, 10%)
-      }
-      display: block;
-      padding: $spacing-unit / 4;
+  margin: $spacing-unit/2 auto 0 auto;
+  a {
+    text-decoration: none;
+    padding: $spacing-unit / 4;
+
+    svg {
+      fill: $text-color;
+      width: 16px;
+      height: 16px;
+    }
+
+    svg:hover, svg:active {
+      fill: lighten($brand-color-dark, 10%)
     }
   }
 }
@@ -232,7 +228,7 @@
 // =================
 .pagination {
   margin-bottom: $spacing-unit;
-  @extend .social-media-list;
+  @extend .social-list;
   li {
     a, div {
       width: 16px;
