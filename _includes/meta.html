@@ -5,19 +5,15 @@
   {%- else -%}
     {%- assign p = post -%}
   {% endif %}
-  <!-- Date the post was originally published -->
-  <time class="dt-published" datetime="{{ p.date | date_to_xmlschema }}" itemprop="datePublished">
-    {{ p.date | date: site.date_format }}
-  </time>
-  <!-- If post was modified, include that date after a tilde inside the post -->
+  <!-- Date the post was originally published (latest modification date in title text ) -->
+  {%- assign original_date = p.date | date: site.date_format -%}
   {%- if p.modified_date -%}
-    ~ 
-    {%- assign mod_date = p.modified_date | date_to_xmlschema -%}
-    <!-- TODO find a graceful way to include this information -->
-    <time class="dt-modified" datetime="{{ mod_date }}" itemprop="dateModified">
-        {{ mod_date | date: site.date_format }}
-    </time>
+    {%- assign modified_date = p.modified_date | date: site.date_format | prepend: 'Updated on ' -%}
+    {%- assign original_date = original_date | append: '*' -%}
   {%- endif -%}
+  <time title="{{ modified_date }}" class="dt-published" datetime="{{ p.date | date_to_xmlschema }}" itemprop="datePublished">
+    {{ original_date }}
+  </time>
   <!-- After cdot, include time it takes to read post content -->
   • {%- include reading-time.html text=p.content -%}
   <!-- If author(s) specified, after cdot include them at the end -->
