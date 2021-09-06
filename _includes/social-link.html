@@ -8,6 +8,6 @@
 <!-- Actual HTML which handles the social button (SVG import, fallbacks, etc)  -->
 <a rel="author" alt="{{ include.name }}" href="{{ include.url | prepend: 'https://' | append: url_handle }}" title="{{ handle }}">
   <svg>
-    <use xlink:href="{{ '/assets/social-icons.svg#' | append: include.name | relative_url }}"></use>
+    <use xlink:href="{{ include.name | prepend: '/assets/social-icons/' | append: '.svg#soc' | relative_url }}"/>
   </svg>
 </a>

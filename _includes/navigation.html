@@ -2,7 +2,7 @@
   <nav class="site-nav">
     <a class="page-link" href="{{ site.baseurl }}/" title="Home" alt="Home">
       <svg>
-        <use xlink:href="{{ 'assets/nav-icons/Home.svg#nav' | relative_url }}"></use>
+        <use xlink:href="{{ 'assets/nav-icons/Home.svg#nav' | relative_url }}"/>
       </svg>
     </a>
     {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
@@ -23,20 +23,20 @@
               {%- assign icon_path = 'assets/nav-icons/Default.svg' -%}
             {%- endif -%}
             <svg>
-              <use xlink:href="{{ icon_path | append: '#nav' | relative_url }}"></use>
+              <use xlink:href="{{ icon_path | append: '#nav' | relative_url }}"/>
             </svg>
           </a>
         {%- endif -%}
       {%- endfor -%}
       <a class="page-link" href="{{ 'feed.xml' | relative_url }}" title="Feed">
         <svg>
-          <use xlink:href="{{ 'assets/nav-icons/RSS.svg#nav' | relative_url }}"></use>
+          <use xlink:href="{{ 'assets/nav-icons/RSS.svg#nav' | relative_url }}"/>
         </svg>
       </a>
     {%- endif -%}
     <a class="page-link" href="#" title="Top" alt="Top">
       <svg>
-        <use xlink:href="{{ 'assets/nav-icons/Top.svg#nav' | relative_url }}"></use>
+        <use xlink:href="{{ 'assets/nav-icons/Top.svg#nav' | relative_url }}"/>
       </svg>
     </a>
   </nav>

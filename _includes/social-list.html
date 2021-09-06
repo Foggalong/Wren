@@ -73,3 +73,14 @@
 {%- if s.youtube_channel -%}
   {%- include social-link.html name="YouTube" url="youtube.com/channel/" id=s.youtube_channel at=s.youtube_channel_name -%}
 {%- endif -%}
+
+{%- for link in s.extra-links -%}
+  {%- if link.username and link.instance -%}
+    {%- assign clean_url = link.instance | cgi_escape | escape -%}
+    <a rel="author" alt="{{ link.instance }}" href="{{ link.instance }}" title="{{ link.username }}">
+      <svg>
+        <use xlink:href="{{ '/assets/social-icons/Default.svg#soc' | relative_url }}"/>
+      </svg>
+    </a>
+  {%- endif -%}
+{%- endfor -%}

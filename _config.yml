@@ -83,6 +83,11 @@ social_links:
   youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
   youtube_channel_name: CloudCannon
   telegram: jekyll
+  extra-links:
+  - username: jekyll
+    instance: https://example1.com
+  - username: j3ky11
+    instance: https://example2.com
 
 
 # The header will always include `Home` as the first link and `RSS`
