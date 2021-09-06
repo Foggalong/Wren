@@ -6,7 +6,7 @@ title: Home
 layout: page
 ---
 
-## Make yourself at home
+Welcome, make yourself at home!
 
 This is an example website. It's made with [Jekyll](https://jekyllrb.com/),
 a static site generator, using [Wren](https://github.com/Foggalong/Wren),

@@ -1,0 +1,75 @@
+{%- assign s = site.social_links -%}
+
+{%- if s.devto -%}
+  {%- include social-link.html name="DEV" url="dev.to/" at=s.devto -%}
+{%- endif -%}
+
+{%- if s.dribbble -%}
+  {%- include social-link.html name="Dribbble" url="dribbble.com/" at=s.dribbble -%}
+{%- endif -%}
+
+{%- if s.facebook -%}
+  {%- include social-link.html name="Facebook" url="facebook.com/" at=s.facebook -%}
+{%- endif -%}
+
+{%- if s.flickr -%}
+  {%- include social-link.html name="Flickr" url="flickr.com/photos/" at=s.flickr -%}
+{%- endif -%}
+
+{%- if s.github -%}
+  {%- include social-link.html name="GitHub" url="github.com/" at=s.github -%}
+{%- endif -%}
+
+{%- for glb in s.gitlab -%}
+  {%- if glb.username and glb.instance -%}
+    {%- assign clean_url = glb.instance | cgi_escape | escape | append: "/" -%} 
+    {%- include social-link.html name="GitLab" url=clean_url at=glb.username -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if s.instagram -%}
+  {%- include social-link.html name="Instagram" url="instagram.com/" at=s.instagram -%}
+{%- endif -%}
+
+{%- if s.keybase -%}
+  {%- include social-link.html name="Keybase" url="keybase.io/" at=s.keybase -%}
+{%- endif -%}
+
+{%- if s.linkedin -%}
+  {%- include social-link.html name="LinkedIn" url="linkedin.com/in/" at=s.linkedin -%}
+{%- endif -%}
+
+{%- for mst in s.mastodon -%}
+  {%- if mst.username and mst.instance -%}
+    {%- assign clean_url = mst.instance | cgi_escape | escape | append: "/@" -%} 
+    {%- include social-link.html name="Mastodon" url=clean_url at=mst.username -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if s.microdotblog -%}
+  {%- include social-link.html name="Micro.blog" url="micro.blog/" at=s.microdotblog -%}
+{%- endif -%}
+
+{%- if s.pinterest -%}
+  {%- include social-link.html name="Pinterest" url="pinterest.com/" at=s.pinterest -%}
+{%- endif -%}
+
+{%- if s.stackoverflow -%}
+  {%- include social-link.html name="StackOverflow" url="stackoverflow.com/users/" at=s.stackoverflow -%}
+{%- endif -%}
+
+{%- if s.telegram -%}
+  {%- include social-link.html name="Telegram" url="t.me/" at=s.telegram -%}
+{%- endif -%}
+
+{%- if s.twitter -%}
+  {%- include social-link.html name="Twitter" url="twitter.com/" at=s.twitter -%}
+{%- endif -%}
+
+{%- if s.youtube -%}
+  {%- include social-link.html name="YouTube" url="youtube.com/" at=s.youtube -%}
+{%- endif -%}
+
+{%- if s.youtube_channel -%}
+  {%- include social-link.html name="YouTube" url="youtube.com/channel/" id=s.youtube_channel at=s.youtube_channel_name -%}
+{%- endif -%}

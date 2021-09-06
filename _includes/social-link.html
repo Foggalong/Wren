@@ -1,0 +1,13 @@
+{%- assign handle = include.at | cgi_escape | escape -%}
+<!-- Handle optional ID tag, allows for URLs which differ from usernames -->
+{%- if include.id -%}
+  {%- assign url_handle = include.id | escape -%}
+{%- else -%}
+  {%- assign url_handle = handle -%}
+{%- endif -%}
+<!-- Actual HTML which handles the social button (SVG import, fallbacks, etc)  -->
+<a rel="author" alt="{{ include.name }}" href="{{ include.url | prepend: 'https://' | append: url_handle }}" title="{{ handle }}">
+  <svg>
+    <use xlink:href="{{ '/assets/social-icons.svg#' | append: include.name | relative_url }}"></use>
+  </svg>
+</a>

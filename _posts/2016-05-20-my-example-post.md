@@ -1,4 +1,5 @@
 ---
+title: My Example Post
 layout: post
 modified_date: 2016-06-24
 ---

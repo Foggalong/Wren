@@ -1,34 +1,35 @@
-<header class="site-header" style="display:inline-block;">
+<header class="site-header">
   <nav class="site-nav">
-    <!-- {%- assign default_paths = site.pages | map: "path" -%} -->
-    {%- assign page_paths = site.header_pages | default: default_paths -%}
+    <!-- Always display home, even if a single page website -->
+    <a class="page-link" href="{{ site.baseurl }}/" title="Home" alt="Home">
+      <svg class="svg-icon">
+        <use xlink:href="{{ 'assets/nav-icons.svg#Home' | relative_url }}"></use>
+      </svg>
+    </a>
     {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
-    
     {%- if titles_size > 0 -%}
+      {%- assign page_paths = site.header_pages -%}
       {%- for path in page_paths -%}
         {%- assign my_page = site.pages | where: "path", path | first -%}
         {%- if my_page.title -%}
           <a class="page-link" href="{{ my_page.url | relative_url }}" title="{{ my_page.title}}" alt="{{ my_page.title | escape }}">
-            <!-- TODO work out how to use xlink:href to re-colour these automatically -->
             {%- assign icon_path = my_page.title | default: Comments | prepend: 'assets/nav-icons.svg#' -%}
-            <svg class="svg-icon"> <!-- TODO colour this icon #3d3d3d -->
+            <svg class="svg-icon">
               <use xlink:href="{{ icon_path | relative_url }}"></use>
             </svg>
           </a>
         {%- endif -%}
       {%- endfor -%}
       <a class="page-link" href="{{ 'feed.xml' | relative_url }}" title="Feed">
-        <svg class="svg-icon"> <!-- TODO colour this icon #3d3d3d -->
+        <svg class="svg-icon">
           <use xlink:href="{{ 'assets/nav-icons.svg#rss' | relative_url }}"></use>
         </svg>
       </a>
-      <a class="page-link" href="#" title="Top" alt="Top">
-        <svg class="svg-icon"> <!-- TODO colour this icon #3d3d3d -->
-          <use xlink:href="{{ 'assets/nav-icons.svg#Top' | relative_url }}"></use>
-        </svg>
-      </a>
     {%- endif -%}
-
-    </p>
+    <a class="page-link" href="#" title="Top" alt="Top">
+      <svg class="svg-icon">
+        <use xlink:href="{{ 'assets/nav-icons.svg#Top' | relative_url }}"></use>
+      </svg>
+    </a>
   </nav>
 </header>
