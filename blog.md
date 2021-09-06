@@ -4,9 +4,8 @@
 
 # title: Posts
 title: Posts
-layout: home
+layout: post-list
 permalink: /blog/
-list_title: ' '
 ---
 
 Links to my most recent blogs. If you want to have a look at my older stuff either [category](cat) or see a [full list](cat/all). Enjoy!
