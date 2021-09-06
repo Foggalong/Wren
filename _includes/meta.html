@@ -14,15 +14,14 @@
   </time>
   <!-- If post was modified, include that date after a tilde inside the post -->
   {%- if p.modified_date -%}
-    ~ 
-    {%- assign mod_date = p.modified_date | date_to_xmlschema -%}
-    <!-- TODO find a graceful way to include this information -->
-    <time class="dt-modified" datetime="{{ mod_date }}" itemprop="dateModified">
-        {{ mod_date | date: site.date_format }}
-    </time>
+    {%- assign modified_date = p.modified_date | date: site.date_format | prepend: 'Updated on ' -%}
+    {%- assign original_date = original_date | append: '*' -%}
   {%- endif -%}
+  <time title="{{ modified_date }}" class="dt-published" datetime="{{ p.date | date_to_xmlschema }}" itemprop="datePublished">
+    {{ original_date }}
+  </time>
   <!-- After cdot, include time it takes to read post content -->
-  • {{ p.content | reading_time }} read
+  • {%- include reading-time.html text=p.content -%}
   <!-- If author(s) specified, after cdot include them at the end -->
   {%- if p.author -%}
     •

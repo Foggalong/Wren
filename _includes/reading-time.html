@@ -1,0 +1,17 @@
+{%- if include.text -%}
+  {%- assign text = include.text -%}
+{%- else -%}
+  {%- assign text = content -%}
+{%- endif -%}
+
+{% assign words = text | number_of_words %}
+{% assign wp1m  = 180 %}
+{% assign wp30s = wp1m | divided_by: 2 %}
+
+{% if words > 0 and words < wp30s %}
+  {% assign time = '30 sec' %}
+{% else %}
+  {% assign time = words | plus: wp30s | divided_by: wp1m | append: ' min' %}
+{% endif %}
+
+{{ time | append: ' read' }}

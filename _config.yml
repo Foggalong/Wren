@@ -25,9 +25,8 @@ markdown: kramdown  # enables extended markdown features (e.g footnotes)
 theme: minima       # upstream theme to fallback on in case of gaps
 
 plugins:
-  - jekyll-feed          # rss feeds (default Jekyll)
-  - jekyll-seo-tag       # search engine optimization (default Minima)
-  - jekyll-reading-time  # post reading times
+  - jekyll-feed     # rss feeds (default Jekyll)
+  - jekyll-seo-tag  # search engine optimization (default Minima)
 
 # These items will not be processed or trigger regeneration by default.
 # Any item listed under the `exclude:` key here will be automatically
