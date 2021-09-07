@@ -224,6 +224,33 @@
 }
 
 
+// Categories
+// ==========
+
+.category-page {
+  // special headers used for the category list
+  h2 {
+    // they need less space
+    margin-top: $spacing-unit * 1.5;
+    // we wanted to hide their anchor links...
+    a {
+      color: $text-color;
+      text-decoration: none;
+    }
+    // ...unless they're being inspected
+    a:hover, a:active {
+      text-decoration: underline dotted;
+    }
+  }
+
+  .category-cloud {
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: $spacing-unit/2;
+  }
+}
+
+
 // Pagination navbar
 // =================
 

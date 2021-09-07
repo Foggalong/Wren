@@ -8,4 +8,4 @@ layout: post-list
 permalink: /blog/
 ---
 
-Links to my most recent blogs. If you want to have a look at my older stuff either [category](cat) or see a [full list](cat/all). Enjoy!
+Here you can see all the posts I’ve ever made, from newest to oldest. You can also see them [sorted by the categories]({{ 'categories' | relative_url }}) they were filed under.
