@@ -11,19 +11,17 @@ title: Wren
 author:
   name: Renny Wrennington
   email: email@email.com
-# TODO replace with an updated description
 description: >-  # this means to ignore newlines until the next key
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-baseurl: "/Wren" # the subpath of your site, e.g. /blog, or "/" for root
-# url: "http://127.0.0.1:4000" # base hostname for your site (local)
-url: "https://foggalong.github.io/Wren" # base hostname for your site (hosted)
+baseurl: "/Wren"  # the subpath of your site, e.g. /blog, or "/" for root
 
 # Build settings
 markdown: kramdown  # enables extended markdown features (e.g footnotes)
-theme: minima       # upstream theme to fallback on in case of gaps
+theme: jekyll-wren  # upstream theme to fallback on in case of gaps
 
+# External plugins to bring in
 plugins:
   - jekyll-feed     # rss feeds (default Jekyll)
   - jekyll-seo-tag  # search engine optimization (default Minima)
@@ -43,6 +41,7 @@ exclude:
   - build
   - Gemfile
   - Gemfile.lock
+  - jekyll-wren.gemspec
   - LICENSE.md
   - README.md
 
@@ -52,53 +51,53 @@ exclude:
 # Set to true to show blog excerpts on the posts page
 show_excerpts: false
 
-# Uses `strftime` datetime string formatting.
-# date_format: "%b %-d, %Y"  # Minima Default
-date_format: "%Y-%m-%d"      # ISO 8601
+# Wren-specific settings
+wren:
+  # Uses `strftime` datetime string formatting.
+  date_format: "%Y-%m-%d"  # ISO 8601
 
-# Generate social links in footer
-social_links:
-  # devto: jekyll
-  # dribbble: jekyll
-  facebook: jekyll
-  # flickr: jekyll
-  github: jekyll
-  gitlab:  # can have multiple hosts
-  - username: jekyll
-    instance: gitlab.com
-  - username: j3ky11
-    instance: git.gnome.org
-  instagram: jekyll
-  # keybase: jekyll
-  # linkedin: jekyll
-  # mastodon:  # can have multiple hosts
-  # - username: jekyll
-  #   instance: mastodon.cloud
-  # - username: jekyll2
-  #   instance: mastodon.social
-  # microdotblog: jekyll
-  # pinterest: jekyll
-  twitter: jekyllrb
-  # youtube: jekyll
-  youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
-  youtube_channel_name: CloudCannon
-  telegram: jekyll
-  extra-links:
-  - username: jekyll
-    instance: https://example1.com
-  - username: j3ky11
-    instance: https://example2.com
+  # Generate social links in footer
+  social_links:
+    # devto: jekyll
+    # dribbble: jekyll
+    facebook: jekyll
+    # flickr: jekyll
+    github: jekyll
+    gitlab:  # can have multiple hosts
+    - username: jekyll
+      instance: gitlab.com
+    - username: j3ky11
+      instance: git.gnome.org
+    instagram: jekyll
+    # keybase: jekyll
+    # linkedin: jekyll
+    # mastodon:  # can have multiple hosts
+    # - username: jekyll
+    #   instance: mastodon.cloud
+    # - username: jekyll2
+    #   instance: mastodon.social
+    # microdotblog: jekyll
+    # pinterest: jekyll
+    twitter: jekyllrb
+    # youtube: jekyll
+    youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
+    youtube_channel_name: CloudCannon
+    telegram: jekyll
+    extra-links:
+    - username: jekyll
+      instance: https://example1.com
+    - username: j3ky11
+      instance: https://example2.com
 
+  # The header will always include `Home` as the first link and `RSS`
+  # and `Top` as the last two links. The order list below specifies
+  # the other pages to appear in the middle.
+  header_pages:
+  - blog.md
+  - about.md
 
-# The header will always include `Home` as the first link and `RSS`
-# and `Top` as the last two links. The order list below specifies
-# the other pages to appear in the middle.
-header_pages:
-- blog.md
-- about.md
-
-# In the category-list.html include the font size of each category
-# is calculated using (a*x + b)%, where x is the category size.
-category_cloud:
-  a: 15
-  b: 80
+  # The font size of each category in the category-list.html include 
+  # is calculated using (a*x + b)%, where x is the category size.
+  category_cloud:
+    a: 15
+    b: 80
