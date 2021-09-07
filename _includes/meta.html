@@ -24,6 +24,14 @@
   </time>
   <!-- After cdot, include time it takes to read post content -->
   • {%- include reading-time.html text=p.content -%}
+  <!-- List any categories used in the post -->
+  {%- if p.categories -%}
+    {% for category in p.categories %}
+      {%- if forloop.first == true %}• {% endif %}
+      <a href={{ 'categories#' | append: category | relative_url }}>{{ category }}</a>
+      {%- if forloop.last == false %}, {% endif %}
+    {% endfor %}
+  {%- endif -%}   
   <!-- If author(s) specified, after cdot include them at the end -->
   {%- if p.author -%}
     •
@@ -35,5 +43,5 @@
       <!-- Separate multiple authors by commas -->
       {%- if forloop.last == false %}, {% endif -%}
     {% endfor %}
-  {%- endif -%}   
+  {%- endif -%}
 </p>

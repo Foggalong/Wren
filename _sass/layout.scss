@@ -150,6 +150,14 @@
 .post-meta {
   font-size: $small-font-size;
   color: $brand-color;
+
+  a {
+    color: $brand-color;
+    text-decoration: none;
+  }
+  a:hover, a:active {
+    text-decoration: underline dotted;
+  }
 }
 
 .post-link {
