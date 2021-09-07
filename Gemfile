@@ -6,6 +6,7 @@
 
 # Tells the Gemfile where to look for gems
 source "https://rubygems.org"
+gemspec
 
 # In Ruby, '~>' is a twiddle-wakka, or pessimistic version constraint;
 # it bounds the last digit below and the second to last digit above.
@@ -15,19 +16,13 @@ source "https://rubygems.org"
 # Use of ~> can also be compounded with >=, !=, etc for complex setups.
 
 # This ensures the current Jekyll version is running
-gem "jekyll", "~> 4.2.0"  # Minima requires ">= 3.5", "< 5.0"
-gem "minima", "~> 2.5"    # Default Jekyll theme, here as fallback
-gem "bundler"             # Minima development dependency
-
-# To use GitHub Pages, remove `gem "jekyll"` above and uncomment the
-# line below. To upgrade, run `bundle update github-pages`.
-# gem "github-pages", group: :jekyll_plugins
+gem "jekyll", "~> 4.2.0"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"           # Minima requires ~> 0.9
-  gem "jekyll-seo-tag", "~> 2.1"         # Minima requires ~> 2.1
-  # gem "jekyll-paginate"                # BUG not working
+  gem "jekyll-feed", "~> 0.12"
+  gem "jekyll-seo-tag", "~> 2.1"
+  # gem "jekyll-paginate"         # BUG not working
 end
 
 # Windows and JRuby do not include zoneinfo files, so bundle the
