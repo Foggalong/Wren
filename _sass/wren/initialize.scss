@@ -113,6 +113,6 @@ $large-width: 800px !default;
 // ============
 
 @import
-  "content",  // Styling for the base html content
-  "layout"    // Sets the layout of the website
+  "wren/content",  // Styling for the base html content
+  "wren/layout"    // Sets the layout of the website
 ;
