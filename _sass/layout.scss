@@ -31,6 +31,7 @@
       width: $nav-bar-height/2;
       height: $nav-bar-height/2;
       fill: $brand-color-dark;
+      filter: $base-drop-shadow;
     }
     margin: auto;
     display: inline-block;
@@ -92,9 +93,10 @@
   a {
     text-decoration: none;
     padding: $spacing-unit / 4;
-
+    
     svg {
       fill: $text-color;
+      filter: $base-drop-shadow;
       width: 16px;
       height: 16px;
     }
