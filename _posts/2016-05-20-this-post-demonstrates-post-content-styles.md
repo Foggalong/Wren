@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Demonstrating Content styles"
-categories: junk
+categories: [jekyll, junk]
 author:
 - Bart Simpson
 - Nelson Mandela Muntz

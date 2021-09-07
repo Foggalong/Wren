@@ -15,9 +15,11 @@ layout: default
 {% endif %}
 
 {%- if posts.size > 0 -%}
-  {%- if page.list_title -%}
-    <h2 class="post-list-heading">{{ page.list_title }}</h2>
-  {%- endif -%}
+  <h2 class="post-list-heading">
+    {%- if page.list_title -%}
+      {{ page.list_title }}
+    {%- endif -%}
+  </h2>
   <ul class="post-list">
     {%- for post in posts -%}
     <li>

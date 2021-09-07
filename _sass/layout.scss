@@ -135,6 +135,7 @@
 
 .post-list-heading {
   @include relative-font-size(1.75);
+  margin-bottom: $spacing-unit;
 }
 
 .post-list {
@@ -149,6 +150,14 @@
 .post-meta {
   font-size: $small-font-size;
   color: $brand-color;
+
+  a {
+    color: $brand-color;
+    text-decoration: none;
+  }
+  a:hover, a:active {
+    text-decoration: underline dotted;
+  }
 }
 
 .post-link {
@@ -219,6 +228,33 @@
   h1 {
     margin: $spacing-unit/2 0;
     font-size: 4em;
+  }
+}
+
+
+// Categories
+// ==========
+
+.category-page {
+  // special headers used for the category list
+  h2 {
+    // they need less space
+    margin-top: $spacing-unit * 1.5;
+    // we wanted to hide their anchor links...
+    a {
+      color: $text-color;
+      text-decoration: none;
+    }
+    // ...unless they're being inspected
+    a:hover, a:active {
+      text-decoration: underline dotted;
+    }
+  }
+
+  .category-cloud {
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: $spacing-unit/2;
   }
 }
 

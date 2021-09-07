@@ -96,3 +96,9 @@ social_links:
 header_pages:
 - blog.md
 - about.md
+
+# In the category-list.html include the font size of each category
+# is calculated using (a*x + b)%, where x is the category size.
+category_cloud:
+  a: 15
+  b: 80
