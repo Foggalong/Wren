@@ -12,9 +12,11 @@
   <time class="dt-published" datetime="{{ p.date | date_to_xmlschema }}" itemprop="datePublished">
     {{ p.date | date: site.date_format }}
   </time>
+  {%- assign original_date = p.original_date -%}
+  {%- assign modified_date = p.modified_date -%}
   <!-- If post was modified, include that date after a tilde inside the post -->
   {%- if p.modified_date -%}
-    {%- assign modified_date = p.modified_date | date: site.date_format | prepend: 'Updated on ' -%}
+    {%- assign modified_date = modified_date | date: site.date_format | prepend: 'Updated on ' -%}
     {%- assign original_date = original_date | append: '*' -%}
   {%- endif -%}
   <time title="{{ modified_date }}" class="dt-published" datetime="{{ p.date | date_to_xmlschema }}" itemprop="datePublished">
