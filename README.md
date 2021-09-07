@@ -2,22 +2,38 @@
 
 [![CodeQL](https://github.com/Foggalong/Wren/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Foggalong/Wren/actions/workflows/codeql-analysis.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/foggalong/wren/badge)](https://www.codefactor.io/repository/github/foggalong/wren)
-[![MIT Licensed](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE.md)
+[![MIT Licensed](https://img.shields.io/badge/License-MIT-brightgreen.svg)][mit]
 
-A lightweight theme for [Jekyll](https://github.com/jekyll/jekll) based on
-[Minima](https://github.com/jekyll/minima). Check out [this page][deployment]
-to see what the default looks like and for information on usage consult
-[the wiki](https://github.com/Foggalong/Wren/wiki).
+A paper-style theme for [Jekyll](jekyllrb.com). Check out [this page][deployment] to see what the default looks like and consult [the wiki][wiki] for information on usage and customisation.
+
+[deployment]: https://foggalong.github.io/Wren
+[wiki]: https://github.com/Foggalong/Wren/wiki
 
 **Be aware this is beta software. It will contain bugs; use at your own risk.**
 
-[deployment]: https://foggalong.github.io/Wren
+## Features
 
-Features:
+- Design which adapts to mobile and desktop
+- Browse posts chronologically or by category
+- See the estimated reading time for each post
+- Atom/RSS, using [Jekyll Feed][jekyll-feed]
+- SEO, using [Jekyll SEO][jekyll-seo]
 
-- Atom/RSS feed using [Jekyll Feed](https://github.com/jekyll/jekyll-feed),
-- Reading time from [Jekyll Reading Time](https://github.com/risan/jekyll-reading-time).
+[jekyll-feed]: https://github.com/jekyll/jekyll-feed
+[jekyll-seo]: https://github.com/jekyll/jekyll-seo-tag
 
-Those tools and my modifications are [MIT licensed](LICENSE.md). All image
-files are [CC-BY-SA](https://creativecommons.org/licenses/by-sa/2.0/) unless
-specified otherwise.
+## Licenses
+
+Jekyll Wren is [MIT licensed][mit] and builds on the work of other MIT licensed projects, particularly [Minima][minma], [Jekyll Reading Time][reading-time], and [Font Awesome][font-awesome].
+
+[minma]: https://github.com/jekyll/minima
+[reading-time]: https://github.com/risan/jekyll-reading-time
+[font-awesome]: https://github.com/Rush/Font-Awesome-SVG-PNG
+
+All images are [CC-BY-SA][cc-by-sa] unless specified otherwise. The [default profile image][profile] is of a Bewick Wren, taken by [Minette Layne][wren] and [CC-BY-NC][cc-by-nc] licensed. The social icons are from [Font Awesome][font-awesome] and are [MIT licensed][mit].
+
+[profile]: images/profile.jpg
+[wren]: https://flic.kr/p/4E9FY2
+[mit]: LICENSE.md
+[cc-by-sa]: https://creativecommons.org/licenses/by-sa/2.0
+[cc-by-nc]: https://creativecommons.org/licenses/by-nc/2.0
