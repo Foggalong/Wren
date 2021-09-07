@@ -96,7 +96,7 @@ wren:
   - blog.md
   - about.md
 
-  # The font size of each category in the category-list.html include 
+  # The font size of each category in the category-list.html include
   # is calculated using (a*x + b)%, where x is the category size.
   category_cloud:
     a: 15
