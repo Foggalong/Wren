@@ -135,6 +135,7 @@
 
 .post-list-heading {
   @include relative-font-size(1.75);
+  margin-bottom: $spacing-unit;
 }
 
 .post-list {
