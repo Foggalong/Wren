@@ -1,8 +1,6 @@
 # Contribution Guidelines
 
-Thanks for your interest in contributing to Wren! Before starting, check the [licensing section of the README][licensing] and that you're happy making contributions under those terms.
-
-[licensing]: https://github.com/Foggalong/Wren#licensing
+Thanks for your interest in contributing to Wren!
 
 Please note that the theme in this repo is mainly for my own personal website and at present I don't have capacity to turn it into a generic Jekyll theme. For that reason I may reject certain contributions if they're implementing features I don't want or that I would implement differently.
 

@@ -30,10 +30,9 @@ Jekyll Wren is [MIT licensed][mit] and builds on the work of other MIT licensed 
 [reading-time]: https://github.com/risan/jekyll-reading-time
 [font-awesome]: https://github.com/Rush/Font-Awesome-SVG-PNG
 
-All images are [CC-BY-SA][cc-by-sa] unless specified otherwise. The [default profile image][profile] is of a Bewick Wren, taken by [Minette Layne][wren] and [CC-BY-NC][cc-by-nc] licensed. The social icons are from [Font Awesome][font-awesome] and are [MIT licensed][mit].
+The only file licensed differently is the [default profile image][profile], a [CC-BY-NC][cc-by-nc] licensed photo of a Bewick Wren taken by [Minette Layne][wren].
 
 [profile]: images/profile.jpg
 [wren]: https://flic.kr/p/4E9FY2
 [mit]: LICENSE.md
-[cc-by-sa]: https://creativecommons.org/licenses/by-sa/2.0
 [cc-by-nc]: https://creativecommons.org/licenses/by-nc/2.0
