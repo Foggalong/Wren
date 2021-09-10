@@ -34,5 +34,5 @@
   {%- assign time = words | plus: wp30s | divided_by: site.wren.wpm | append: ' min' -%}
 {%- endif -%}
 
-{%comment%} use Medium style-display {%endcomment%} 
+{%comment%} give Medium-style output {%endcomment%} 
 {{ time | append: ' read' }}
