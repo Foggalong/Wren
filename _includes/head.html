@@ -2,10 +2,18 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%comment%} jekyll-seo-tag doing its thing {%endcomment%}
   {%- seo -%}
+  {%comment%}
+    using SVG favicons, see link below for documentation. In theory the flav.svg will
+    cover all modern browsers except iOS Safari which the apple-touch-icon.png covers
+    https://medium.com/swlh/are-you-using-svg-favicons-yet-a-guide-for-modern-browsers
+  {%endcomment%}
   <link rel="icon" href="{{ '/assets/flav.svg' | relative_url }}">
   <link rel="shortcut icon" href="{{ '/assets/flav.svg' | relative_url }}">
   <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+  {%comment%} assets/style.css isn't a typo, is where SASS will compile to {%endcomment%}
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  {%comment%} jekyll-feed doing its thing {%endcomment%}
   {%- feed_meta -%}
 </head>
