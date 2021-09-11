@@ -1,6 +1,6 @@
 {%comment%} values come from mix of config and data file {%endcomment%}
 {%- assign config = site.wren.social_links -%}
-{%- assign data   = site.data.social -%}
+{%- assign data   = site.wren_social_data -%}
 
 {%comment%} double loop allows multiple from same service {%endcomment%}
 {%- for service in config -%}

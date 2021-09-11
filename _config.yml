@@ -54,7 +54,7 @@ show_excerpts: false
 # Wren-specific settings
 wren:
   # Uses `strftime` datetime string formatting.
-  date_format: "%Y-%m-%d"
+  date_format: "%Y-%m-%d"  # ISO 8601
 
   # Generate social links in footer
   social_links:
@@ -105,3 +105,58 @@ wren:
   category_cloud:
     a: 15
     b: 80
+
+# From Jekyll 4.0 theme-gems can no longer include _data so this is
+# a workaround to ensure that the data is still provided through a
+# config merge.
+wren_social_data:
+  devto:
+    name: DEV
+    url:  dev.to
+  dribbble:
+    name: Dribbble
+    url:  dribbble.com
+  facebook:
+    name: Facebook
+    url:  facebook.com
+  flickr:
+    name: Flickr
+    url:  flickr.com/photos
+  github:
+    name: GitHub
+    url:  github.com
+  gitlab:
+    name: GitLab
+    url:  gitlab.com
+  instagram:
+    name: Instagram
+    url:  instagram.com
+  keybase:
+    name: Keybase
+    url:  keybase.io
+  linkedin:
+    name: LinkedIn
+    url:  linkedin.com/in
+  mastodon:
+    name: Mastodon
+  microdotblog:
+    name: Micro.blog
+    url:  micro.blog
+  pinterest:
+    name: Pinterest
+    url:  pinterest.com
+  stackoverflow:
+    name: StackOverflow
+    url:  stackoverflow.com/users
+  telegram:
+    name: Telegram
+    url:  t.me
+  twitter:
+    name: Twitter
+    url:  twitter.com
+  youtube:
+    name: YouTube
+    url:  youtube.com
+  youtube_channel:
+    name: YouTube
+    url:  youtube.com/channel
