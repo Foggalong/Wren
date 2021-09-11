@@ -3,8 +3,8 @@ layout: page
 ---
 
 {%- assign categories = site.categories | sort -%}
-{%- assign cc_a = site.wren.category_cloud.a -%}
-{%- assign cc_b = site.wren.category_cloud.b -%}
+{%- assign cc_a = site.wren.category_cloud.a | default: 15 -%}
+{%- assign cc_b = site.wren.category_cloud.b | default: 80 -%}
 
 <div class="category-page">
 
@@ -12,12 +12,18 @@ layout: page
   {%- for category in categories -%}
     {%- assign category_name = category[0] -%}
     {%- assign category_count = category | last | size -%}
+    {%comment%}
+      The font size of each category is calculated using (a*x + b)%, where
+      x is the number of posts in that category. This means that as x gets
+      bigger the values of a and b in config.yml might need tweaking.
+    {%endcomment%}  
     {%- assign style = category_count | times: cc_a | plus: cc_b | prepend: 'style="font-size: ' | append: '%;"' -%}
     <a href={{ category_name | prepend: '#' }} {{ style }} title="{{ category_count }} posts">{{ category_name | replace:'-', ' ' }}</a>
     {%- if forloop.last == false %}, {% endif -%}
   {%- endfor -%}
 </div>
 
+{%comment%} allows for preface before category list {%endcomment%}
 {{ content }}
 
 {%- for category in categories -%}
