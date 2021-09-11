@@ -63,7 +63,7 @@ wren:
     facebook: jekyll  # single user link
     # flickr: jekyll
     github: [jekyll, j3ky11]  # multi user link
-    gitlab:  # multi instance link with default instance 
+    gitlab:  # multi instance link with default instance
     - username: jekyll
     - username: j3ky11
       instance: git.gnome.org

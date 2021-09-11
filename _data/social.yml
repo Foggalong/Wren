@@ -11,10 +11,10 @@ flickr:
   name: Flickr
   url:  flickr.com/photos
 github:
-  name: GitHub  
+  name: GitHub
   url:  github.com
 gitlab:
-  name: GitLab  
+  name: GitLab
   url:  gitlab.com
 instagram:
   name: Instagram
