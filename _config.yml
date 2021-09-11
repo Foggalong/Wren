@@ -19,7 +19,8 @@ baseurl: "/Wren"  # the subpath of your site, e.g. /blog, or "/" for root
 
 # Build settings
 markdown: kramdown  # enables extended markdown features (e.g footnotes)
-theme: jekyll-wren  # upstream theme to fallback on in case of gaps
+remote_theme: foggalong/wren@v0.3-beta  # fetch theme from GitHub
+# theme: jekyll-wren  # use them from Ruby Gem
 
 # External plugins to bring in
 plugins:
