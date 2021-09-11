@@ -6,34 +6,21 @@
 {%- for service in config -%}
   {%- for entry in service[1] -%}
     {%comment%} can give username as object or value {%endcomment%}
-    {%- if entry.username -%}
-      {%- assign handle = entry.username -%}
-    {%- else -%}
-      {%- assign handle = entry -%}
-    {%- endif -%}
+    {%- assign handle = entry.username | default: entry -%}
 
     {%comment%}
       Key by which config identifies the service. Note that this key doesn't have to
-      be known to the data file also; this template's logic will muggle through what
+      be known to the data file also; this template's logic will muddle through what
       information it has and piece together a button as best it can.
     {%endcomment%}
     {%-assign key = service[0] -%}
 
     {%comment%} checks if Wren covers service, if not switch to fallbacks {%endcomment%}
-    {%- if data[key] -%}
-      {%- assign name = data[key]["name"] -%}
-      {%- assign icon = name -%}
-    {%- else -%}
-      {%- assign name = entry.name -%}
-      {%- assign icon = "Default" -%}
-    {%- endif -%}
+    {%- assign name = data[key]["name"] | default: entry.name -%}
+    {%- assign icon = data[key]["name"] | default: "Default" -%}
 
     {%comment%} url can come from config or datafile {%endcomment%}
-    {%- if entry.instance -%}
-      {%- assign url = entry.instance -%}
-    {%- else -%}
-      {%- assign url  = data[key]["url"] -%}
-    {%- endif -%}
+    {%- assign url = entry.instance | default: data[key]["url"] -%}
 
     {%comment%} handle service specific url delimiters {%endcomment%}
     {%- if key == "mastodon" -%}
@@ -43,11 +30,7 @@
     {%- endif -%}
 
     {%comment%} id allows URLs to differ from usernames {%endcomment%}
-    {%- if entry.id %}
-      {%- assign url_handle = entry.id -%}
-    {%- else %}
-      {%- assign url_handle = handle -%}
-    {%- endif %}
+    {%- assign url_handle = entry.id | default: handle -%}
 
     {%comment%} generate the full profile url {%endcomment%}
     {%- assign profile_link = url | prepend: 'https://' | append: delimiter | append: url_handle -%}
