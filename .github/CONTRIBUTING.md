@@ -6,9 +6,9 @@ Please note that the theme in this repo is mainly for my own personal website an
 
 That said, I'd still love to see contributions! Just make sure your editor is using the [`.editorconfig`][editor-config], any changes to markdown are [markdownlint] compliant, and, of course, that it [builds][build].
 
-[editor-config]: https://github.com/Foggalong/Wren/blob/master/.editorconfig
+[editor-config]: https://github.com/Foggalong/Wren/blob/main/.editorconfig
 [markdownlint]: https://github.com/DavidAnson/markdownlint
-[build]: https://github.com/Foggalong/Wren/blob/master/build
+[build]: https://github.com/Foggalong/Wren/blob/main/build
 
 This project strives to be usable with GitHub Pages. If your contribution includes bringing in a Gem which isn't [whitelisted][whitelist] make sure it's optional and fails gracefully when used there.
 
