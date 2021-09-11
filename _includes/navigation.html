@@ -18,7 +18,7 @@
     {%- for path in site.wren.header_pages -%}
       {%comment%} shortcuts for basic page info {%endcomment%}
       {%- assign my_page = site.pages | where: "path", path | first -%}
-      {%- assign id = my_page.path | replace: '.md', '' -%}
+      {%- assign id = my_page.path | split: '/' | last | replace: '.md', '' -%}
       {%- assign title = my_page.title | escape -%}
       {%comment%} construct expected icon path, then check if exists {%endcomment%}
       {%- assign icon_path = id | prepend: 'assets/nav-icons/' | append: '.svg' -%}
