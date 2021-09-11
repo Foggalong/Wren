@@ -60,18 +60,17 @@ wren:
   social_links:
     # devto: jekyll
     # dribbble: jekyll
-    facebook: jekyll
+    facebook: jekyll  # single user link
     # flickr: jekyll
-    github: jekyll
-    gitlab:  # can have multiple hosts
+    github: [jekyll, j3ky11]  # multi user link
+    gitlab:  # multi instance link with default instance 
     - username: jekyll
-      instance: gitlab.com
     - username: j3ky11
       instance: git.gnome.org
     instagram: jekyll
     # keybase: jekyll
     # linkedin: jekyll
-    # mastodon:  # can have multiple hosts
+    # mastodon:  # multi-instance link w/o default instance
     # - username: jekyll
     #   instance: mastodon.cloud
     # - username: jekyll2
@@ -80,14 +79,15 @@ wren:
     # pinterest: jekyll
     twitter: jekyllrb
     # youtube: jekyll
-    youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
-    youtube_channel_name: CloudCannon
+    youtube_channel:  # link which makes user of ID
+    - username: CloudCannon
+      id: UC8CXR0-3I70i1tfPg1PAE1g
     telegram: jekyll
-    extra-links:
+
+    google-plus: # link not covered by Wren's data
     - username: jekyll
-      instance: https://example1.com
-    - username: j3ky11
-      instance: https://example2.com
+      name: Google+
+      instance: plus.google.com/u
 
   # The header will always include `Home` as the first link and `RSS`
   # and `Top` as the last two links. The order list below specifies
