@@ -104,6 +104,17 @@ figcaption {
 }
 
 
+// Videos
+// ======
+
+.video-embed {
+  margin: 0 auto $spacing-unit/2 auto;
+  display: block;
+  max-width: 100%;
+  max-height: auto;
+}
+
+
 // Lists
 // =====
 

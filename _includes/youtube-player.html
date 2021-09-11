@@ -1,0 +1,16 @@
+{% comment %}
+  Takes a YouTube video title as `alt` and video id as `id` as parameters
+  and then returns the iframe needed to embed that video in a page. Based
+  https://github.com/nathancy/jekyll-embed-video which also contains info
+  on how similar templates can be made for other services.
+{% endcomment %}
+<iframe
+  class="video-embed"
+  alt="{{ include.alt }}"
+  title="{{ include.alt }}"
+  src="https://www.youtube.com/embed/{{ include.id }}"
+  width="500px"
+  height="281px"
+  frameborder="0"
+  allowfullscreen="false">
+</iframe>

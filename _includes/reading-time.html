@@ -1,17 +1,41 @@
+{% comment %}
+  This is an amazing example of how Liquid templates can behave exactly
+  like functions. Used as {% include reading-time.html text=content %},
+  this template takes an optional variable `text` as input and returns
+  how long it takes to read the content of that variable as output. If
+  no text given it just analyses the page its included in instead.
+{% endcomment %}
+
+{%comment%} check which provides fallback for `text` {%endcomment%} 
 {%- if include.text -%}
   {%- assign text = include.text -%}
 {%- else -%}
   {%- assign text = content -%}
 {%- endif -%}
 
-{% assign words = text | number_of_words %}
-{% assign wp1m  = 180 %}
-{% assign wp30s = wp1m | divided_by: 2 %}
+{%comment%} set the default reading speed {%endcomment%} 
+{%- assign wpm = site.wren.wpm | default: 180 -%}
 
-{% if words > 0 and words < wp30s %}
-  {% assign time = '30 sec' %}
-{% else %}
-  {% assign time = words | plus: wp30s | divided_by: wp1m | append: ' min' %}
-{% endif %}
+{%comment%}
+  Liquid can't do arithmetic within conditional expressions. We'll
+  need wpm/2 to check if the post is less than 30 seconds so have
+  to assign it a variable before the check happens.
+{%endcomment%}  
+{%- assign wp30s = wpm | divided_by: 2 -%}
 
+{%comment%}
+  This is a simple reading time calculation is based entirely on the
+  number of words; Medium is more complex and counts images as well.
+{%endcomment%} 
+{%- assign words = text | number_of_words -%}
+
+{%- if words > 0 and words < wp30s -%}
+  {%comment%} if takes less than 30 secs, just say 30 secs {%endcomment%} 
+  {%- assign time = '30 sec' -%}
+{%- else -%}
+  {%comment%} otherwise, give reading time to nearest minute {%endcomment%} 
+  {%- assign time = words | plus: wp30s | divided_by: wpm | append: ' min' -%}
+{%- endif -%}
+
+{%comment%} give Medium-style output {%endcomment%} 
 {{ time | append: ' read' }}

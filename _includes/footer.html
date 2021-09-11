@@ -1,7 +1,7 @@
 <footer class="site-footer h-card">
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
-
-  Copyright © 2021
+  {%comment%} keeps copyright notice to current year {%endcomment%}
+  Copyright © {{ site.time | date: '%Y' }}
   {%- if site.author %}
     {% if site.author.name -%}
       {% if site.author.email -%}
@@ -10,8 +10,11 @@
         {{ site.author.name }}
       {%- endif %}
     {%- endif %}
-  {%- endif -%} · Made using <a href="https://jekyllrb.com">Jekyll</a> with <a href="https://github.com/Foggalong/Wren">Wren</a>
+  {%- endif -%}
+  {%comment%} remove line below if you don't want to attribute Jekyll/Wren {%endcomment%}
+  · Made using <a href="https://jekyllrb.com">Jekyll</a> with <a href="https://github.com/Foggalong/Wren">Wren</a>
 
+  {%comment%} social-list.html quite big so in a separate file {%endcomment%}
   <div class="social-list">
     {%- include social-list.html -%}
   </div>

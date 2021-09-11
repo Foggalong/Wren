@@ -1,86 +1,46 @@
-{%- assign s = site.wren.social_links -%}
+{%comment%} values come from mix of config and data file {%endcomment%}
+{%- assign config = site.wren.social_links -%}
+{%- assign data   = site.data.social -%}
 
-{%- if s.devto -%}
-  {%- include social-link.html name="DEV" url="dev.to/" at=s.devto -%}
-{%- endif -%}
+{%comment%} double loop allows multiple from same service {%endcomment%}
+{%- for service in config -%}
+  {%- for entry in service[1] -%}
+    {%comment%} can give username as object or value {%endcomment%}
+    {%- assign handle = entry.username | default: entry -%}
 
-{%- if s.dribbble -%}
-  {%- include social-link.html name="Dribbble" url="dribbble.com/" at=s.dribbble -%}
-{%- endif -%}
+    {%comment%}
+      Key by which config identifies the service. Note that this key doesn't have to
+      be known to the data file also; this template's logic will muddle through what
+      information it has and piece together a button as best it can.
+    {%endcomment%}
+    {%-assign key = service[0] -%}
 
-{%- if s.facebook -%}
-  {%- include social-link.html name="Facebook" url="facebook.com/" at=s.facebook -%}
-{%- endif -%}
+    {%comment%} checks if Wren covers service, if not switch to fallbacks {%endcomment%}
+    {%- assign name = data[key]["name"] | default: entry.name -%}
+    {%- assign icon = data[key]["name"] | default: "Default" -%}
 
-{%- if s.flickr -%}
-  {%- include social-link.html name="Flickr" url="flickr.com/photos/" at=s.flickr -%}
-{%- endif -%}
+    {%comment%} url can come from config or datafile {%endcomment%}
+    {%- assign url = entry.instance | default: data[key]["url"] -%}
 
-{%- if s.github -%}
-  {%- include social-link.html name="GitHub" url="github.com/" at=s.github -%}
-{%- endif -%}
+    {%comment%} handle service specific url delimiters {%endcomment%}
+    {%- if key == "mastodon" -%}
+      {%- assign delimiter = "/@" -%}
+    {%- else -%}
+      {%- assign delimiter = "/" -%}
+    {%- endif -%}
 
-{%- for glb in s.gitlab -%}
-  {%- if glb.username and glb.instance -%}
-    {%- assign clean_url = glb.instance | cgi_escape | escape | append: "/" -%} 
-    {%- include social-link.html name="GitLab" url=clean_url at=glb.username -%}
-  {%- endif -%}
-{%- endfor -%}
+    {%comment%} id allows URLs to differ from usernames {%endcomment%}
+    {%- assign url_handle = entry.id | default: handle -%}
 
-{%- if s.instagram -%}
-  {%- include social-link.html name="Instagram" url="instagram.com/" at=s.instagram -%}
-{%- endif -%}
+    {%comment%} generate the full profile url {%endcomment%}
+    {%- assign profile_link = url | prepend: 'https://' | append: delimiter | append: url_handle -%}
 
-{%- if s.keybase -%}
-  {%- include social-link.html name="Keybase" url="keybase.io/" at=s.keybase -%}
-{%- endif -%}
-
-{%- if s.linkedin -%}
-  {%- include social-link.html name="LinkedIn" url="linkedin.com/in/" at=s.linkedin -%}
-{%- endif -%}
-
-{%- for mst in s.mastodon -%}
-  {%- if mst.username and mst.instance -%}
-    {%- assign clean_url = mst.instance | cgi_escape | escape | append: "/@" -%} 
-    {%- include social-link.html name="Mastodon" url=clean_url at=mst.username -%}
-  {%- endif -%}
-{%- endfor -%}
-
-{%- if s.microdotblog -%}
-  {%- include social-link.html name="Micro.blog" url="micro.blog/" at=s.microdotblog -%}
-{%- endif -%}
-
-{%- if s.pinterest -%}
-  {%- include social-link.html name="Pinterest" url="pinterest.com/" at=s.pinterest -%}
-{%- endif -%}
-
-{%- if s.stackoverflow -%}
-  {%- include social-link.html name="StackOverflow" url="stackoverflow.com/users/" at=s.stackoverflow -%}
-{%- endif -%}
-
-{%- if s.telegram -%}
-  {%- include social-link.html name="Telegram" url="t.me/" at=s.telegram -%}
-{%- endif -%}
-
-{%- if s.twitter -%}
-  {%- include social-link.html name="Twitter" url="twitter.com/" at=s.twitter -%}
-{%- endif -%}
-
-{%- if s.youtube -%}
-  {%- include social-link.html name="YouTube" url="youtube.com/" at=s.youtube -%}
-{%- endif -%}
-
-{%- if s.youtube_channel -%}
-  {%- include social-link.html name="YouTube" url="youtube.com/channel/" id=s.youtube_channel at=s.youtube_channel_name -%}
-{%- endif -%}
-
-{%- for link in s.extra-links -%}
-  {%- if link.username and link.instance -%}
-    {%- assign clean_url = link.instance | cgi_escape | escape -%}
-    <a rel="author" alt="{{ link.instance }}" href="{{ link.instance }}" title="{{ link.username }}">
+    {%comment%} actual HTML which forms the social button {%endcomment%}
+    <a rel="author" alt="{{ name }}" title="{{ handle }}" href="{{ profile_link }}">
       <svg>
-        <use xlink:href="{{ '/assets/social-icons/Default.svg#soc' | relative_url }}"/>
+        {%comment%} #soc acts as an anchor for the import {%endcomment%}
+        <use xlink:href="{{ icon | prepend: '/assets/social-icons/' | append: '.svg#soc' | relative_url }}"/>
       </svg>
     </a>
-  {%- endif -%}
-{%- endfor -%}
+  {%endfor%}
+{% endfor %}
