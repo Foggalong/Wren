@@ -54,7 +54,7 @@ show_excerpts: false
 # Wren-specific settings
 wren:
   # Uses `strftime` datetime string formatting.
-  date_format: "%Y-%m-%d"  # ISO 8601
+  date_format: "%Y-%m-%d"
 
   # Generate social links in footer
   social_links:

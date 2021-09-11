@@ -7,13 +7,16 @@
   {%- assign align = 'left' -%}
 {% endif %}
 
+{%comment%} Sets the default date format as ISO 8601 {%endcomment%}
+{% assign date_format = site.wren.date_format | default: "%Y-%m-%d" %}
+
 <p class="post-meta" {{ align | prepend: 'style= "text-align: ' | append: ';"'}}>
   {%comment%} assign variables prevents overflow between entries {%endcomment%}
-  {%- assign original_date = p.date | date: site.wren.date_format -%}
+  {%- assign original_date = p.date | date: date_format -%}
   {%- assign modified_date = p.modified_date -%}
   {%comment%} if post was modified, add * and add that date as hover text {%endcomment%}
   {%- if modified_date -%}
-    {%- assign modified_date = modified_date | date: site.wren.date_format | prepend: 'Updated on ' -%}
+    {%- assign modified_date = modified_date | date: date_format | prepend: 'Updated on ' -%}
     {%- assign original_date = original_date | append: '*' -%}
   {%- endif -%}
   <time title="{{ modified_date }}" class="dt-published" datetime="{{ original_date | date_to_xmlschema }}" itemprop="datePublished">
