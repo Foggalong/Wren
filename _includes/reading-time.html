@@ -13,12 +13,15 @@
   {%- assign text = content -%}
 {%- endif -%}
 
+{%comment%} set the default reading speed {%endcomment%} 
+{%- assign wpm = site.wren.wpm | default: 180 -%}
+
 {%comment%}
   Liquid can't do arithmetic within conditional expressions. We'll
   need wpm/2 to check if the post is less than 30 seconds so have
   to assign it a variable before the check happens.
-{%endcomment%} 
-{%- assign wp30s = site.wren.wpm | divided_by: 2 -%}
+{%endcomment%}  
+{%- assign wp30s = wpm | divided_by: 2 -%}
 
 {%comment%}
   This is a simple reading time calculation is based entirely on the
@@ -31,7 +34,7 @@
   {%- assign time = '30 sec' -%}
 {%- else -%}
   {%comment%} otherwise, give reading time to nearest minute {%endcomment%} 
-  {%- assign time = words | plus: wp30s | divided_by: site.wren.wpm | append: ' min' -%}
+  {%- assign time = words | plus: wp30s | divided_by: wpm | append: ' min' -%}
 {%- endif -%}
 
 {%comment%} give Medium-style output {%endcomment%} 
