@@ -19,13 +19,14 @@ baseurl: "/Wren"  # the subpath of your site, e.g. /blog, or "/" for root
 
 # Build settings
 markdown: kramdown  # enables extended markdown features (e.g footnotes)
-remote_theme: foggalong/wren@v0.3-beta  # fetch theme from GitHub
-# theme: jekyll-wren  # use them from Ruby Gem
+remote_theme: foggalong/wren@v0.3-beta  # fetch Wren from GitHub
+# theme: jekyll-wren  # use Wren from Ruby Gem
 
 # External plugins to bring in
 plugins:
-  - jekyll-feed     # rss feeds (default Jekyll)
-  - jekyll-seo-tag  # search engine optimization (default Minima)
+  - jekyll-remote-theme  # fetching themes from GitHub
+  - jekyll-feed          # rss feeds (default Jekyll)
+  - jekyll-seo-tag       # search engine optimization (default Minima)
 
 # These items will not be processed or trigger regeneration by default.
 # Any item listed under the `exclude:` key here will be automatically

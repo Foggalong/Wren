@@ -30,23 +30,23 @@ $nav-bar-height:   48px !default;  // BUG SVGs themselves don't resize
 $base-border-radius: 12px !default ;
 
 // Theme color default variables
-$brand-color:           #828282 !default;
-$brand-color-light:     lighten($brand-color, 40%) !default;
-$brand-color-dark:      darken($brand-color, 25%) !default;
-$text-color:            #3d3d3d !default;
-$background-color:      #9b9da3 !default;
-$page-color:            #fdfdfd !default;
-$nav-color:             $page-color !default;
-$border-color:          $brand-color-light !default;
+$brand-color:       #828282 !default;
+$brand-color-light: lighten($brand-color, 40%) !default;
+$brand-color-dark:  darken($brand-color, 25%) !default;
+$text-color:        #3d3d3d !default;
+$background-color:  #9b9da3 !default;
+$page-color:        #fdfdfd !default;
+$nav-color:         $page-color !default;
+$border-color:      $brand-color-light !default;
 
 // Shadows for elements and icons
 $base-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.1) !default;
 $base-drop-shadow: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2)) !default;
 
 // Colors for link formatting
-$link-base-color:       #2a7ae2 !default;
-$link-visited-color:    darken($link-base-color, 15%) !default;
-$link-hover-color:      $text-color !default;
+$link-base-color:    #2a7ae2 !default;
+$link-visited-color: darken($link-base-color, 15%) !default;
+$link-hover-color:   $text-color !default;
 
 // Colors for table formatting
 $table-text-color:      lighten($text-color, 18%) !default;
