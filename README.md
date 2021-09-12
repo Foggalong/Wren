@@ -19,12 +19,16 @@ A paper-style theme for [Jekyll]. Check out the GitHub pages [deployment] to see
 
 ## Features
 
-- 📱 Responsive UI design
+- 📱 Responsive, [customisable] design
 - 🕔 See post reading time
 - 🏷️ Browse posts by category
 - 📺 Embedded YouTube videos
+- 📃 Optional [pagination]
 - 📰 Atom/RSS feed of posts
 - 📈 In-built search engine optimization
+
+[customisable]: #custom-styling
+[pagination]: #pagination
 
 ## Installing
 
@@ -77,6 +81,12 @@ The upside is that this will work with GitHub Pages' builder ([Jekyll Remote The
 [Jekyll Remote Theme]: https://github.com/benbalter/jekyll-remote-theme
 [version control]: https://github.com/benbalter/jekyll-remote-theme#declaring-your-theme
 
+## Config Options
+
+The [config.yml] in this repo can be used as a template for your own Wren instance. The file is thoroughly commented so it's worth having a read to know all the options available.
+
+[config.yml]: https://github.com/Foggalong/Wren/blob/main/_config.yml]
+
 ## Custom Styling
 
 Like [Minima] (on which Wren's [SASS] is built) there are a whole bunch of variables which you can change to personalise the theme. To do this you just add lines such as
@@ -90,6 +100,21 @@ to [`assets/style.scss`] and you're good to go. The list of what's customisable 
 [Minima]: https://github.com/jekyll/minima
 [`assets/style.scss`]: https://github.com/Foggalong/Wren/blob/main/assets/style.scss
 [style variables]: https://github.com/Foggalong/Wren/blob/main/_sass/wren/initialize.scss#L10-L87
+
+## Pagination
+
+If the following two [config.yml] lines aren't commented, Wren will use [Jekyll Paginate][Paginate] to split the posts page into multiple pages of `paginate` many posts with url `paginate_path`.
+
+```yaml
+paginate: 5
+paginate_path: "/blog/:num"
+```
+
+Note that due to [Paginate]'s technical limitations this will only happen on the main posts page, not other post lists such as the categories page. It's generally quite limited in how it works compared to [Paginate v2], but the latter isn't on the [whitelist].
+
+Another caveat is that, if you're using Paginate, the main post list page **must** have filename `index.html`; that's why in this repo it's `blog/index.html`. If you're not using Paginate though, Wren allows you to put that file anywhere and called whatever you like without problems.
+
+[Paginate v2]: https://github.com/sverrirs/jekyll-paginate-v2
 
 ## Error Pages
 
@@ -112,10 +137,12 @@ Wren is released under the [MIT License] and is built with [Jekyll] and a whole 
 
 [MIT License]: https://choosealicense.com/licenses/mit
 
-In order to remain compatible with GitHub Pages Wren only uses plugins from the [whitelist], namely [Feed] and [SEO]. Massive props to them for doing their thing in the background without me needing to worry about it. Further features are achieved through [Liquid] templates, some of which are based on existing Ruby plugins. These include [Reading Time], [Embed Video], [Tag Cloud].
+In order to remain compatible with GitHub Pages Wren only uses plugins from the [whitelist]. Massive props to [Remote Theme], [Feed], [Paginate], and [SEO] for doing their thing in the background without me needing to worry about it. Further features are achieved through [Liquid] templates, some of which are based on existing Ruby plugins. These include [Reading Time], [Embed Video], [Tag Cloud].
 
 [whitelist]: https://pages.github.com/versions
+[Remote Theme]: https://github.com/benbalter/jekyll-remote-theme
 [Feed]: https://github.com/jekyll/jekyll-feed
+[Paginate]: https://github.com/jekyll/jekyll-paginate
 [SEO]:  https://github.com/jekyll/jekyll-seo-tag
 [Liquid]: https://github.com/Shopify/liquid
 [Reading Time]: https://github.com/risan/jekyll-reading-time

@@ -59,10 +59,13 @@ show_excerpts: false
 
 # Wren-specific settings
 wren:
-  # Uses `strftime` datetime string formatting.
+  # Uses https://strftime.org datetime string formatting
   date_format: "%Y-%m-%d"  # ISO 8601
 
-  # Generate social links in footer
+  # Generate social links in footer; extends Minima's social_links
+  # config to allow for multiple links for the same service, having
+  # usernames which differ from profile URLs (using id), and links
+  # to services which aren't covered by Wren using a fallback icon.
   social_links:
     # devto: jekyll
     # dribbble: jekyll
