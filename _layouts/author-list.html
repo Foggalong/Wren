@@ -2,7 +2,7 @@
 layout: page
 ---
 
-<div class="tag-page">
+<div class="post-list-page">
 
 {%comment%} allows for preface before author list {%endcomment%}
 {{ content }}
@@ -47,7 +47,7 @@ layout: page
 {%comment%} list all the posts by author {% endcomment %}
 {%- for site_author in authors -%}
   {%- assign author_id = site_author | replace: ' ', '_' -%}
-  <h2 class="tag-header">
+  <h2 class="post-list-header">
     <a id={{ author_id }} href={{ author_id | prepend: '#' }}>
       {{ site_author }}
     </a>

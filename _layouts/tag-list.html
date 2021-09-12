@@ -6,7 +6,7 @@ layout: page
 {%- assign a = site.wren.tag_cloud.a | default: 15 -%}
 {%- assign b = site.wren.tag_cloud.b | default: 80 -%}
 
-<div class="tag-page">
+<div class="post-list-page">
 
 <div class="tag-cloud">
   {%- for tag in tags -%}
@@ -30,7 +30,7 @@ layout: page
   {%- capture tag_name -%}
     {{ tag | first }}
   {%- endcapture -%}
-  <h2 class="tag-header">
+  <h2 class="post-list-header">
     <a id={{ tag_name }} href={{ tag_name | prepend: '#' }}>
       {{ tag_name }}
     </a>

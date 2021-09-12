@@ -2,6 +2,8 @@
 layout: default
 ---
 
+<div class="post-list-page">
+
 {%- if page.title -%}
   <h1 class="post-title">{{ page.title }}</h1>
 {%- endif -%}
@@ -17,7 +19,7 @@ layout: default
 
 {%- if posts.size > 0 -%}
   {%comment%} including <h2> even if empty ensures proper spacing {%endcomment%}
-  <h2 class="post-list-heading">
+  <h2 class="post-list-header">
     {%- if page.list_title -%}
       {{ page.list_title }}
     {%- endif -%}
@@ -61,3 +63,5 @@ layout: default
   {%- endif -%}
 
 {%- endif -%}
+
+</div>

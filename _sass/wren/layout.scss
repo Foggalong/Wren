@@ -136,20 +136,6 @@
   @include relative-font-size(2);
 }
 
-.post-list-heading {
-  @include relative-font-size(1.75);
-  margin-bottom: $spacing-unit;
-}
-
-.post-list {
-  margin-left: 0;
-  list-style: none;
-
-  > li {
-    margin-bottom: $spacing-unit;
-  }
-}
-
 .post-meta {
   font-size: $small-font-size;
   color: $brand-color;
@@ -166,6 +152,47 @@
 .post-link {
   display: block;
   @include relative-font-size(1.1);
+}
+
+
+// Post Lists
+// =========
+
+.post-list-page {
+  // post lists pages have a special header class
+  .post-list-header {
+    // they have slightly smaller font
+    @include relative-font-size(1.5);
+  
+    // they need less space
+    margin-top: $spacing-unit * 1.5;
+    margin-bottom: $spacing-unit / 2;
+
+    // we wanted to hide their anchor links...
+    a {
+      color: $text-color;
+      text-decoration: none;
+    }
+    // ...unless they're being inspected
+    a:hover, a:active {
+      text-decoration: underline dotted;
+    }  
+  }
+
+  .post-list {
+    margin-left: 0;
+    list-style: none;
+  
+    > li {
+      margin-bottom: $spacing-unit;
+    }
+  }
+}
+
+.tag-cloud {
+  text-align: center;
+  margin-top: -$spacing-unit/2;
+  margin-bottom: $spacing-unit/2;
 }
 
 
@@ -231,33 +258,6 @@
   h1 {
     margin: $spacing-unit/2 0;
     font-size: 4em;
-  }
-}
-
-
-// Tags Page
-// =========
-
-.tag-page {
-  // special headers used for the tag list
-  h2 {
-    // they need less space
-    margin-top: $spacing-unit * 1.5;
-    // we wanted to hide their anchor links...
-    a {
-      color: $text-color;
-      text-decoration: none;
-    }
-    // ...unless they're being inspected
-    a:hover, a:active {
-      text-decoration: underline dotted;
-    }
-  }
-
-  .tag-cloud {
-    text-align: center;
-    margin-top: -10px;
-    margin-bottom: $spacing-unit/2;
   }
 }
 
