@@ -13,10 +13,12 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         issue-message: >-
-          Thanks for submitting an issue! I'll check it at as soon as possible and get back to you.
+          Thanks for submitting an issue! I'll check it at as soon as possible
+          and get back to you.
         pr-message: >-
-          Thanks for submitting a PR. Please note that the theme in this repo is mainly for my own
-          personal website and at present I don't have capacity to turn it into a generic Jekyll
-          theme. For that reason I may reject certain PRs just because they're implementing features
-          I don't want or that I would implement differently. I promise it's nothing personal!
-          Either way, I'll check it out as soon as possible and get back to you.
+          Thanks for submitting a PR. Please note that the theme in this repo
+          is a personal project and I have limited capacity to maintain
+          features I won't be using myself. For that reason I may reject pull
+          requests if they're implementing features I don't want or that I
+          would implement differently. I promise it's nothing personal! Either
+          way, I'll check it out as soon as possible and get back to you.
