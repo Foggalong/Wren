@@ -154,7 +154,7 @@ Style wise, Wren's [SASS] is forked from [Minima] which proved crucial in knowin
 
 [SASS]: https://sass-lang.com
 [Font Awesome]: https://github.com/Rush/Font-Awesome-SVG-PNG
-[SVG Favicons]: https://medium.com/swlh/are-you-using-svg-favicons-yet-a-guide-for-modern-browsers-836a6aace3df
+[SVG Favicons]: https://link.medium.com/oDf4MMhiqjb
 
 The only part of Wren _not_ MIT licensed is the [default profile image], a [CC-BY-NC] licensed [photo] of a Bewick Wren taken by [Minette Layne].
 
