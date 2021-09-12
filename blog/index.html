@@ -1,0 +1,10 @@
+---
+# To keep Paginator compatibility this file needs to be called index.html,
+# so since Wren doesn't have the "blog page" as the root index.html it has
+# to live in this subdirectory. It also can't have 'permalink' in the YAML
+# header or, you guessed it, Paginator will break.    
+title: Posts
+layout: post-list
+---
+
+Here you can see all the posts on the site from newest to oldest. You can also see them sorted <a href={{ 'blog/tags' | relative_url }}>by tags</a> and <a href={{ 'blog/authors' | relative_url }}>by authors</a> .

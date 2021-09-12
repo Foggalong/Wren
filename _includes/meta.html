@@ -24,23 +24,25 @@
   </time>
   {%comment%} passing content to be analysed by reading-time explicitly {%endcomment%}
   • {%- include reading-time.html text=p.content -%}
-  {%comment%} if categories given, give as comma-separated list with links to category page {%endcomment%}
-  {%- if p.categories -%}
-    {%- for category in p.categories -%}
+  {%comment%} if tag given, give as comma-separated list with links to tag page {%endcomment%}
+  {%- if p.tags -%}
+    {%- for tag in p.tags -%}
       {%- if forloop.first == true %}• {% endif %}
-      <a href={{ 'categories#' | append: category | relative_url }}>{{ category }}</a>
+      <a href={{ 'blog/tags#' | append: tag | relative_url }}>{{ tag }}</a>
       {%- if forloop.last == false %}, {% endif %}
     {%- endfor -%}
-  {%- endif -%}
+  {%- endif %}
   {%comment%} if authors given, give as comma-separated list {%endcomment%}
   {%- if p.author -%}
-    {% for author in p.author %}
-      {%- if forloop.first == true %}• {% endif %}
-      <!-- TODO work out what this junk is for -->
-      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-author h-card" itemprop="name">{{ author }}</span>
-      </span>
-      {%- if forloop.last == false %}, {% endif -%}
+    {%- for author in p.author -%}
+      {%- if forloop.first == true -%}• {% endif -%}
+        {%- assign author_id = author | replace: ' ', '_' -%}
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span class="p-author h-card" itemprop="name">
+            <a href={{ 'blog/authors#' | append: author_id | relative_url }}>{{author}}</a>
+            {%- if forloop.last == false -%}, {%- endif -%}
+          </span>
+        </span>        
     {% endfor %}
   {%- endif -%}
 </p>

@@ -25,6 +25,7 @@ remote_theme: foggalong/wren@v0.3-beta  # fetch Wren from GitHub
 # External plugins to bring in
 plugins:
   - jekyll-remote-theme  # fetching themes from GitHub
+  - jekyll-paginate      # pagination
   - jekyll-feed          # rss feeds (default Jekyll)
   - jekyll-seo-tag       # search engine optimization (default Minima)
 
@@ -47,18 +48,30 @@ exclude:
   - LICENSE.md
   - README.md
 
-# Splits blog feed into pages; requires the jekyll-paginate gem
-# paginate: 10
+# Splits blog feed into pages; comment these two lines and the
+# Paginate navigation bar will be removed automatically.
+paginate: 5
+paginate_path: "/blog/:num"
 
-# Set to true to show blog excerpts on the posts page
+# Set to `true` to show an excerpt of each blog on the main post list
+# page. Be warned that if you have blogs starting with a subheading,
+# inline HTML, etc instead of a paragraph then formatting may break.
 show_excerpts: false
+# Set to `true` to show excerpts the tag and author list pages. Since
+# those pages can't be paginated they can become overwhelming with
+# a lot of posts and excepts on. For that reason this variable is
+# kept separate.
+show_list_excerpts: false
 
 # Wren-specific settings
 wren:
-  # Uses `strftime` datetime string formatting.
+  # Uses https://strftime.org datetime string formatting
   date_format: "%Y-%m-%d"  # ISO 8601
 
-  # Generate social links in footer
+  # Generate social links in footer; extends Minima's social_links
+  # config to allow for multiple links for the same service, having
+  # usernames which differ from profile URLs (using id), and links
+  # to services which aren't covered by Wren using a fallback icon.
   social_links:
     # devto: jekyll
     # dribbble: jekyll
@@ -91,20 +104,20 @@ wren:
       name: Google+
       instance: plus.google.com/u
 
-  # The header will always include `Home` as the first link and `RSS`
-  # and `Top` as the last two links. The order list below specifies
-  # the other pages to appear in the middle.
+  # The header will always include `Home` as the first links and
+  # `RSS` and `Top` as the last two links. The ordered list below
+  # specifies the other pages to appear in the middle.
   header_pages:
-  - blog.md
+  - blog/index.html
   - about.md
 
   # The reading speed in 'words per minute' to use when calculating
   # the time taken to read some given content.
   wpm: 180
 
-  # The font size of each category in the category-list.html include
-  # is calculated using (a*x + b)%, where x is the category size.
-  category_cloud:
+  # The font size of each tag in the tag-list.html template is
+  # calculated using (a*x + b)%, where x is the tag size.
+  tag_cloud:
     a: 15
     b: 80
 

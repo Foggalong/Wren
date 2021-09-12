@@ -1,0 +1,54 @@
+---
+layout: page
+---
+
+{%- assign tags = site.tags | sort -%}
+{%- assign a = site.wren.tag_cloud.a | default: 15 -%}
+{%- assign b = site.wren.tag_cloud.b | default: 80 -%}
+
+<div class="post-list-page">
+
+<div class="tag-cloud">
+  {%- for tag in tags -%}
+    {%- assign tag_name = tag[0] -%}
+    {%- assign tag_count = tag | last | size -%}
+    {%comment%}
+      The font size of each tag is calculated using (a*x + b)%, where x
+      is the number of posts in that tag. This means that as x grows
+      the values of a and b in config.yml might need tweaking.
+    {%endcomment%}  
+    {%- assign style = tag_count | times: a | plus: b | prepend: 'style="font-size: ' | append: '%;"' -%}
+    <a href={{ tag_name | prepend: '#' }} {{ style }} title="{{ tag_count }} posts">{{ tag_name | replace:'-', ' ' }}</a>
+    {%- if forloop.last == false %}, {% endif -%}
+  {%- endfor -%}
+</div>
+
+{%comment%} allows for preface before tag list {%endcomment%}
+{{ content }}
+
+{%- for tag in tags -%}
+  {%- capture tag_name -%}
+    {{ tag | first }}
+  {%- endcapture -%}
+  <h2 class="post-list-header">
+    <a id={{ tag_name }} href={{ tag_name | prepend: '#' }}>
+      {{ tag_name }}
+    </a>
+  </h2>
+
+  <ul class="post-list">
+  {%- for post in site.tags[tag_name] -%}
+    <li>
+      <a class="post-link" href="{{ post.url | relative_url }}">
+        {{ post.title | escape }}
+      </a>
+      {%- include meta.html -%}
+      {%- if site.show_list_excerpts -%}
+        {{ post.excerpt }}
+      {%- endif -%}
+    </li>
+  {%- endfor -%}
+  </ul>
+{%- endfor -%}
+
+</div>

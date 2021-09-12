@@ -14,12 +14,24 @@
         <use xlink:href="{{ 'assets/nav-icons/home.svg#nav' | relative_url }}"/>
       </svg>
     </a>
-    {%comment%} display any pages listed in _config.yml {%endcomment%}
+
+    {%comment%} display any pages listed in _config.yml in order {%endcomment%}
     {%- for path in site.wren.header_pages -%}
       {%comment%} shortcuts for basic page info {%endcomment%}
       {%- assign my_page = site.pages | where: "path", path | first -%}
-      {%- assign id = my_page.path | split: '/' | last | replace: '.md', '' -%}
       {%- assign title = my_page.title | escape -%}
+
+      {%comment%} prepend '/' so split works even if file in root {%endcomment%}
+      {%- assign clean_path = path | prepend: '/' | split: '/' -%}
+      {%comment%} need an ID by which to look for navigation icons {%endcomment%}
+      {%- if clean_path[-1] == 'index.html' -%}
+        {%comment%} ID is containing directory if link an index file {%endcomment%}
+        {%- assign id  = clean_path[-2] -%}
+      {%- else -%}
+        {%comment%} ID is filename if not an index file {%endcomment%}
+        {%- assign id = clean_path[-1] | remove: '.md' | remove: '.html' -%}
+      {%- endif -%}
+
       {%comment%} construct expected icon path, then check if exists {%endcomment%}
       {%- assign icon_path = id | prepend: 'assets/nav-icons/' | append: '.svg' -%}
       {%- assign found = false -%}
@@ -32,6 +44,7 @@
       {%- if found == false -%}
         {%- assign icon_path = 'assets/nav-icons/default.svg' -%}
       {%- endif -%}
+
       {%comment%} put that all together with a.svg.use for the button {%endcomment%}
       <a class="page-link" href="{{ my_page.url | relative_url }}" title="{{ title }}" alt="{{ title }}">
         <svg>
@@ -39,12 +52,14 @@
         </svg>
       </a>
     {%- endfor -%}
+
     {%comment%} always include link to RSS in navbar {%endcomment%}
     <a class="page-link" href="{{ 'feed.xml' | relative_url }}" title="Feed">
       <svg>
         <use xlink:href="{{ 'assets/nav-icons/rss.svg#nav' | relative_url }}"/>
       </svg>
     </a>
+
     {%comment%} always include shortcut to top of page in navbar {%endcomment%}
     <a class="page-link" href="#" title="Top" alt="Top">
       <svg>

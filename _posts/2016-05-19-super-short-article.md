@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Short Article"
-categories: misc
+tags: misc
 ---
 
 Some articles are just so short that we have to make the footer stick.

@@ -2,6 +2,8 @@
 layout: default
 ---
 
+<div class="post-list-page">
+
 {%- if page.title -%}
   <h1 class="post-title">{{ page.title }}</h1>
 {%- endif -%}
@@ -17,7 +19,7 @@ layout: default
 
 {%- if posts.size > 0 -%}
   {%comment%} including <h2> even if empty ensures proper spacing {%endcomment%}
-  <h2 class="post-list-heading">
+  <h2 class="post-list-header">
     {%- if page.list_title -%}
       {{ page.list_title }}
     {%- endif -%}
@@ -36,22 +38,30 @@ layout: default
     {%- endfor -%}
   </ul>
 
-  {% if site.paginate %}
-    <div class="pager">
-      <ul class="pagination">
+  {% comment %} only display pagination navbar if switched on {% endcomment %}
+  {%- if site.paginate -%}
+    {% comment %} and even if it is, only if there's more than one page {% endcomment %}
+    {%- if paginator.previous_page or paginator.next_page -%}
+      <div class="pagination">
       {%- if paginator.previous_page %}
-        <li><a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page }}</a></li>
+        <a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">Prev</a>
       {%- else %}
-        <li><div class="pager-edge">•</div></li>
+        <div class="pager-edge">First</div>
       {%- endif %}
-        <li><div class="current-page">{{ paginator.page }}</div></li>
+
+      <div>•</div>
+      <div class="current-page">Page {{ paginator.page }}</div>
+      <div>•</div>
+
       {%- if paginator.next_page %}
-        <li><a href="{{ paginator.next_page_path | relative_url }}" class="next-page">{{ paginator.next_page }}</a></li>
+        <a href="{{ paginator.next_page_path | relative_url }}" class="next-page">Next</a>
       {%- else %}
-        <li><div class="pager-edge">•</div></li>
+        <div class="pager-edge">Last</div>
       {%- endif %}
-      </ul>
-    </div>
-  {%- endif %}
+      </div>
+    {%- endif -%}
+  {%- endif -%}
 
 {%- endif -%}
+
+</div>
