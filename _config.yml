@@ -53,8 +53,15 @@ exclude:
 paginate: 5
 paginate_path: "/blog/:num"
 
-# set to `true` to show excerpts of blog on the post and tag pages
+# Set to `true` to show an excerpt of each blog on the main post list
+# page. Be warned that if you have blogs starting with a subheading,
+# inline HTML, etc instead of a paragraph then formatting may break.
 show_excerpts: false
+# Set to `true` to show excerpts the tag and author list pages. Since
+# those pages can't be paginated they can become overwhelming with
+# a lot of posts and excepts on. For that reason this variable is
+# kept separate.
+show_list_excerpts: false
 
 # Wren-specific settings
 wren:
