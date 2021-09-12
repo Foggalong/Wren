@@ -95,10 +95,11 @@ wren:
       name: Google+
       instance: plus.google.com/u
 
-  # The header will always include `Home` and `Blog` as the first two
-  # links and `RSS` and `Top` as the last two links. The ordered list
-  # below specifies the other pages to appear in the middle.
+  # The header will always include `Home` as the first links and
+  # `RSS` and `Top` as the last two links. The ordered list below
+  # specifies the other pages to appear in the middle.
   header_pages:
+  - blog/index.html
   - about.md
 
   # The reading speed in 'words per minute' to use when calculating
