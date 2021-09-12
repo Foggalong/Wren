@@ -16,4 +16,6 @@
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
   {%comment%} jekyll-feed doing its thing {%endcomment%}
   {%- feed_meta -%}
+  {%comment%} add user's custom header; anything can go here! {%endcomment%}
+  {%- include custom-head.html -%}
 </head>
