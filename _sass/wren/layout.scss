@@ -235,11 +235,11 @@
 }
 
 
-// Categories
-// ==========
+// Tags Page
+// =========
 
-.category-page {
-  // special headers used for the category list
+.tag-page {
+  // special headers used for the tag list
   h2 {
     // they need less space
     margin-top: $spacing-unit * 1.5;
@@ -254,7 +254,7 @@
     }
   }
 
-  .category-cloud {
+  .tag-cloud {
     text-align: center;
     margin-top: -10px;
     margin-bottom: $spacing-unit/2;

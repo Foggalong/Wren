@@ -21,7 +21,7 @@ A paper-style theme for [Jekyll]. Check out the GitHub pages [deployment] to see
 
 - 📱 Responsive, [customisable] design
 - 🕔 See post reading time
-- 🏷️ Browse posts by category
+- 🏷️ Browse posts by tags
 - 📺 Embedded YouTube videos
 - 📃 Optional [pagination]
 - 📰 Atom/RSS feed of posts
@@ -110,7 +110,7 @@ paginate: 5
 paginate_path: "/blog/:num"
 ```
 
-Note that due to [Paginate]'s technical limitations this will only happen on the main posts page, not other post lists such as the categories page. It's generally quite limited in how it works compared to [Paginate v2], but the latter isn't on the [whitelist].
+Note that due to [Paginate]'s technical limitations this will only happen on the main posts page, not other post lists such as the tags page. It's generally quite limited in how it works compared to [Paginate v2], but the latter isn't on the [whitelist].
 
 Another caveat is that, if you're using Paginate, the main post list page **must** have filename `index.html`; that's why in this repo it's `blog/index.html`. If you're not using Paginate though, Wren allows you to put that file anywhere and called whatever you like without problems.
 
