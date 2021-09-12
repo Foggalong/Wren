@@ -25,6 +25,7 @@ remote_theme: foggalong/wren@v0.3-beta  # fetch Wren from GitHub
 # External plugins to bring in
 plugins:
   - jekyll-remote-theme  # fetching themes from GitHub
+  - jekyll-paginate      # pagination
   - jekyll-feed          # rss feeds (default Jekyll)
   - jekyll-seo-tag       # search engine optimization (default Minima)
 
@@ -47,10 +48,13 @@ exclude:
   - LICENSE.md
   - README.md
 
-# Splits blog feed into pages; requires the jekyll-paginate gem
-# paginate: 10
+# Splits blog feed into pages; comment these two lines and the
+# Paginate navigation bar will be removed automatically.
+paginate: 5
+paginate_path: "/blog/:num"
 
-# Set to true to show blog excerpts on the posts page
+# set to value to true to show excerpts of blog on the posts
+# and category pages
 show_excerpts: false
 
 # Wren-specific settings
@@ -91,11 +95,10 @@ wren:
       name: Google+
       instance: plus.google.com/u
 
-  # The header will always include `Home` as the first link and `RSS`
-  # and `Top` as the last two links. The order list below specifies
-  # the other pages to appear in the middle.
+  # The header will always include `Home` and `Blog` as the first two
+  # links and `RSS` and `Top` as the last two links. The ordered list
+  # below specifies the other pages to appear in the middle.
   header_pages:
-  - blog.md
   - about.md
 
   # The reading speed in 'words per minute' to use when calculating

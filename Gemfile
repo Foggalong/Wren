@@ -22,9 +22,9 @@ gem "jekyll", "~> 4.2.0"
 group :jekyll_plugins do
   # gem "jekyll-wren", "~> 0.3"        # Wren from gem install
   gem "jekyll-remote-theme", "~> 0.4"  # Wren remotely from GitHub
+  gem "jekyll-paginate", "~> 1.1"      # Earliest tested versions
   gem "jekyll-feed", "~> 0.12"         # Earliest tested version
   gem "jekyll-seo-tag", "~> 2.1"       # Earliest tested version
-  # gem "jekyll-paginate"              # BUG not working
 end
 
 # Windows and JRuby do not include zoneinfo files, so bundle the

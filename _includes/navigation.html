@@ -14,7 +14,14 @@
         <use xlink:href="{{ 'assets/nav-icons/home.svg#nav' | relative_url }}"/>
       </svg>
     </a>
-    {%comment%} display any pages listed in _config.yml {%endcomment%}
+    {%comment%} always include link to blog in navbar {%endcomment%}
+    <a class="page-link" href="{{ site.baseurl }}/blog/" title="Posts" alt="Posts">
+      <svg>
+        {%comment%} #nav acts as an anchor for the import {%endcomment%}
+        <use xlink:href="{{ 'assets/nav-icons/blog.svg#nav' | relative_url }}"/>
+      </svg>
+    </a>
+    {%comment%} display any pages listed in _config.yml in order {%endcomment%}
     {%- for path in site.wren.header_pages -%}
       {%comment%} shortcuts for basic page info {%endcomment%}
       {%- assign my_page = site.pages | where: "path", path | first -%}

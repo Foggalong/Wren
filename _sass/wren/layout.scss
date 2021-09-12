@@ -266,25 +266,24 @@
 // =================
 
 .pagination {
-  margin-bottom: $spacing-unit;
-  @extend .social-list;
-  li {
-    a, div {
-      width: 16px;
-      height: 16px;
-      min-width: 41px;
-      text-align: center;
-      box-sizing: border-box;
-    }
-    div {
-      display: block;
-      padding: $spacing-unit / 4;
-      border: 1px solid transparent;
+  margin: 1.5*$spacing-unit 0 $spacing-unit 0;
+  text-align: center;
+  font-size: $small-font-size;
 
-      &.pager-edge {
-        color: $border-color;
-        border: 1px dashed;
-      }
+  // links, separators, and edges
+  a, div {
+    color: $brand-color;
+    display: inline;
+    padding: $spacing-unit / 4;
+
+    // edgers are lighter
+    &.pager-edge {
+      color: $brand-color-light;
     }
+  }
+
+  // distinguish link with dotted underline on inspection
+  a:hover, a:active {
+    text-decoration: underline dotted;
   }
 }
