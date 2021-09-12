@@ -19,16 +19,18 @@ A paper-style theme for [Jekyll]. Check out the GitHub pages [deployment] to see
 
 ## Features
 
-- 📱 Responsive, [customisable] design
+- 🎨 Responsive, [customisable] design
 - 🕔 See post reading time
 - 🏷️ Browse posts by tags
 - 🧑 Browse posts by author
 - 📺 Embedded YouTube videos
+- 🦶🏼 [Extendable] head, foot, and post meta
 - 📃 Optional [pagination]
 - 📰 Atom/RSS feed of posts
 - 📈 In-built search engine optimization
 
 [customisable]: #custom-styling
+[extendable]: #custom-templates
 [pagination]: #pagination
 
 ## Installing
@@ -86,7 +88,16 @@ The upside is that this will work with GitHub Pages' builder ([Jekyll Remote The
 
 The [config.yml] in this repo can be used as a template for your own Wren instance. The file is thoroughly commented so it's worth having a read to know all the options available.
 
-[config.yml]: https://github.com/Foggalong/Wren/blob/main/_config.yml]
+[config.yml]: https://github.com/Foggalong/Wren/blob/main/_config.yml
+
+## Custom Templates
+
+[Minima] has a feature which allows users to create a [_includes/custom-head.html] file which is then [included] with the rest of the head. This is a useful feature if, for example, you want your website to cover favicons for more browsers than the default setup does.
+
+[_includes/custom-head.html]: https://github.com/jekyll/minima/blob/master/_includes/custom-head.html
+[included]: https://github.com/jekyll/minima/blob/master/_includes/head.html#L12
+
+Wren keeps this feature and extends it so that `custom-foot.html` (displayed above the copyright notice) and `custom-meta.html` (displayed at the end of a post's meta line) can also be specified.
 
 ## Custom Styling
 
