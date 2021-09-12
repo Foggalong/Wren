@@ -34,13 +34,15 @@
   {%- endif %}
   {%comment%} if authors given, give as comma-separated list {%endcomment%}
   {%- if p.author -%}
-    {% for author in p.author %}
-      {%- if forloop.first == true %}• {% endif %}
-      <!-- TODO work out what this junk is for -->
-      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-author h-card" itemprop="name">{{ author }}</span>
-      </span>
-      {%- if forloop.last == false %}, {% endif -%}
+    {%- for author in p.author -%}
+      {%- if forloop.first == true -%}• {% endif -%}
+        {%- assign author_id = author | replace: ' ', '_' -%}
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span class="p-author h-card" itemprop="name">
+            <a href={{ 'blog/authors#' | append: author_id | relative_url }}>{{author}}</a>
+            {%- if forloop.last == false -%}, {%- endif -%}
+          </span>
+        </span>        
     {% endfor %}
   {%- endif -%}
 </p>

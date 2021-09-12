@@ -1,0 +1,73 @@
+---
+layout: page
+---
+
+<div class="tag-page">
+
+{%comment%} allows for preface before author list {%endcomment%}
+{{ content }}
+
+{%comment%}
+  Okay so hear me out. While Jekyll does have the site.authors variable,
+  unlike with site.tags this isn't a list of all the authors across all
+  posts which can be indexed into like site.tags["misc"]. Instead it's
+  just just a variable (object or value) defined in the config file.
+
+  At the same time, Liquid doesn't provide a way to directly initialise
+  arbitrary arrays without a data file, and Jekyll can't generate or use
+  data files without a plugin which GitHub pages doesn't support.
+
+  All that together means to list posts by author we need to:
+
+    1. loop over all the posts on the site and append authors to a
+       string which at the end is split to create an array.
+
+    2. loop over all the authors in that array and display a header for
+       each. Within each author loop though we loop again over all the
+       site posts. If the post contains the author in its post.authors,
+       we display that post under the author's header. 
+
+  It's more than a bit messy and would be a easier with a plugin, data
+  file, or Paginate v2 collection, but in the absence of those it works.
+{% endcomment %}
+
+{%comment%} create array of all post authors {% endcomment %}
+{%- assign authors = "" %}
+{%- for post in site.posts %}
+  {%- for author in post.author -%}
+    {%- if authors contains author -%}
+      {%comment%} skip {% endcomment %}
+    {%- else %} 
+      {% assign authors = authors | append: author | append: ',' -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- assign authors = authors | split: ',' -%}
+
+{%comment%} list all the posts by author {% endcomment %}
+{%- for site_author in authors -%}
+  {%- assign author_id = site_author | replace: ' ', '_' -%}
+  <h2 class="tag-header">
+    <a id={{ author_id }} href={{ author_id | prepend: '#' }}>
+      {{ site_author }}
+    </a>
+  </h2>
+
+  <ul class="post-list">
+    {%- for post in site.posts -%}
+      {%- if post.author contains site_author -%}
+        <li>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+          {%- include meta.html -%}
+          {%- if site.show_list_excerpts -%}
+            {{ post.excerpt }}
+          {%- endif -%}
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+{%- endfor -%}
+
+</div>
