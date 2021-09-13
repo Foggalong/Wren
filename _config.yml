@@ -91,6 +91,7 @@ wren:
     #   instance: mastodon.cloud
     # - username: jekyll2
     #   instance: mastodon.social
+    medium: jekyll
     # microdotblog: jekyll
     # pinterest: jekyll
     # reddit: jekyll
@@ -157,6 +158,9 @@ wren_social_data:
     url:  linkedin.com/in
   mastodon:
     name: Mastodon
+  medium:
+    name: Medium
+    url: medium.com
   microdotblog:
     name: Micro.blog
     url:  micro.blog

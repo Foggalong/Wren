@@ -23,7 +23,7 @@
     {%- assign url = entry.instance | default: data[key]["url"] -%}
 
     {%comment%} handle service specific url delimiters {%endcomment%}
-    {%- if key == "mastodon" -%}
+    {%- if key == "mastodon" or key == "medium" -%}
       {%- assign delimiter = "/@" -%}
     {%- else -%}
       {%- assign delimiter = "/" -%}
