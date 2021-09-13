@@ -93,7 +93,7 @@
   a {
     text-decoration: none;
     padding: $spacing-unit / 4;
-    
+
     svg {
       fill: $text-color;
       filter: $base-drop-shadow;
@@ -147,6 +147,12 @@
   a:hover, a:active {
     text-decoration: underline dotted;
   }
+
+  svg {
+    fill: $brand-color;
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .post-link {
@@ -163,7 +169,7 @@
   .post-list-header {
     // they have slightly smaller font
     @include relative-font-size(1.5);
-  
+
     // they need less space
     margin-top: $spacing-unit * 1.5;
     margin-bottom: $spacing-unit / 2;
@@ -176,13 +182,13 @@
     // ...unless they're being inspected
     a:hover, a:active {
       text-decoration: underline dotted;
-    }  
+    }
   }
 
   .post-list {
     margin-left: 0;
     list-style: none;
-  
+
     > li {
       margin-bottom: $spacing-unit;
     }

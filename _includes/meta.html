@@ -22,8 +22,10 @@
   <time title="{{ modified_date }}" class="dt-published" datetime="{{ original_date | date_to_xmlschema }}" itemprop="datePublished">
     {{ original_date }}
   </time>
+
   {%comment%} passing content to be analysed by reading-time explicitly {%endcomment%}
   • {%- include reading-time.html text=p.content -%}
+
   {%comment%} if tag given, give as comma-separated list with links to tag page {%endcomment%}
   {%- if p.tags -%}
     {%- for tag in p.tags -%}
@@ -32,6 +34,7 @@
       {%- if forloop.last == false %}, {% endif %}
     {%- endfor -%}
   {%- endif %}
+
   {%comment%} if authors given, give as comma-separated list {%endcomment%}
   {%- if p.author -%}
     {%- for author in p.author -%}
@@ -42,8 +45,37 @@
             <a href={{ 'blog/authors#' | append: author_id | relative_url }}>{{author}}</a>
             {%- if forloop.last == false -%}, {%- endif -%}
           </span>
-        </span>        
+        </span>
     {% endfor %}
+  {%- endif -%}
+
+  {%comment%} indicate if the post was first published elsewhere first {%endcomment%}
+  {%- if p.first_published_on -%}
+    {%comment%} allow specifying a specific URL at which it was published {%endcomment%}
+    {%- if p.first_published_url -%}
+      {%- assign fpo_string = "First published on " | append: p.first_published_url -%}
+    {%- else -%}
+      {%- assign fpo_string = "First published on " | append: p.first_published_on -%}
+    {%- endif -%}
+    {%comment%} construct expected icon path, then check if exists {%endcomment%}
+    {%- assign icon_path = p.first_published_on | prepend: 'assets/social-icons/' | append: '.svg' -%}
+    {%- assign found = false -%}
+    {%- for static_file in site.static_files -%}
+      {%- if static_file.path contains icon_path -%}
+        {%- assign found = true -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%comment%} if it doesn't, use the default source icon {%endcomment%}
+    {%- if found == false -%}
+      {%- assign icon_path = 'assets/social-icons/Default.svg' -%}
+    {%- endif -%}
+    {%comment%} put that all together with a.svg.use for the button {%endcomment%}
+    •
+    <a title="{{ fpo_string }}" alt="{{ fpo_string }}">
+      <svg style="vertical-align: sub; width: 16px; height: 16px;" =>
+        <use xlink:href="{{ icon_path | append: '#soc' | relative_url }}"/>
+      </svg>
+    </a>
   {%- endif -%}
   {%comment%} add user's custom meta; anything can go here! {%endcomment%}
   {%- include custom-meta.html -%}
