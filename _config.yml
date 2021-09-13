@@ -20,7 +20,7 @@ url: "foggalong.github.io" # base hostname for site (production)
 
 # Build settings
 markdown: kramdown  # enables extended markdown features (e.g footnotes)
-remote_theme: foggalong/wren@v0.3-beta  # fetch Wren from GitHub
+remote_theme: foggalong/wren  # fetch latest Wren from GitHub
 # theme: jekyll-wren  # use Wren from Ruby Gem
 
 # External plugins to bring in

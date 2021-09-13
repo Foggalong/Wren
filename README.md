@@ -49,7 +49,7 @@ theme: jekyll-wren
 to your [config] and
 
 ```ruby
-gem "jekyll-wren", "~> 0.3"
+gem "jekyll-wren", "~> 0.4"
 ```
 
 to your [Gemfile] plugins list.
@@ -69,7 +69,7 @@ It's possible to use the theme directly from this repo. You'll need to add
 plugins:
   - jekyll-remote-theme
 
-remote_theme: foggalong/wren@v0.3-beta
+remote_theme: foggalong/wren@0.4
 ```
 
 to your [config] and then
