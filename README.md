@@ -21,6 +21,7 @@ A paper-style theme for [Jekyll]. Check out the GitHub pages [deployment] to see
 
 - 🎨 Responsive, [customisable] design
 - 🕔 See post reading time
+- 🗄️ 'First published on' icons
 - 🏷️ Browse posts by tags
 - 🧑 Browse posts by author
 - 📺 Embedded [YouTube, Twitch, etc][videos]
