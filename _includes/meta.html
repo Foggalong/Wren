@@ -22,8 +22,10 @@
   <time title="{{ modified_date }}" class="dt-published" datetime="{{ original_date | date_to_xmlschema }}" itemprop="datePublished">
     {{ original_date }}
   </time>
+
   {%comment%} passing content to be analysed by reading-time explicitly {%endcomment%}
   • {%- include reading-time.html text=p.content -%}
+
   {%comment%} if tag given, give as comma-separated list with links to tag page {%endcomment%}
   {%- if p.tags -%}
     {%- for tag in p.tags -%}
@@ -32,6 +34,7 @@
       {%- if forloop.last == false %}, {% endif %}
     {%- endfor -%}
   {%- endif %}
+
   {%comment%} if authors given, give as comma-separated list {%endcomment%}
   {%- if p.author -%}
     {%- for author in p.author -%}
@@ -45,9 +48,15 @@
         </span>
     {% endfor %}
   {%- endif -%}
+
   {%comment%} indicate if the post was first published elsewhere first {%endcomment%}
   {%- if p.first_published_on -%}
-    {%- assign fpo_string = "First published on " | append: p.first_published_on -%}
+    {%comment%} allow specifying a specific URL at which it was published {%endcomment%}
+    {%- if p.first_published_url -%}
+      {%- assign fpo_string = "First published on " | append: p.first_published_url -%}
+    {%- else -%}
+      {%- assign fpo_string = "First published on " | append: p.first_published_on -%}
+    {%- endif -%}
     {%comment%} construct expected icon path, then check if exists {%endcomment%}
     {%- assign icon_path = p.first_published_on | prepend: 'assets/social-icons/' | append: '.svg' -%}
     {%- assign found = false -%}
