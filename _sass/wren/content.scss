@@ -1,6 +1,6 @@
 // The content file controls the base styling of HTML content
 // that Jekyll makes. Note that `layout.scss` tweaks some bits
-// (e.g. headers) further for use in pages and posts. 
+// (e.g. headers) further for use in pages and posts.
 
 
 // Setting Up
@@ -109,6 +109,7 @@ figcaption {
 
 .video-embed {
   margin: 0 auto $spacing-unit/2 auto;
+  box-shadow: $base-shadow;
   display: block;
   max-width: 100%;
   max-height: auto;
@@ -243,7 +244,7 @@ pre {
   .gu    { color: $syntax-subhead-color } // Generic.Subheading
   .gt    { color: $syntax-error-color } // Generic.Traceback
   .kc    { font-weight: bold } // Keyword.Constant
-  .kd    { font-weight: bold } // Keyword.Declaration 
+  .kd    { font-weight: bold } // Keyword.Declaration
   .kp    { font-weight: bold } // Keyword.Pseudo
   .kr    { font-weight: bold } // Keyword.Reserved
   .kt    { color: $syntax-class-color; font-weight: bold } // Keyword.Type

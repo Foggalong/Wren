@@ -1,0 +1,66 @@
+{% comment %}
+  Embedded video player for a bunch of different host websites.
+  Takes the parameters `site` for video host, `alt` for the title,
+  and `id` for the video ID (usually in the URL) and then returns
+  the iframe needed to embed that video in a page. It's based on
+  the templates from https://github.com/nathancy/jekyll-embed-video
+  but combined into a one player, rather than players for each host.
+{% endcomment %}
+
+{% comment %} default player variables {% endcomment %}
+{%- assign width  = "500px" -%}
+{%- assign height = "281px" -%}
+{%- assign allow_autoplay   = false -%}
+{%- assign allow_fullscreen = true -%}
+
+{% comment %}
+  Some sites also ask for the site doing the embedding for
+  security purposes, so this quick check makes sure things
+  keep working seamlessly between local and prod builds.
+{% endcomment %}
+{%- if jekyll.environment == "production" -%}
+  {%- assign host = site.url -%}
+{%- else -%}
+  {%- assign host = "127.0.0.1" -%}
+{% endif -%}
+
+{% comment %} shortcut variables {% endcomment %}
+{%- assign id     = include.id -%}
+{%- assign source = include.site -%}
+
+{%- if source == "Dailymotion" -%}
+  {%- assign url = "dailymotion.com/embed/video/" -%}
+  {%- elsif source == "Google Drive" -%}
+  {%- assign url = "drive.google.com/file/d/" -%}
+{%- elsif source == "Streamable" -%}
+  {%- assign url = "streamable.com/s/" -%}
+{%- elsif source == "Twitch" -%}
+  {%- assign url = "clips.twitch.tv/embed?clip=" -%}
+  {%- assign id = id | append: "&parent=" | append: host -%}
+{%- elsif source == "Vimeo" -%}
+  {%- assign url = "player.vimeo.com/video/" -%}
+{%- elsif source == "YouTube" -%}
+  {%- assign url = "youtube.com/embed/" -%}
+{%- endif -%}
+
+<iframe
+  class  = "video-embed"
+  alt    = "{{ include.alt }}"
+  title  = "{{ include.alt }}"
+  src    = "{{ url | append: id | prepend: 'https://' }}"
+  width  = {{ width }}
+  height = {{ height }}
+  frameborder = "0"
+  scrolling = "no"
+  {% if allow_autoplay == true -%}
+    allow = "autoplay"
+    autoplay = true
+  {% else -%}
+    autoplay = false
+  {%- endif -%}
+  {% if allow_fullscreen == true -%}
+    webkitallowfullscreen
+    mozallowfullscreen
+    allowfullscreen
+  {%- endif -%}>
+</iframe>

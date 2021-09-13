@@ -23,13 +23,14 @@ A paper-style theme for [Jekyll]. Check out the GitHub pages [deployment] to see
 - 🕔 See post reading time
 - 🏷️ Browse posts by tags
 - 🧑 Browse posts by author
-- 📺 Embedded YouTube videos
+- 📺 Embedded [YouTube, Twitch, etc][videos]
 - 🦶🏼 [Extendable] head, foot, and post meta
 - 📃 Optional [pagination]
 - 📰 Atom/RSS feed of posts
 - 📈 In-built search engine optimization
 
 [customisable]: #custom-styling
+[videos]: https://foggalong.github.io/Wren/video-embed-demo
 [extendable]: #custom-templates
 [pagination]: #pagination
 
