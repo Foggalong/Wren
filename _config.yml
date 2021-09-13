@@ -93,12 +93,14 @@ wren:
     #   instance: mastodon.social
     # microdotblog: jekyll
     # pinterest: jekyll
+    # reddit: jekyll
+    telegram: jekyll
+    # tumblr: jekyll
     twitter: jekyllrb
     # youtube: jekyll
     youtube_channel:  # link which makes user of ID
     - username: CloudCannon
       id: UC8CXR0-3I70i1tfPg1PAE1g
-    telegram: jekyll
 
     google-plus: # link not covered by Wren's data
     - username: jekyll
@@ -161,12 +163,18 @@ wren_social_data:
   pinterest:
     name: Pinterest
     url:  pinterest.com
+  reddit:
+    name: Reddit
+    url:  reddit.com/u
   stackoverflow:
     name: StackOverflow
     url:  stackoverflow.com/users
   telegram:
     name: Telegram
     url:  t.me
+  tumblr:
+    name: Tumblr
+    url:  tumblr.com/blog/view
   twitter:
     name: Twitter
     url:  twitter.com
