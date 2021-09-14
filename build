@@ -1,25 +1,71 @@
-#!/bin/env sh
+#!/usr/bin/env sh
 
-# Website build script. To do CI testing use the `--test` flag which
-# removes the build if successful. To serve the website on a success
-# use the `--serve` flag.
+DESCRIPTION="
+Wren 0.4 -- build script for Wren, a Jekyll theme
 
-set -e  # make `-e` as the default for output
+Description:
+  Attempts to builds the Jekyll site in the working directory
+  and then checks whether that build was successful.
 
-echo "Building the site..."
-bundle exec jekyll build
+Usage:
+  build [options]
 
-# Very basic test for success, just checks if the main page exists
-if test -e "./_site/index.html"; then
-  echo "It builds!"
-  if [ "$1" = "--test" ]; then
-    rm -Rf _site
-    exit 0
-  elif [ "$1" = "--serve" ]; then
-    echo "Serving the site..."
-    bundle exec jekyll serve
+Options:
+  --clean)   Removes site output without building
+  --drafts)  Build the site with drafts and serve it locally
+  --help)    Show this message
+  --test)    Build the site and clean up afterwards
+  --serve)   Build the site and serve afterwards
+"
+
+# Colours for output formatting
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+RESET="\033[0m"
+
+# Builds the website with the trace flag then perform a basic check
+# for success be querying if the main page exists; exit(1) on fail
+build() {
+  echo "Building the site..."
+  bundle exec jekyll build --trace
+  if test -e "./_site/index.html"; then
+    echo "${GREEN}Success!${RESET} The site has built correctly."
+  else
+    echo "${RED}Error!${RESET} The site doesn't seem to build."
+    exit 1
   fi
-else
-  echo "Huh. That's odd. The site doesn't seem to build."
+}
+
+# Removes site output and metadata files without building
+clean() {
+  bundle exec jekyll clean
+}
+
+
+# Serve the site locally, including any drafted and archived posts
+drafts() {
+  echo "Serving the site with drafts..."
+  bundle exec jekyll serve --trace --drafts
+}
+
+# Serve the site locally
+serve() {
+  echo "Serving the site..."
+  bundle exec jekyll serve --trace
+}
+
+# Exit with an error code if an unknown flag was used
+unknown() {
+  echo "${RED}Unknown flag${RESET}, see 'build --help'"
   exit 1
-fi
+}
+
+case "$1" in
+  "")          build;;  # behaviour with no flag
+  "--clean")   clean;;
+  "--drafts")  build; drafts;;
+  "--help")    printf "%s" "${DESCRIPTION}";;
+  "--serve")   build; serve;;
+  "--test")    build; clean;;
+  *)           unknown;;
+esac
