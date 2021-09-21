@@ -2,12 +2,15 @@
 
 [![Jekyll CI Status]][jekyll-ci-link]
 [![CodeFactor Rating]][codefactor-link]
+[![Download Count]][ruby-toolbox-link]
 [![MIT Licensed]][license-link]
 
 [Jekyll CI Status]: https://img.shields.io/github/workflow/status/Foggalong/Wren/Jekyll%20CI?label=Jekyll%20CI
 [jekyll-ci-link]: https://github.com/Foggalong/Wren/actions/workflows/codeql-analysis.yml
 [CodeFactor Rating]: https://img.shields.io/codefactor/grade/github/foggalong/wren/main?color&label=CodeFactor
 [codefactor-link]: https://www.codefactor.io/repository/github/foggalong/wren
+[Download Count]: https://img.shields.io/gem/dt/jekyll-wren?color=bright-green&label=Downloads
+[ruby-toolbox-link]: https://www.ruby-toolbox.com/projects/jekyll-wren
 [MIT Licensed]: https://img.shields.io/badge/License-MIT-brightgreen.svg
 [license-link]: #licenses
 
