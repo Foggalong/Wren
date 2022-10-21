@@ -16,7 +16,7 @@ gemspec
 # Use of ~> can also be compounded with >=, !=, etc for complex setups.
 
 # This ensures the current Jekyll version is running
-gem "jekyll", "~> 4.2.0"
+gem "jekyll", "~> 4.3.0"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
