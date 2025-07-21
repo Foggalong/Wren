@@ -3,5 +3,8 @@
   "line-length": false,
   "no-trailing-punctuation": {
     "punctuation": ".,;:"
+  },
+  "reference-links-images" : {
+    "ignored_labels": ["demo"]
   }
 }
