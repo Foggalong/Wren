@@ -5,7 +5,7 @@
 [![Download Count]][ruby-toolbox-link]
 [![MIT Licensed]][license-link]
 
-[Jekyll CI Status]: https://img.shields.io/github/workflow/status/Foggalong/Wren/Jekyll%20CI?label=Jekyll%20CI
+[Jekyll CI Status]: https://github.com/Foggalong/Wren/actions/workflows/codeql-analysis.yml/badge.svg
 [jekyll-ci-link]: https://github.com/Foggalong/Wren/actions/workflows/codeql-analysis.yml
 [CodeFactor Rating]: https://img.shields.io/codefactor/grade/github/foggalong/wren/main?color&label=CodeFactor
 [codefactor-link]: https://www.codefactor.io/repository/github/foggalong/wren
