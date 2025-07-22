@@ -48,7 +48,7 @@ h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
-  margin-bottom: $spacing-unit / 2;
+  margin-bottom: calc($spacing-unit / 2);
 }
 
 hr {
@@ -67,7 +67,7 @@ main {
 
 img {
   max-width: 100%;
-  margin-bottom: $spacing-unit/2;
+  margin-bottom: calc($spacing-unit / 2);
   border-radius: $base-border-radius;
   box-shadow: $base-shadow;
   // Centres w/o text wrap on small displays
@@ -108,7 +108,7 @@ figcaption {
 // ======
 
 .video-embed {
-  margin: 0 auto $spacing-unit/2 auto;
+  margin: 0 auto calc($spacing-unit / 2) auto;
   box-shadow: $base-shadow;
   display: block;
   max-width: 100%;
@@ -168,7 +168,7 @@ a {
 blockquote {
   color: $brand-color;
   border-left: 4px solid $brand-color-light;
-  padding-left: $spacing-unit / 2;
+  padding-left: calc($spacing-unit / 2);
   @include relative-font-size(1.125);
   font-style: italic;
 
@@ -193,7 +193,7 @@ code {
   font-size: 0.9375em;
   border: 1px solid $border-color;
   box-shadow: $base-shadow;
-  border-radius: $base-border-radius/4;
+  border-radius: calc($base-border-radius / 4);
   background-color: $code-background-color;
 }
 
@@ -231,12 +231,12 @@ pre {
   .cp    { color: $syntax-comment-color; font-weight: bold } // Comment.Preproc
   .c1    { color: $syntax-comment-color; font-style: italic } // Comment.Single
   .cs    { color: $syntax-comment-color; font-weight: bold; font-style: italic } // Comment.Special
-  .gd    { color: $syntax-ins-del-color; background-color: lighten($syntax-del-background, 10%) } // Generic.Deleted
+  .gd    { color: $syntax-ins-del-color; background-color: color.adjust($syntax-del-background, $lightness: 10%) } // Generic.Deleted
   .gd .x { color: $syntax-ins-del-color; background-color: $syntax-del-background } // Generic.Deleted.Specific
   .ge    { font-style: italic } // Generic.Emph
   .gr    { color: $syntax-error-color } // Generic.Error
   .gh    { color: $syntax-comment-color } // Generic.Heading
-  .gi    { color: $syntax-ins-del-color; background-color: lighten($syntax-ins-background, 10%) } // Generic.Inserted
+  .gi    { color: $syntax-ins-del-color; background-color: color.adjust($syntax-ins-background, $lightness: 10%) } // Generic.Inserted
   .gi .x { color: $syntax-ins-del-color; background-color: $syntax-ins-background } // Generic.Inserted.Specific
   .go    { color: $syntax-output-color } // Generic.Output
   .gp    { color: $syntax-prompt-color } // Generic.Prompt
@@ -313,7 +313,7 @@ table {
   // Properties for the table's internal borders
   th, td {
     // All cells have the same padding rules
-    padding: ($spacing-unit / 3) ($spacing-unit / 2);
+    padding: calc($spacing-unit / 3) calc($spacing-unit / 2);
   }
   tr {
     // Alternate row background colours
