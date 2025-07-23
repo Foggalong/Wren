@@ -10,7 +10,8 @@
     $base-font-family: "Noto Sans" sans-serif,
     $code-font-family: "Noto Mono" monospace,
     
-    $background-color: #9b9da3
-    );
+    $background-color: #9b9da3,
+);
+
 @use "wren/content";
 @use "wren/layout";
