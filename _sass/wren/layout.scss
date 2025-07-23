@@ -4,6 +4,8 @@
 // the main content itself working inwards and downwards through its
 // components: .page-content to paginator controls.
 
+@use 'sass:color';
+@use "wren/initialize" as *;
 
 // Header
 // ======
@@ -22,14 +24,14 @@
   background-color: $nav-color;
   display: block;
   box-shadow: $base-shadow;
-  @extend %clearfix;
+  @extend %clearfix !optional;
 
   // Buttons on the nav bar
   .page-link {
     svg {
-      padding: $nav-bar-height/4;
-      width: $nav-bar-height/2;
-      height: $nav-bar-height/2;
+      padding: calc($nav-bar-height / 4);
+      width: calc($nav-bar-height / 2);
+      height: calc($nav-bar-height / 2);
       fill: $brand-color-dark;
       filter: $base-drop-shadow;
     }
@@ -41,9 +43,9 @@
   }
   // make it obvious which button is inspected
   .page-link:hover, .page-link:active {
-    svg { fill: lighten($brand-color-dark, 5%) }
-    background-color: darken($nav-color, 10%);
-    border-bottom: 1px solid darken($border-color, 10%);
+    svg { fill: color.adjust($brand-color-dark, $lightness: 5%) }
+    background-color: color.adjust($nav-color, $lightness: -10%);
+    border-bottom: 1px solid color.adjust($border-color, $lightness: -10%);
   }
 
   // Vertical nav buttons on large screen
@@ -63,7 +65,7 @@
     }
 
     .page-link:hover, .page-link:active {
-      svg { fill: lighten($brand-color-dark, 10%) }
+      svg { fill: color.adjust($brand-color-dark, $lightness: 10%) }
       background-color: transparent;
       border-bottom: 0;
     }
@@ -89,10 +91,10 @@
 
 .social-list {
   display: table;
-  margin: $spacing-unit/2 auto 0 auto;
+  margin: calc($spacing-unit / 2) auto 0 auto;
   a {
     text-decoration: none;
-    padding: $spacing-unit / 4;
+    padding: calc($spacing-unit / 4);
 
     svg {
       fill: $text-color;
@@ -102,7 +104,7 @@
     }
 
     svg:hover, svg:active {
-      fill: lighten($brand-color-dark, 10%)
+      fill: color.adjust($brand-color-dark, $lightness: 10%)
     }
   }
 }
@@ -125,7 +127,7 @@
   // internal padding
   padding: $spacing-unit $spacing-unit 0 $spacing-unit;
   // TODO find out what this does
-  @extend %clearfix;
+  @extend %clearfix !optional;
   // remove extra space for navigation bar if not on mobile
   @include if-large {
     margin-top: $spacing-unit;
@@ -172,7 +174,7 @@
 
     // they need less space
     margin-top: $spacing-unit * 1.5;
-    margin-bottom: $spacing-unit / 2;
+    margin-bottom: calc($spacing-unit / 2);
 
     // we wanted to hide their anchor links...
     a {
@@ -197,8 +199,8 @@
 
 .tag-cloud {
   text-align: center;
-  margin-top: -$spacing-unit/2;
-  margin-bottom: $spacing-unit/2;
+  margin-top: calc(-1 * $spacing-unit / 2);
+  margin-bottom: calc($spacing-unit / 2);
 }
 
 
@@ -262,7 +264,7 @@
   text-align: center;
 
   h1 {
-    margin: $spacing-unit/2 0;
+    margin: calc($spacing-unit / 2) 0;
     font-size: 4em;
   }
 }
@@ -280,7 +282,7 @@
   a, div {
     color: $brand-color;
     display: inline;
-    padding: $spacing-unit / 4;
+    padding: calc($spacing-unit / 4);
 
     // edgers are lighter
     &.pager-edge {
