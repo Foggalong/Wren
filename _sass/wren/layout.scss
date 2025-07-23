@@ -4,6 +4,8 @@
 // the main content itself working inwards and downwards through its
 // components: .page-content to paginator controls.
 
+@use 'sass:color';
+@use "wren/initialize" as *;
 
 // Header
 // ======
@@ -22,7 +24,7 @@
   background-color: $nav-color;
   display: block;
   box-shadow: $base-shadow;
-  @extend %clearfix;
+  @extend %clearfix !optional;
 
   // Buttons on the nav bar
   .page-link {
@@ -125,7 +127,7 @@
   // internal padding
   padding: $spacing-unit $spacing-unit 0 $spacing-unit;
   // TODO find out what this does
-  @extend %clearfix;
+  @extend %clearfix !optional;
   // remove extra space for navigation bar if not on mobile
   @include if-large {
     margin-top: $spacing-unit;

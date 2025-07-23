@@ -60,7 +60,7 @@ $table-header-border:   color.adjust($brand-color, $lightness: 37%) !default;
 $table-border-color:    $border-color !default;
 
 // Fonts and colors for code blocks and syntax highlighting
-$code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
+$code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace !default;
 $code-background-color:   #eeeeff !default;  // background color for blocks and inline code 
 // Variables relating to snippets which change font color
 $syntax-comment-color:    #998 !default;     // comments in all their forms
@@ -116,7 +116,3 @@ $large-width: 800px !default;
 // SASS Imports
 // ============
 
-@import
-  "wren/content",  // Styling for the base html content
-  "wren/layout"    // Sets the layout of the website
-;

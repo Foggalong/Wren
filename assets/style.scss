@@ -4,11 +4,13 @@
 ---
 
 // Bring in the rest of the SASS from the theme
-@use "wren/initialize" as *;
 
-// TODO add behavior for when these optional variables aren't defined
-$base-font-family: Noto Sans, sans-serif;
-$code-font-family: Noto Mono, monospace;
-
-$background-color: #9b9da3;
-
+@use "wren/initialize" with (
+    // TODO add behavior for when these optional variables aren't defined
+    $base-font-family: "Noto Sans" sans-serif,
+    $code-font-family: "Noto Mono" monospace,
+    
+    $background-color: #9b9da3
+    );
+@use "wren/content";
+@use "wren/layout";

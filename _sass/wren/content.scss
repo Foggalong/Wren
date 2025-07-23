@@ -2,6 +2,8 @@
 // that Jekyll makes. Note that `layout.scss` tweaks some bits
 // (e.g. headers) further for use in pages and posts.
 
+@use 'sass:color';
+@use "wren/initialize" as *;
 
 // Setting Up
 html {
