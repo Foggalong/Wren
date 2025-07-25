@@ -147,6 +147,9 @@ wren_social_data:
   gitlab:
     name: GitLab
     url:  gitlab.com
+  howlongtobeat:
+    name: HowLongToBeat
+    url: howlongtobeat.com/user
   instagram:
     name: Instagram
     url:  instagram.com
@@ -173,6 +176,12 @@ wren_social_data:
   stackoverflow:
     name: StackOverflow
     url:  stackoverflow.com/users
+  storygraph:
+    name: StoryGraph
+    url: app.thestorygraph.com/profile
+  strava:
+    name: Strava
+    url: www.strava.com/athletes
   telegram:
     name: Telegram
     url:  t.me
