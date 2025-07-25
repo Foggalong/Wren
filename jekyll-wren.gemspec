@@ -2,9 +2,9 @@
 
 Gem::Specification.new do |spec|
   spec.name     = "jekyll-wren"
-  spec.version  = "0.4"
+  spec.version  = "0.4.1"
   spec.authors  = ["Josh Fogg"]
-  spec.email    = ["joshua.h.fogg@gmail.com"]
+  spec.email    = ["jfogg@duck.com"]
 
   spec.summary  = "A page-like theme for Jekyll."
   spec.homepage = "https://github.com/Foggalong/Wren"
