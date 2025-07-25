@@ -11,7 +11,7 @@
 // =================
 
 // General content font related default values
-$base-font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif !default;
+$base-font-family: "Droid Sans" !default;
 $base-font-size:   16px !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
@@ -56,7 +56,7 @@ $table-header-border:   lighten($brand-color, 37%) !default;
 $table-border-color:    $border-color !default;
 
 // Fonts and colors for code blocks and syntax highlighting
-$code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
+$code-font-family: "Droid Sans Mono" !default;
 $code-background-color:   #eeeeff !default;  // background color for blocks and inline code 
 // Variables relating to snippets which change font color
 $syntax-comment-color:    #998 !default;     // comments in all their forms
