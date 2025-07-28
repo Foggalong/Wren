@@ -22,6 +22,7 @@
   background-color: $nav-color;
   display: block;
   box-shadow: $base-shadow;
+  z-index: 1;
   @extend %clearfix;
 
   // Buttons on the nav bar
