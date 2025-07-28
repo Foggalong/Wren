@@ -27,9 +27,9 @@
   // Buttons on the nav bar
   .page-link {
     svg {
-      padding: $nav-bar-height/4;
-      width: $nav-bar-height/2;
-      height: $nav-bar-height/2;
+      padding: 0.25*$nav-bar-height;
+      width: 0.5*$nav-bar-height;
+      height: 0.5*$nav-bar-height;
       fill: $brand-color-dark;
       filter: $base-drop-shadow;
     }
@@ -89,10 +89,10 @@
 
 .social-list {
   display: table;
-  margin: $spacing-unit/2 auto 0 auto;
+  margin: 0.5*$spacing-unit auto 0 auto;
   a {
     text-decoration: none;
-    padding: $spacing-unit / 4;
+    padding: 0.25*$spacing-unit;
 
     svg {
       fill: $text-color;
@@ -171,8 +171,8 @@
     @include relative-font-size(1.5);
 
     // they need less space
-    margin-top: $spacing-unit * 1.5;
-    margin-bottom: $spacing-unit / 2;
+    margin-top: 1.5*$spacing-unit;
+    margin-bottom: 0.5*$spacing-unit;
 
     // we wanted to hide their anchor links...
     a {
@@ -197,8 +197,8 @@
 
 .tag-cloud {
   text-align: center;
-  margin-top: -$spacing-unit/2;
-  margin-bottom: $spacing-unit/2;
+  margin-top: -0.5*$spacing-unit;
+  margin-bottom: 0.5*$spacing-unit;
 }
 
 
@@ -262,7 +262,7 @@
   text-align: center;
 
   h1 {
-    margin: $spacing-unit/2 0;
+    margin: 0.5*$spacing-unit 0;
     font-size: 4em;
   }
 }
@@ -280,7 +280,7 @@
   a, div {
     color: $brand-color;
     display: inline;
-    padding: $spacing-unit / 4;
+    padding: 0.25*$spacing-unit;
 
     // edgers are lighter
     &.pager-edge {

@@ -48,7 +48,7 @@ h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
-  margin-bottom: $spacing-unit / 2;
+  margin-bottom: 0.5*$spacing-unit;
 }
 
 hr {
@@ -67,7 +67,7 @@ main {
 
 img {
   max-width: 100%;
-  margin-bottom: $spacing-unit/2;
+  margin-bottom: 0.5*$spacing-unit;
   border-radius: $base-border-radius;
   box-shadow: $base-shadow;
   // Centres w/o text wrap on small displays
@@ -108,7 +108,7 @@ figcaption {
 // ======
 
 .video-embed {
-  margin: 0 auto $spacing-unit/2 auto;
+  margin: 0 auto 0.5*$spacing-unit auto;
   box-shadow: $base-shadow;
   display: block;
   max-width: 100%;
@@ -168,7 +168,7 @@ a {
 blockquote {
   color: $brand-color;
   border-left: 4px solid $brand-color-light;
-  padding-left: $spacing-unit / 2;
+  padding-left: 0.5*$spacing-unit;
   @include relative-font-size(1.125);
   font-style: italic;
 
@@ -193,7 +193,7 @@ code {
   font-size: 0.9375em;
   border: 1px solid $border-color;
   box-shadow: $base-shadow;
-  border-radius: $base-border-radius/4;
+  border-radius: 0.25*$base-border-radius;
   background-color: $code-background-color;
 }
 
@@ -313,7 +313,7 @@ table {
   // Properties for the table's internal borders
   th, td {
     // All cells have the same padding rules
-    padding: ($spacing-unit / 3) ($spacing-unit / 2);
+    padding: (0.333333*$spacing-unit) (0.5*$spacing-unit);
   }
   tr {
     // Alternate row background colours
