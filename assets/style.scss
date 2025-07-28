@@ -1,14 +1,6 @@
 ---
-# // Default style variables for the theme; change them as you like!'
 # // NOTE: Jekyll needs this YAML header. See jekyll/jekyll#3408
 ---
-
-// TODO add behavior for when these optional variables aren't defined
-
-$base-font-family: "Noto Sans"; 
-$code-font-family: "Noto Mono"; 
-
-$background-color: #9b9da3;
 
 // Bring in the rest of the SASS from the theme
 @import "wren/initialize";

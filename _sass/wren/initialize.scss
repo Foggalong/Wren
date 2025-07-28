@@ -3,7 +3,7 @@
 // This file is the hub from which the rest of the SASS is
 // controlled. It defines all of the variables used in the
 // other files (and which can be redefined by the users in
-// `style.scss`), defines mixin shortcuts, and imports the
+// `custom.scss`), defines mixin shortcuts, and imports the
 // other SASS files in the theme.
 
 
@@ -113,6 +113,7 @@ $large-width: 800px !default;
 // ============
 
 @import
+  "wren/custom",   // Placeholder for end user's custom file
   "wren/content",  // Styling for the base html content
   "wren/layout"    // Sets the layout of the website
 ;
